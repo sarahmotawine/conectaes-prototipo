@@ -605,8 +605,20 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 .vitrine {
   padding: 20px 16px 28px;
   color: #fff;
-  /* No celular, só o azul; o Convento da Penha aparece no computador (ver mais abaixo) */
+  /* Azul com leve degradê; o Convento da Penha entra numa faixa abaixo da busca */
   background: linear-gradient(160deg, #24466f, var(--azul) 70%);
+}
+/* No celular: faixa com o Convento embaixo da busca, surgindo do azul.
+   No computador, a mesma foto vai para a direita (ver bloco do computador). */
+.vitrine::after {
+  content: "";
+  display: block;
+  height: 150px;
+  margin: 18px -16px -28px;
+  background: linear-gradient(rgba(30, 58, 95, 0.15), rgba(30, 58, 95, 0.15)),
+              url("../img/convento-da-penha.jpg") center 35% / cover;
+  -webkit-mask-image: linear-gradient(transparent, #000 45%);
+  mask-image: linear-gradient(transparent, #000 45%);
 }
 .vitrine > * { max-width: 528px; margin-left: auto; margin-right: auto; }
 .vitrine h1 { font-size: 1.45rem; line-height: 1.25; margin-top: 0; margin-bottom: 4px; }
@@ -860,6 +872,8 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   }
   .vitrine::after {
     content: "";
+    height: auto;
+    margin: 0;
     position: absolute;
     top: 0;
     right: max(0px, calc(var(--margem) - 170px)); /* um pouco além do fim do menu */
