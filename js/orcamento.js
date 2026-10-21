@@ -23,6 +23,7 @@ document.getElementById("form-orcamento").addEventListener("submit", function (e
   );
 
   /* Vai direto para o pedido recém-criado. */
+  avisarNaProximaTela("Pedido de orçamento enviado");
   window.location.href = "pedido.html?id=" + novo.id;
 });
 

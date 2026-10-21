@@ -148,6 +148,7 @@ function enviarOrcamento(evento) {
   };
   adicionarMensagem("pedreiro", "Olá! Segue o orçamento.");
   salvarEMostrar();
+  avisar("Orçamento enviado");
 }
 
 area.addEventListener("click", function (evento) {
@@ -157,6 +158,7 @@ area.addEventListener("click", function (evento) {
   pedido.concluidoEm = hoje();
   adicionarMensagem("pedreiro", "Terminei o serviço. Pode conferir e confirmar no app.");
   salvarEMostrar();
+  avisar("Serviço marcado como concluído");
 });
 
 formMensagem.addEventListener("submit", function (evento) {

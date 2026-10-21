@@ -149,18 +149,21 @@ area.addEventListener("click", function (evento) {
   if (acao === "aceitar") {
     pedido.status = "aceito";
     adicionarMensagem("sistema", "Orçamento aceito em " + hoje() + ".");
+    avisar("Orçamento aceito");
   }
 
   if (acao === "recusar") {
     if (!confirm("Recusar este orçamento?")) return;
     pedido.status = "recusado";
     adicionarMensagem("sistema", "Orçamento recusado em " + hoje() + ".");
+    avisar("Orçamento recusado");
   }
 
   if (acao === "confirmar") {
     pedido.status = "confirmado";
     pedido.confirmadoNaDemo = true; // passa a contar no perfil do pedreiro
     adicionarMensagem("sistema", "Conclusão confirmada pelo cliente em " + hoje() + ".");
+    avisar("Conclusão confirmada");
   }
 
   if (acao === "nao-concluido") {

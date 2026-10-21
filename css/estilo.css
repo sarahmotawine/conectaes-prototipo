@@ -431,6 +431,42 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 }
 .cartao-pedreiro .confirmados { margin: 6px 0 0; }
 
+/* ---------- Avisos rápidos e transições ---------- */
+.aviso-rapido {
+  position: fixed;
+  left: 50%;
+  bottom: 84px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100% - 32px);
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: #1f2933;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.92rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  transform: translateX(-50%);
+  animation: aviso-entra 0.3s ease;
+  transition: opacity 0.4s, transform 0.4s;
+}
+.aviso-rapido .icone { color: #4ade80; }
+.aviso-rapido.saindo { opacity: 0; transform: translate(-50%, 12px); }
+@keyframes aviso-entra { from { opacity: 0; transform: translate(-50%, 12px); } }
+
+/* Troca de tela suave (navegadores recentes) e conteúdo que aparece de leve */
+@view-transition { navigation: auto; }
+.conteudo, .entrada { animation: aparecer 0.25s ease; }
+@keyframes aparecer { from { opacity: 0; transform: translateY(6px); } }
+
+/* Quem pediu ao celular menos movimento não vê as animações */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  @view-transition { navigation: none; }
+}
+
 /* ---------- Linha do tempo do pedido ---------- */
 .linha-tempo {
   display: flex;
@@ -736,6 +772,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   #conta { display: none; } /* o menu do topo já tem "Entrar" e "Pedidos" */
 
   .rodape-fixo { bottom: 0; }
+  .aviso-rapido { bottom: 32px; }
   .rodape-fixo .botao { max-width: 820px; }
   .conteudo { padding: 24px 0 40px; }
   .conteudo.largo { max-width: none; padding-left: var(--margem); padding-right: var(--margem); }

@@ -132,6 +132,30 @@ function aoMudarPedidos(funcao) {
   });
 }
 
+/* ---------- Avisos rápidos ----------
+   avisar("Orçamento enviado") mostra uma mensagem curta embaixo da
+   tela, que some sozinha. avisarNaProximaTela(...) guarda o aviso para
+   mostrar depois de mudar de página (ex.: depois de enviar a avaliação). */
+function avisar(texto) {
+  const aviso = document.createElement("div");
+  aviso.className = "aviso-rapido";
+  aviso.setAttribute("role", "status");
+  aviso.innerHTML = icone("ok") + "<span>" + escaparHTML(texto) + "</span>";
+  document.body.appendChild(aviso);
+  setTimeout(function () { aviso.classList.add("saindo"); }, 2200);
+  setTimeout(function () { aviso.remove(); }, 2600);
+}
+
+function avisarNaProximaTela(texto) {
+  sessionStorage.setItem("conectaes-aviso", texto);
+}
+
+/* Se a tela anterior deixou um aviso guardado, mostra agora. */
+if (sessionStorage.getItem("conectaes-aviso")) {
+  avisar(sessionStorage.getItem("conectaes-aviso"));
+  sessionStorage.removeItem("conectaes-aviso");
+}
+
 /* Põe o ícone de seta nos botões de voltar dos cabeçalhos. */
 document.querySelectorAll(".cabecalho .voltar").forEach(function (link) {
   link.innerHTML = icone("voltar");
@@ -173,6 +197,7 @@ function montarNavegacao(ativa) {
     sair.addEventListener("click", function (evento) {
       evento.preventDefault();
       sairDaConta();
+      avisarNaProximaTela("Você saiu da conta");
       window.location.href = "index.html";
     });
   }

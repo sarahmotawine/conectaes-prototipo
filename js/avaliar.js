@@ -62,6 +62,7 @@ if (!pedido || pedido.status !== "confirmado") {
     };
     pedido.mensagens.push({ de: "sistema", texto: "Avaliação enviada em " + hoje() + "." });
     atualizarPedido(pedido);
+    avisarNaProximaTela("Avaliação enviada. Obrigado!");
     window.location.href = "pedido.html?id=" + pedido.id;
   });
 }
