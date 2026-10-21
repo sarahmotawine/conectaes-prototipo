@@ -347,6 +347,24 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 .navegacao a.ativo { color: var(--laranja-texto); }
 .navegacao span { display: block; text-align: center; }
 .navegacao span .icone { width: 24px; height: 24px; }
+.navegacao span { position: relative; }
+/* Bolinha com o número de pendências, sobre o ícone */
+.bolinha {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  margin-left: 6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
 
 /* ---------- Tela de entrada ---------- */
 .entrada { min-height: 100vh; padding-bottom: 24px; }
@@ -806,6 +824,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   .navegacao a.ativo { color: #fb923c; }
   .navegacao a div { display: flex; align-items: center; gap: 6px; }
   .navegacao span .icone { width: 18px; height: 18px; }
+  .bolinha { top: -8px; margin-left: 2px; }
   #conta { display: none; } /* o menu do topo já tem "Entrar" e "Pedidos" */
 
   .rodape-fixo { bottom: 0; }

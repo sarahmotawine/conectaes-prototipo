@@ -161,6 +161,22 @@ document.querySelectorAll(".cabecalho .voltar").forEach(function (link) {
   link.innerHTML = icone("voltar");
 });
 
+/* Quantos pedidos esperam uma ação de quem está usando o app.
+   Cliente: orçamento para aceitar, conclusão para confirmar, serviço
+   para avaliar. Pedreiro: pedido sem orçamento. Vira a bolinha com
+   número no menu (heurística de Nielsen: visibilidade do estado). */
+function contarPendencias() {
+  if (souPedreiro()) {
+    return carregarPedidos().filter(function (p) {
+      return p.pedreiroId === PEDREIRO_DEMO_ID && p.status === "aguardando";
+    }).length;
+  }
+  if (!estaLogado()) return 0;
+  return pedidosDoCliente().filter(function (p) {
+    return ["orcamento", "concluido_pelo_pedreiro", "confirmado"].includes(p.status);
+  }).length;
+}
+
 /* Coloca a barra de navegação no fim da página e destaca a tela atual.
    Os itens dependem de quem entrou: visitante, cliente ou pedreiro. */
 function montarNavegacao(ativa) {
@@ -190,6 +206,26 @@ function montarNavegacao(ativa) {
     return '<a class="' + classe + '" href="' + item.href + '" data-chave="' + item.chave + '">' +
              "<div><span>" + icone(item.chave) + "</span>" + item.texto + "</div></a>";
   }).join("");
+
+  /* Bolinha de pendências no item "Pedidos" (cliente) ou "Painel" (pedreiro).
+     Atualiza sozinha quando outra aba muda um pedido. */
+  function atualizarBolinha() {
+    const alvo = nav.querySelector('[data-chave="pedidos"] span, [data-chave="painel"] span');
+    if (!alvo) return;
+    const total = contarPendencias();
+    let bolinha = alvo.querySelector(".bolinha");
+    if (total === 0) { if (bolinha) bolinha.remove(); return; }
+    if (!bolinha) {
+      bolinha = document.createElement("b");
+      bolinha.className = "bolinha";
+      alvo.appendChild(bolinha);
+    }
+    bolinha.textContent = total;
+    bolinha.setAttribute("aria-label", total + (total === 1 ? " pendência" : " pendências"));
+  }
+  atualizarBolinha();
+  aoMudarPedidos(atualizarBolinha);
+  window.atualizarBolinha = atualizarBolinha; // as telas chamam depois de uma ação
 
   /* Sair: apaga o sinal de login e volta para a página inicial. */
   const sair = nav.querySelector('[data-chave="sair"]');

@@ -21,6 +21,7 @@ function adicionarMensagem(de, texto) {
 function salvarEMostrar() {
   atualizarPedido(pedido);
   mostrar();
+  if (window.atualizarBolinha) window.atualizarBolinha();
 }
 
 /* Quadro com o orçamento registrado: serviço, valor e prazo. */
