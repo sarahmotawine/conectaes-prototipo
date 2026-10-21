@@ -876,15 +876,14 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
     margin: 0;
     position: absolute;
     top: 0;
-    right: 0;                               /* encostada na borda direita da tela */
+    right: max(0px, calc(var(--margem) - 170px)); /* um pouco além do fim do menu */
     bottom: 0;
     aspect-ratio: 1100 / 509;               /* proporção da foto */
-    /* o céu da foto vai escurecendo até o azul do app, de baixo para cima */
-    background: linear-gradient(rgb(30, 58, 95) 0%, rgba(30, 58, 95, 0.6) 30%, rgba(30, 58, 95, 0.2) 75%),
+    background: linear-gradient(rgba(30, 58, 95, 0.35), rgba(30, 58, 95, 0.35)),
                 url("../img/convento-da-penha.jpg") center / cover;
-    /* e a foto some aos poucos para a esquerda, até o azul liso */
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%);
-    mask-image: linear-gradient(90deg, transparent, #000 45%);
+    /* some aos poucos na esquerda e, quando há espaço, também na direita */
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 45%, #000 88%, transparent);
   }
   .vitrine > * { position: relative; z-index: 1; }
   .vitrine > * { max-width: 640px; margin-left: 0; }
