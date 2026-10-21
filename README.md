@@ -92,6 +92,7 @@ js/<tela>.js                o comportamento de cada tela
 manifest.json               nome, ícone e cores para instalar o app
 sw.js                       service worker: guarda os arquivos para uso offline
 icones/                     ícones do app
+fontes/inter.woff2          a fonte do app, guardada para funcionar sem internet
 img/obras/                  fotos ilustrativas das obras
 CREDITOS.md                 autor e licença de cada foto
 ```

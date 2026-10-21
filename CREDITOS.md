@@ -48,3 +48,11 @@ licença do original.
 Os ícones (`js/icones.js`) são do [Lucide](https://lucide.dev),
 versão 0.460.0, sob a [licença ISC](https://github.com/lucide-icons/lucide/blob/main/LICENSE),
 que permite usar, copiar e modificar livremente.
+
+# Fonte
+
+A fonte [Inter](https://rsms.me/inter/), de Rasmus Andersson
+(`fontes/inter.woff2`, só os caracteres latinos), está sob a
+[SIL Open Font License 1.1](https://openfontlicense.org), que permite
+usar e distribuir livremente. Arquivo obtido do pacote
+`@fontsource-variable/inter` 5.1.0.
