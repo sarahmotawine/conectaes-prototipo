@@ -136,9 +136,16 @@ const PEDREIROS = [
   }
 ];
 
+/* Pedreiro usado na área do pedreiro (botão "Sou pedreiro" na tela de
+   entrar). Os pedidos feitos a ele não recebem orçamento automático:
+   quem responde é a pessoa que estiver usando a área do pedreiro. */
+const PEDREIRO_DEMO_ID = 3; // Carlos Pereira
+
 /* Pedidos que já existem quando o protótipo é aberto.
-   Servem para a tarefa de confirmar e avaliar um serviço concluído,
-   sem precisar esperar dias por uma obra de verdade. */
+   Os do cliente servem para a tarefa de confirmar e avaliar um serviço
+   concluído, sem precisar esperar dias por uma obra de verdade.
+   Os que têm "cliente" são de outras pessoas: não aparecem em
+   "Meus pedidos", só na área do pedreiro. */
 const PEDIDOS_INICIAIS = [
   {
     id: 8,
@@ -167,6 +174,36 @@ const PEDIDOS_INICIAIS = [
       { de: "pedreiro", texto: "Vou dar uma olhada. Segue o orçamento." },
       { de: "sistema", texto: "Orçamento aceito em 15/09/2026." },
       { de: "pedreiro", texto: "Serviço concluído." }
+    ]
+  },
+  {
+    id: 10,
+    pedreiroId: 3,
+    cliente: "Mariana",
+    servico: "Assentar porcelanato na sala, uns 20 m². Já comprei o piso.",
+    bairro: "Laranjeiras, Serra",
+    quando: "Nas próximas semanas",
+    status: "aguardando",
+    mensagens: [
+      { de: "cliente", texto: "Assentar porcelanato na sala, uns 20 m². Já comprei o piso." }
+    ]
+  },
+  {
+    id: 6,
+    pedreiroId: 3,
+    cliente: "Luciana",
+    servico: "Piso da varanda.",
+    bairro: "Jacaraípe, Serra",
+    status: "avaliado",
+    orcamento: { descricao: "Assentamento de piso na varanda, 12 m²", valor: 720, prazo: "3 dias" },
+    concluidoEm: "02/10/2026",
+    avaliacao: { nota: 5, comentario: "Acabamento perfeito, nenhum desnível." },
+    mensagens: [
+      { de: "cliente", texto: "Preciso trocar o piso da varanda." },
+      { de: "pedreiro", texto: "Faço sim. Segue o orçamento." },
+      { de: "sistema", texto: "Orçamento aceito em 25/09/2026." },
+      { de: "pedreiro", texto: "Terminei hoje." },
+      { de: "sistema", texto: "Conclusão confirmada pelo cliente em 02/10/2026." }
     ]
   }
 ];

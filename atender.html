@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1e3a5f">
+  <title>Atender pedido · ConectaES</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icones/icone-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- Um pedido visto pelo pedreiro: conversa (RF06), envio do orçamento
+       e marcação de serviço concluído (RF07) -->
+  <header class="cabecalho">
+    <a class="voltar" href="painel-pedreiro.html" aria-label="Voltar">←</a>
+    <h1 id="titulo">Pedido</h1>
+  </header>
+
+  <main class="conteudo">
+    <div id="pedido"></div>
+
+    <form class="enviar-mensagem" id="form-mensagem">
+      <input id="mensagem" type="text" placeholder="Escreva uma mensagem" aria-label="Mensagem">
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <script src="js/dados.js"></script>
+  <script src="js/estado.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/atender.js"></script>
+</body>
+</html>

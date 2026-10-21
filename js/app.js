@@ -62,13 +62,37 @@ function descreverStatus(status) {
   return tabela[status];
 }
 
-/* Usada no começo das telas que exigem login (orçamento, pedidos,
-   avaliação). Sem login, manda para a tela de entrar, levando no
-   endereço a página onde a pessoa estava, para voltar depois. */
+/* O mesmo, do ponto de vista do pedreiro (área do pedreiro). */
+function descreverStatusPedreiro(status) {
+  const tabela = {
+    aguardando:              { texto: "Enviar orçamento",              classe: "atencao" },
+    orcamento:               { texto: "Aguardando o cliente",          classe: "" },
+    aceito:                  { texto: "Em andamento",                  classe: "atencao" },
+    recusado:                { texto: "Orçamento recusado",            classe: "" },
+    concluido_pelo_pedreiro: { texto: "Aguardando confirmação",        classe: "" },
+    confirmado:              { texto: "Confirmado pelo cliente",       classe: "ok" },
+    avaliado:                { texto: "Concluído e avaliado",          classe: "ok" }
+  };
+  return tabela[status];
+}
+
+/* Usada no começo das telas do cliente que exigem login (orçamento,
+   pedidos, avaliação). Sem login, manda para a tela de entrar, levando
+   no endereço a página onde a pessoa estava, para voltar depois.
+   Quem entrou como pedreiro vai para o painel dele. */
 function exigirLogin() {
-  if (!estaLogado()) {
+  if (souPedreiro()) {
+    window.location.replace("painel-pedreiro.html");
+  } else if (!estaLogado()) {
     const aqui = window.location.pathname.split("/").pop() + window.location.search;
     window.location.replace("entrar.html?voltar=" + encodeURIComponent(aqui));
+  }
+}
+
+/* O mesmo, para as telas da área do pedreiro. */
+function exigirPedreiro() {
+  if (!souPedreiro()) {
+    window.location.replace("entrar.html");
   }
 }
 
@@ -76,23 +100,42 @@ function exigirLogin() {
    "voltar", ou a inicial. Só aceita páginas do próprio app. */
 function destinoDepoisDoLogin() {
   const voltar = parametro("voltar");
-  return voltar && /^[a-z]+\.html(\?[\w=&]*)?$/.test(voltar) ? voltar : "index.html";
+  return voltar && /^[a-z-]+\.html(\?[\w=&]*)?$/.test(voltar) ? voltar : "index.html";
+}
+
+/* Chama "funcao" quando os pedidos forem alterados em OUTRA aba.
+   É o que faz a tela do cliente mostrar na hora o orçamento que o
+   pedreiro mandou na outra aba, e vice-versa. */
+function aoMudarPedidos(funcao) {
+  window.addEventListener("storage", function (evento) {
+    if (evento.key === CHAVE_ESTADO) funcao();
+  });
 }
 
 /* Coloca a barra de navegação no fim da página e destaca a tela atual.
-   O último item muda: "Entrar" para quem não entrou, "Sair" para quem entrou. */
+   Os itens dependem de quem entrou: visitante, cliente ou pedreiro. */
 function montarNavegacao(ativa) {
-  const itens = [
-    { chave: "inicio",  href: "index.html",   icone: "🏠", texto: "Início" },
-    { chave: "buscar",  href: "busca.html",   icone: "🔍", texto: "Buscar" },
-    { chave: "pedidos", href: "pedidos.html", icone: "📋", texto: "Pedidos" },
-    estaLogado()
-      ? { chave: "sair",   href: "#",           icone: "↩",  texto: "Sair" }
-      : { chave: "entrar", href: "entrar.html", icone: "👤", texto: "Entrar" }
-  ];
+  let itens;
+  if (souPedreiro()) {
+    itens = [
+      { chave: "painel", href: "painel-pedreiro.html",                icone: "🧰", texto: "Painel" },
+      { chave: "perfil", href: "perfil.html?id=" + PEDREIRO_DEMO_ID, icone: "👷", texto: "Meu perfil" },
+      { chave: "sair",   href: "#",                                   icone: "↩",  texto: "Sair" }
+    ];
+  } else {
+    itens = [
+      { chave: "inicio",  href: "index.html",   icone: "🏠", texto: "Início" },
+      { chave: "buscar",  href: "busca.html",   icone: "🔍", texto: "Buscar" },
+      { chave: "pedidos", href: "pedidos.html", icone: "📋", texto: "Pedidos" },
+      estaLogado()
+        ? { chave: "sair",   href: "#",           icone: "↩",  texto: "Sair" }
+        : { chave: "entrar", href: "entrar.html", icone: "👤", texto: "Entrar" }
+    ];
+  }
 
   const nav = document.createElement("nav");
   nav.className = "navegacao";
+  nav.style.gridTemplateColumns = "repeat(" + itens.length + ", 1fr)";
   nav.innerHTML = itens.map(function (item) {
     const classe = item.chave === ativa ? "ativo" : "";
     return '<a class="' + classe + '" href="' + item.href + '" data-chave="' + item.chave + '">' +

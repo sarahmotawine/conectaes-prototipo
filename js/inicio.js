@@ -13,9 +13,12 @@ const ICONES = {
   "Pequenos reparos": "🔧"
 };
 
-/* Botão do topo: "Entrar" ou, para quem já entrou, "Meus pedidos". */
-if (estaLogado()) {
-  const conta = document.getElementById("conta");
+/* Botão do topo: "Entrar" ou, para quem já entrou, o atalho da conta. */
+const conta = document.getElementById("conta");
+if (souPedreiro()) {
+  conta.textContent = "Meu painel";
+  conta.href = "painel-pedreiro.html";
+} else if (estaLogado()) {
   conta.textContent = "Meus pedidos";
   conta.href = "pedidos.html";
 }

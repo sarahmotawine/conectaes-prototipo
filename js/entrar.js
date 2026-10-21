@@ -10,6 +10,12 @@ if (parametro("voltar")) {
     "cadastro.html?voltar=" + encodeURIComponent(parametro("voltar"));
 }
 
+/* Área do pedreiro: entra como o Carlos Pereira (PEDREIRO_DEMO_ID). */
+document.getElementById("sou-pedreiro").addEventListener("click", function () {
+  entrarNaConta("pedreiro");
+  window.location.href = "painel-pedreiro.html";
+});
+
 document.getElementById("form-entrar").addEventListener("submit", function (evento) {
   evento.preventDefault(); // impede o navegador de recarregar a página
   entrarNaConta();

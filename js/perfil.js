@@ -60,6 +60,9 @@ if (!pedreiro) {
     '<div style="height:90px"></div>'; /* espaço para o botão fixo não cobrir o fim */
 
   document.getElementById("pedir").href = "orcamento.html?id=" + pedreiro.id;
+
+  /* Pedreiro vendo o próprio perfil: não faz sentido pedir orçamento. */
+  if (souPedreiro()) document.getElementById("pedir").style.display = "none";
 }
 
 montarNavegacao("buscar");

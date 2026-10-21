@@ -11,7 +11,9 @@
    início. Use entre um participante do teste e outro.
    ========================================================= */
 
-const CHAVE_ESTADO = "conectaes-demo-v1";
+/* Trocar o número da chave faz todos começarem do zero (foi trocado
+   quando entraram os pedidos de exemplo da área do pedreiro). */
+const CHAVE_ESTADO = "conectaes-demo-v2";
 
 /* Devolve a lista de pedidos. Na primeira vez, copia os pedidos iniciais. */
 function carregarPedidos() {
@@ -22,6 +24,12 @@ function carregarPedidos() {
   const copia = JSON.parse(JSON.stringify(PEDIDOS_INICIAIS));
   salvarPedidos(copia);
   return copia;
+}
+
+/* Só os pedidos do cliente que está usando o app. Os que têm
+   "cliente" preenchido são de outras pessoas (ver dados.js). */
+function pedidosDoCliente() {
+  return carregarPedidos().filter(function (p) { return !p.cliente; });
 }
 
 function salvarPedidos(pedidos) {
@@ -63,21 +71,30 @@ function criarPedido(pedreiroId, servico, bairro, quando) {
 
 /* ---------- Login simulado ----------
    Navegar pela busca e pelos perfis é livre. Pedir orçamento, ver os
-   pedidos e avaliar exigem login. Como o login é simulado, basta
-   guardar um sinal de "entrou" no navegador. */
+   pedidos e avaliar exigem login de cliente; a área do pedreiro exige
+   login de pedreiro. Como o login é simulado, basta guardar quem entrou.
+
+   Fica no sessionStorage, que vale só para a aba aberta: assim dá para
+   ter uma aba como cliente e outra como pedreiro no mesmo navegador.
+   Os pedidos, no localStorage, são os mesmos para as duas abas. */
 
 const CHAVE_SESSAO = "conectaes-sessao";
 
 function estaLogado() {
-  return localStorage.getItem(CHAVE_SESSAO) === "sim";
+  return sessionStorage.getItem(CHAVE_SESSAO) !== null;
 }
 
-function entrarNaConta() {
-  localStorage.setItem(CHAVE_SESSAO, "sim");
+function souPedreiro() {
+  return sessionStorage.getItem(CHAVE_SESSAO) === "pedreiro";
+}
+
+/* tipo: "cliente" (o padrão) ou "pedreiro" */
+function entrarNaConta(tipo) {
+  sessionStorage.setItem(CHAVE_SESSAO, tipo || "cliente");
 }
 
 function sairDaConta() {
-  localStorage.removeItem(CHAVE_SESSAO);
+  sessionStorage.removeItem(CHAVE_SESSAO);
 }
 
 /* Volta os pedidos ao estado inicial e sai da conta. */

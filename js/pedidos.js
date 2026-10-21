@@ -2,7 +2,7 @@
 
 exigirLogin(); // esta tela só abre com login (ver app.js)
 
-const pedidos = carregarPedidos().sort(function (a, b) { return b.id - a.id; });
+const pedidos = pedidosDoCliente().sort(function (a, b) { return b.id - a.id; });
 const lista = document.getElementById("lista");
 
 if (pedidos.length === 0) {
@@ -26,3 +26,6 @@ if (pedidos.length === 0) {
 }
 
 montarNavegacao("pedidos");
+
+/* Se o pedreiro mudar algo em outra aba, recarrega a lista. */
+aoMudarPedidos(function () { window.location.reload(); });

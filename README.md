@@ -7,7 +7,9 @@ autônomos*, de Sarah Coelho Mota (Sistemas de Informação, Unisales).
 É uma aplicação web progressiva feita só com HTML, CSS e JavaScript, sem
 framework e sem etapa de compilação. Cobre o fluxo do **cliente**: buscar
 um pedreiro, ver o perfil, pedir orçamento, aceitar, confirmar a
-conclusão e avaliar.
+conclusão e avaliar. Tem também uma **área do pedreiro** de demonstração,
+para mostrar o outro lado: receber o pedido, enviar o orçamento e marcar
+o serviço como concluído.
 
 ## O que é de verdade e o que é simulado
 
@@ -17,16 +19,18 @@ que ele faz.
 | Funciona de verdade | É simulado |
 |---|---|
 | Navegação entre todas as telas | O login: qualquer e-mail e senha entram |
-| O cadastro confere se os campos foram preenchidos | O cadastro não guarda nada: leva direto para a busca |
+| O cadastro confere se os campos foram preenchidos | O cadastro não guarda nada: só entra na conta |
 | Busca e filtros por especialidade e cidade | Os pedreiros, que são fictícios |
-| O pedido avança de situação a cada ação do cliente | O orçamento, que chega sozinho 4 segundos depois do pedido |
+| O pedido avança de situação a cada ação do cliente e do pedreiro | O orçamento dos pedreiros, menos o Carlos, que chega sozinho 4 segundos depois do pedido |
 | A avaliação só libera depois da conclusão confirmada | A conclusão do pedido nº 8, já marcada pelo pedreiro |
+| Área do pedreiro: o Carlos Pereira envia orçamento e marca a conclusão | A área do pedreiro entra sempre como o Carlos |
 | O contador de serviços confirmados sobe ao confirmar | As fotos das obras: ilustrativas, do Wikimedia Commons (ver `CREDITOS.md`) |
 | Instalação na tela inicial e abertura sem internet | — |
 
 **Não há banco de dados.** O andamento dos pedidos fica guardado no
 próprio navegador (localStorage). Cada celular tem a sua cópia, e nada é
-enviado a lugar nenhum.
+enviado a lugar nenhum. Por isso, cliente e pedreiro só se "falam" quando
+estão no **mesmo navegador**, em abas diferentes (ver abaixo).
 
 ## Telas e requisitos
 
@@ -41,6 +45,8 @@ enviado a lugar nenhum.
 | Meus pedidos | `pedidos.html` | — |
 | Pedido: conversa, orçamento e conclusão | `pedido.html` | RF06 e RF07 |
 | Avaliar | `avaliar.html` | RF08 |
+| Painel do pedreiro | `painel-pedreiro.html` | — |
+| Atender pedido (lado do pedreiro) | `atender.html` | RF06 e RF07 |
 
 O RF02, validação de identidade, não está no protótipo, por ser proposta.
 
@@ -49,6 +55,28 @@ inicial, a busca e os perfis abrem sem login. Pedir orçamento, ver os
 pedidos e avaliar exigem login: o app leva para `entrar.html` e, depois
 de entrar ou se cadastrar, volta para a tela onde a pessoa estava
 (função `exigirLogin`, em `js/app.js`).
+
+## Demonstração dos dois lados
+
+A área do pedreiro serve para mostrar o ciclo completo na apresentação.
+O teste com os participantes continua só com o lado do cliente.
+
+1. Abra o app em **duas abas** (ou duas janelas) do mesmo navegador.
+2. Na aba 2, toque em **Entrar → "Sou pedreiro (demonstração)"**. Ela
+   entra como o Carlos Pereira e mostra o painel dele.
+3. Na aba 1, como cliente, busque o Carlos (Piso ou Azulejo, Serra) e
+   peça um orçamento.
+4. Na aba 2, o pedido aparece em "Precisam de resposta". Abra e envie o
+   orçamento com valor e prazo.
+5. Na aba 1, o orçamento aparece sozinho. Aceite.
+6. Na aba 2, toque em **"Marcar como concluído"**.
+7. Na aba 1, confirme a conclusão e avalie. No painel do Carlos, o número
+   de serviços confirmados sobe.
+
+O login vale só para a aba (sessionStorage), por isso uma aba pode ser
+cliente e a outra pedreiro. Os pedidos são os mesmos nas duas, e cada
+tela se atualiza sozinha quando a outra muda algo (`aoMudarPedidos`, em
+`js/app.js`).
 
 ## Arquivos
 

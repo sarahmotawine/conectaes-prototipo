@@ -6,10 +6,11 @@
      aguardando → orcamento → aceito → concluido_pelo_pedreiro → confirmado → avaliado
                             ↘ recusado
 
-   O protótipo só tem o lado do cliente. Por isso, duas coisas que
-   seriam feitas pelo pedreiro são simuladas:
+   Esta é a tela do cliente. O lado do pedreiro só existe, de verdade,
+   para o Carlos Pereira (área do pedreiro, atender.html). Para os
+   outros pedreiros, duas coisas são simuladas:
    - o orçamento chega sozinho alguns segundos depois do pedido;
-   - o pedido de exemplo nº 8 já vem marcado como concluído por ele.
+   - o pedido de exemplo nº 8 já vem marcado como concluído.
    ========================================================= */
 
 exigirLogin(); // esta tela só abre com login (ver app.js)
@@ -48,7 +49,12 @@ function caixaOrcamento(titulo) {
 function acoes(pedreiro) {
   switch (pedido.status) {
     case "aguardando":
-      return '<div class="aviso">Pedido enviado. Aguardando o orçamento de ' + pedreiro.nome + "…</div>";
+      return '<div class="aviso">Pedido enviado. Aguardando o orçamento de ' + pedreiro.nome + "…" +
+             (pedreiro.id === PEDREIRO_DEMO_ID
+               ? '<br><small>Na demonstração, responda em outra aba, pela área do pedreiro ' +
+                 '(tela de entrar → "Sou pedreiro").</small>'
+               : "") +
+             "</div>";
 
     case "orcamento":
       return caixaOrcamento("Orçamento recebido") +
@@ -182,8 +188,15 @@ formMensagem.addEventListener("submit", function (evento) {
 mostrar();
 montarNavegacao("pedidos");
 
-/* Se o pedido ainda espera orçamento, agenda a resposta simulada. */
-if (pedido && pedido.status === "aguardando") {
+/* Se o pedreiro responder em outra aba, mostra na hora. */
+aoMudarPedidos(function () {
+  pedido = buscarPedido(pedido.id);
+  mostrar();
+});
+
+/* Se o pedido ainda espera orçamento, agenda a resposta simulada.
+   Menos para o Carlos, que responde pela área do pedreiro. */
+if (pedido && pedido.status === "aguardando" && pedido.pedreiroId !== PEDREIRO_DEMO_ID) {
   const passou = Date.now() - pedido.criadoEm;
   const falta = Math.max(0, SEGUNDOS_PARA_ORCAMENTO * 1000 - passou);
   setTimeout(simularOrcamento, falta);

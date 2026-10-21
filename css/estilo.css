@@ -293,6 +293,9 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 }
 .entrada-cartao h1 { margin: 0 0 4px; font-size: 1.3rem; color: var(--azul); }
 .entrada-cartao a { color: var(--laranja); font-weight: 600; }
+.entrada-pedreiro { margin: 20px 16px 0; text-align: center; }
+@media (min-width: 472px) { .entrada-pedreiro { max-width: 440px; margin-left: auto; margin-right: auto; } }
+.entrada-pedreiro .botao { margin-top: 8px; }
 
 .reiniciar {
   display: block;
