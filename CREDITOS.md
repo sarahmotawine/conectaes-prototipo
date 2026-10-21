@@ -54,8 +54,8 @@ licença do original.
 
 `img/convento-da-penha.jpg`: *Vista do Convento da Penha do Morro do Moreno*,
 de Aandradevix, CC BY-SA 4.0
-([original](https://commons.wikimedia.org/wiki/File:Vista_do_Convento_da_Penha_do_Morro_do_Moreno.jpg)). Reduzida para 1600 pixels de largura e
-coberta por uma camada azul no app. Segue sob a mesma licença.
+([original](https://commons.wikimedia.org/wiki/File:Vista_do_Convento_da_Penha_do_Morro_do_Moreno.jpg)). Recortada em volta do Convento, reduzida
+para 1100 pixels de largura e coberta por uma camada azul no app. Segue sob a mesma licença.
 
 # Ícones
 
