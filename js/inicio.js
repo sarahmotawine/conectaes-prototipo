@@ -33,11 +33,6 @@ document.getElementById("categorias").innerHTML = especialidades.map(function (e
 }).join("") +
   '<a class="categoria" href="busca.html"><span>' + icone("todos") + "</span>Ver todos</a>";
 
-/* Selos do topo: o diferencial da proposta, com o ícone de "ok". */
-document.querySelectorAll("#vitrine-selos li").forEach(function (li) {
-  li.innerHTML = icone("ok") + "<span>" + li.textContent + "</span>";
-});
-
 /* Ilustração do topo (computador): o perfil de um pedreiro da demonstração
    (o Carlos), uma avaliação de verdade dele e o selo de serviço confirmado. */
 (function () {

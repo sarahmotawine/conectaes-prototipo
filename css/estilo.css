@@ -542,11 +542,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   @view-transition { navigation: none; }
 }
 
-/* ---------- Selos e ilustração do topo da página inicial ---------- */
-.vitrine-selos { list-style: none; margin: 16px 0 0; padding: 0; font-size: 0.9rem; }
-.vitrine-selos li { display: flex; align-items: center; gap: 8px; margin: 6px 0; opacity: 0.92; }
-.vitrine-selos .icone { color: #fb923c; width: 1.1em; height: 1.1em; }
-
+/* ---------- Ilustração do topo da página inicial ---------- */
 .vitrine-cartoes { display: none; } /* só aparece no computador */
 .vc-perfil, .vc-balao {
   position: absolute;
@@ -934,7 +930,6 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   }
   /* Em telas de computador mais estreitas, os cartões encostariam na busca */
   @media (max-width: 1249px) { .vitrine > .vitrine-cartoes { display: none; } }
-  .vitrine-selos { display: flex; flex-wrap: wrap; gap: 4px 22px; }
   .vitrine h1 { font-size: 2.3rem; }
   .vitrine .slogan { font-size: 1.2rem; }
   .categorias { grid-template-columns: repeat(8, 1fr); gap: 12px; }
