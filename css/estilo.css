@@ -524,3 +524,78 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   .seta { display: block; }
   .slide { padding-left: 32px; padding-right: 28px; }
 }
+
+/* =========================================================
+   Computador (telas a partir de 900px de largura)
+   No celular nada muda. No computador, o app vira um site:
+   menu no topo, conteúdo mais largo e mais colunas.
+   ========================================================= */
+@media (min-width: 900px) {
+  /* Margem lateral que alinha cabeçalho e conteúdo numa faixa de 1080px */
+  :root { --margem: max(24px, calc((100vw - 1080px) / 2)); }
+
+  body { padding-bottom: 0; }
+
+  /* Cabeçalhos com a mesma altura do menu e alinhados ao conteúdo */
+  .cabecalho, .topo-inicio {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 64px;
+    padding: 0 var(--margem);
+  }
+
+  /* A barra de baixo sobe para o canto direito do cabeçalho */
+  .navegacao {
+    top: 0;
+    bottom: auto;
+    left: auto;
+    right: var(--margem);
+    height: 64px;
+    display: flex !important;
+    gap: 28px;
+    background: transparent;
+    border: none;
+  }
+  .navegacao a { color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; }
+  .navegacao a:hover { color: #fff; }
+  .navegacao a.ativo { color: #fb923c; }
+  .navegacao a div { display: flex; align-items: center; gap: 6px; }
+  .navegacao span { font-size: 1rem; }
+  #conta { display: none; } /* o menu do topo já tem "Entrar" e "Pedidos" */
+
+  .rodape-fixo { bottom: 0; }
+  .rodape-fixo .botao { max-width: 820px; }
+  .conteudo { padding: 24px 0 40px; }
+  .conteudo.largo { max-width: none; padding-left: var(--margem); padding-right: var(--margem); }
+  .conteudo.medio { max-width: 820px; }
+
+  /* Página inicial */
+  .vitrine { padding: 56px var(--margem) 64px; }
+  .vitrine > * { max-width: 640px; margin-left: 0; }
+  .vitrine h1 { font-size: 2.3rem; }
+  .vitrine .slogan { font-size: 1.2rem; }
+  .categorias { grid-template-columns: repeat(8, 1fr); gap: 12px; }
+  .categoria { padding: 16px 6px; font-size: 0.85rem; }
+  .categoria span { font-size: 2rem; }
+  .destaques {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+  .destaque { max-width: none; }
+  .slide { min-height: 280px; padding: 32px 48px; }
+  .slide h3 { font-size: 2rem; }
+  .slide-visual { height: 220px; max-width: 360px; justify-self: end; width: 100%; }
+
+  /* Busca: resultados em três colunas */
+  .largo #lista:not(:empty) { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .largo #lista .cartao { margin: 0; }
+  .largo #lista .vazio { grid-column: 1 / -1; }
+
+  /* Perfil: obras em quatro colunas */
+  .obras { grid-template-columns: repeat(4, 1fr); }
+}
