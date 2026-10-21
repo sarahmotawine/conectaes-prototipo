@@ -112,8 +112,6 @@ input, select, textarea {
 }
 textarea { min-height: 110px; resize: vertical; }
 
-.filtros { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0 16px; }
-.filtros select { padding: 10px; }
 
 /* ---------- Botões ---------- */
 .botao {
@@ -338,6 +336,60 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 }
 
 .vazio { text-align: center; color: var(--texto-suave); padding: 30px 10px; }
+
+/* ---------- Busca ---------- */
+/* Campo com a lupa dentro */
+.campo-busca { position: relative; }
+.campo-busca span { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--texto-suave); display: flex; }
+.campo-busca input { padding-left: 44px; border-radius: 999px; }
+
+/* Fileira de filtros que rola para o lado */
+.chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 10px -16px 0;
+  padding: 0 16px 2px;
+}
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: none;
+  padding: 7px 14px;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  background: var(--cartao);
+  color: var(--texto);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.chip.ativo { background: var(--azul); border-color: var(--azul); color: #fff; }
+#contagem { margin: 16px 0 8px; }
+
+/* Cartão do pedreiro na busca: foto em cima, bolinha sobreposta */
+.cartao-pedreiro {
+  display: block;
+  margin-bottom: 14px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+.cartao-pedreiro img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; display: block; }
+.cartao-pedreiro-texto { position: relative; padding: 30px 14px 14px; }
+.cartao-pedreiro .avatar {
+  position: absolute;
+  top: -26px;
+  left: 14px;
+  width: 52px;
+  height: 52px;
+  border: 3px solid var(--cartao);
+}
+.cartao-pedreiro .confirmados { margin: 6px 0 0; }
 
 /* ---------- Linha do tempo do pedido ---------- */
 .linha-tempo {
@@ -672,7 +724,8 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 
   /* Busca: resultados em três colunas */
   .largo #lista:not(:empty) { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .largo #lista .cartao { margin: 0; }
+  .chips { flex-wrap: wrap; overflow: visible; margin-left: 0; margin-right: 0; padding: 0; }
+  .largo #lista .cartao-pedreiro { margin: 0; }
   .largo #lista .vazio { grid-column: 1 / -1; }
 
   /* Perfil: obras em quatro colunas */

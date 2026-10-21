@@ -17,18 +17,17 @@
   </header>
 
   <main class="conteudo largo">
-    <label for="texto">Que serviço você precisa?</label>
-    <input id="texto" type="search" placeholder="Ex.: azulejo, reboco, telhado">
-
-    <div class="filtros">
-      <select id="especialidade" aria-label="Especialidade">
-        <option value="">Especialidade</option>
-      </select>
-      <select id="cidade" aria-label="Cidade">
-        <option value="">Cidade</option>
-      </select>
+    <label for="texto" class="titulo-secao" style="margin-top:4px">Que serviço você precisa?</label>
+    <div class="campo-busca">
+      <span id="icone-busca"></span>
+      <input id="texto" type="search" placeholder="Ex.: azulejo, reboco, telhado">
     </div>
 
+    <!-- Filtros de tocar: um por especialidade e um por cidade (ver busca.js) -->
+    <div class="chips" id="chips-especialidade" aria-label="Especialidade"></div>
+    <div class="chips" id="chips-cidade" aria-label="Cidade"></div>
+
+    <p class="suave" id="contagem"></p>
     <div id="lista"></div>
   </main>
 
