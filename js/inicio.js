@@ -33,6 +33,38 @@ document.getElementById("categorias").innerHTML = especialidades.map(function (e
 }).join("") +
   '<a class="categoria" href="busca.html"><span>' + icone("todos") + "</span>Ver todos</a>";
 
+/* Selos do topo: o diferencial da proposta, com o ícone de "ok". */
+document.querySelectorAll("#vitrine-selos li").forEach(function (li) {
+  li.innerHTML = icone("ok") + "<span>" + li.textContent + "</span>";
+});
+
+/* Ilustração do topo (computador): o perfil de um pedreiro da demonstração
+   (o Carlos), uma avaliação de verdade dele e o selo de serviço confirmado. */
+(function () {
+  const p = pedreiroPorId(PEDREIRO_DEMO_ID);
+  const est = estatisticas(p);
+  const av = p.comentarios[0];
+  document.getElementById("vitrine-cartoes").innerHTML =
+    '<div class="vc-perfil">' +
+      '<img src="img/obras/' + p.obras[0].foto + '.jpg" alt="">' +
+      '<div class="vc-corpo">' +
+        '<div class="avatar">' + p.iniciais + "</div>" +
+        '<p class="nome">' + p.nome + "</p>" +
+        '<p class="suave">' + p.especialidades.join(" · ") + " · " + p.cidade + "</p>" +
+        '<p class="vc-linha"><span class="nota">★ ' + formatarNota(est.nota) + "</span>" +
+          '<span class="suave">(' + est.avaliacoes + " avaliações)</span></p>" +
+        '<p class="vc-confirmados">' + icone("ok") + est.confirmados + " serviços confirmados</p>" +
+      "</div>" +
+    "</div>" +
+    '<div class="vc-balao vc-avaliacao">' +
+      '<p class="nota">' + estrelas(av.nota) + "</p>" +
+      "<p>“" + av.texto + "”</p>" +
+      '<p class="suave">' + av.autor + " · serviço confirmado</p>" +
+    "</div>" +
+    '<div class="vc-balao vc-selo"><span class="vc-icone">' + icone("ok") + "</span>" +
+      "<div><strong>Confirmado</strong><br>pelo cliente e pelo pedreiro</div></div>";
+})();
+
 /* Destaques: os quatro de nota mais alta, com a foto da primeira obra.
    Só entra quem tem pelo menos 10 avaliações: uma nota 5,0 com três
    avaliações diz menos que uma 4,8 com vinte. */
