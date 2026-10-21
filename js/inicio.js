@@ -33,31 +33,20 @@ document.getElementById("categorias").innerHTML = especialidades.map(function (e
 }).join("") +
   '<a class="categoria" href="busca.html"><span>' + icone("todos") + "</span>Ver todos</a>";
 
-/* Ilustração do topo (computador): o perfil de um pedreiro da demonstração
-   (o Carlos), uma avaliação de verdade dele e o selo de serviço confirmado. */
+/* Ilustração do topo (computador): os três passos de uso do app,
+   em cartões numerados. Não destaca nenhum pedreiro. */
 (function () {
-  const p = pedreiroPorId(PEDREIRO_DEMO_ID);
-  const est = estatisticas(p);
-  const av = p.comentarios[0];
-  document.getElementById("vitrine-cartoes").innerHTML =
-    '<div class="vc-perfil">' +
-      '<img src="img/obras/' + p.obras[0].foto + '.jpg" alt="">' +
-      '<div class="vc-corpo">' +
-        '<div class="avatar">' + p.iniciais + "</div>" +
-        '<p class="nome">' + p.nome + "</p>" +
-        '<p class="suave">' + p.especialidades.join(" · ") + " · " + p.cidade + "</p>" +
-        '<p class="vc-linha"><span class="nota">★ ' + formatarNota(est.nota) + "</span>" +
-          '<span class="suave">(' + est.avaliacoes + " avaliações)</span></p>" +
-        '<p class="vc-confirmados">' + icone("ok") + est.confirmados + " serviços confirmados</p>" +
-      "</div>" +
-    "</div>" +
-    '<div class="vc-balao vc-avaliacao">' +
-      '<p class="nota">' + estrelas(av.nota) + "</p>" +
-      "<p>“" + av.texto + "”</p>" +
-      '<p class="suave">' + av.autor + " · serviço confirmado</p>" +
-    "</div>" +
-    '<div class="vc-balao vc-selo"><span class="vc-icone">' + icone("ok") + "</span>" +
-      "<div><strong>Confirmado</strong><br>pelo cliente e pelo pedreiro</div></div>";
+  const passos = [
+    ["buscar", "Encontre", "Compare pedreiros pelos serviços já confirmados."],
+    ["conversa", "Peça orçamento", "Combine valor e prazo, registrados no app."],
+    ["estrela", "Confirme e avalie", "Só avalia quem teve o serviço confirmado."]
+  ];
+  document.getElementById("vitrine-cartoes").innerHTML = passos.map(function (p, i) {
+    return '<div class="vc-passo"><span class="vc-num">' + (i + 1) + "</span>" +
+             '<span class="vc-icone">' + icone(p[0]) + "</span>" +
+             "<div><strong>" + p[1] + "</strong><p>" + p[2] + "</p></div>" +
+           "</div>";
+  }).join("");
 })();
 
 /* Destaques: os quatro de nota mais alta, com a foto da primeira obra.
