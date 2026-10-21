@@ -22,18 +22,23 @@
       <p class="slogan">Cadastre-se e receba pedidos sem pagar para aparecer.</p>
     </section>
 
-    <form id="form-cadastro" class="entrada-cartao">
+    <form id="form-cadastro" class="entrada-cartao compacto">
       <h1>Cadastro de pedreiro</h1>
 
       <label for="nome">Nome completo</label>
       <input id="nome" type="text" autocomplete="name" required>
 
-      <label for="cpf">CPF</label>
-      <input id="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00"
-             pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" title="Digite os 11 números do CPF" required>
-
-      <label for="telefone">Celular (WhatsApp)</label>
-      <input id="telefone" type="tel" autocomplete="tel" placeholder="(27) 99999-9999" required>
+      <div class="campos-lado">
+        <div>
+          <label for="cpf">CPF</label>
+          <input id="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00"
+                 pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" title="Digite os 11 números do CPF" required>
+        </div>
+        <div>
+          <label for="telefone">WhatsApp</label>
+          <input id="telefone" type="tel" autocomplete="tel" placeholder="(27) 99999-9999" required>
+        </div>
+      </div>
 
       <label for="cidade">Cidade onde atende</label>
       <select id="cidade" required>
@@ -51,11 +56,16 @@
       <div class="opcoes" id="especialidades"></div>
       <p class="suave erro" id="erro-especialidade" hidden>Escolha pelo menos uma especialidade.</p>
 
-      <label for="email">E-mail</label>
-      <input id="email" type="email" autocomplete="email" required>
-
-      <label for="senha">Senha</label>
-      <input id="senha" type="password" autocomplete="new-password" minlength="6" required>
+      <div class="campos-lado">
+        <div>
+          <label for="email">E-mail</label>
+          <input id="email" type="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="senha">Senha</label>
+          <input id="senha" type="password" autocomplete="new-password" minlength="6" required>
+        </div>
+      </div>
 
       <button class="botao" type="submit">Criar conta de pedreiro</button>
 

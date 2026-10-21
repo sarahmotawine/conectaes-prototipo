@@ -410,6 +410,15 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   .entrada-cartao { max-width: 440px; margin-left: auto; margin-right: auto; }
 }
 .entrada-cartao h1 { margin: 0 0 4px; font-size: 1.3rem; color: var(--titulo); }
+/* Cadastros mais compactos: menos espaço entre os campos e, quando há
+   largura, dois campos lado a lado (CPF e WhatsApp, e-mail e senha) */
+.compacto label { margin: 10px 0 4px; }
+.compacto input, .compacto select { padding: 10px 12px; }
+.compacto .opcao { margin: 0; padding: 6px 10px; font-size: 0.85rem; }
+.compacto .botao { margin-top: 14px; }
+@media (min-width: 472px) {
+  .campos-lado { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+}
 .entrada-cartao a { color: var(--laranja-texto); font-weight: 600; }
 .entrada-pedreiro { margin: 20px 16px 0; text-align: center; }
 

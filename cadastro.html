@@ -21,17 +21,20 @@
       <p class="slogan">Crie sua conta para pedir orçamentos.</p>
     </section>
 
-    <form id="form-cadastro" class="entrada-cartao">
+    <form id="form-cadastro" class="entrada-cartao compacto">
       <h1>Criar conta</h1>
 
       <label for="nome">Nome completo</label>
       <input id="nome" type="text" autocomplete="name" required>
 
-      <label for="telefone">Celular</label>
-      <input id="telefone" type="tel" autocomplete="tel" placeholder="(27) 99999-9999" required>
-
-      <label for="cidade">Cidade</label>
-      <select id="cidade" required>
+      <div class="campos-lado">
+        <div>
+          <label for="telefone">Celular</label>
+          <input id="telefone" type="tel" autocomplete="tel" placeholder="(27) 99999-9999" required>
+        </div>
+        <div>
+          <label for="cidade">Cidade</label>
+          <select id="cidade" required>
         <option value="">Escolha</option>
         <option>Cariacica</option>
         <option>Fundão</option>
@@ -40,13 +43,20 @@
         <option>Viana</option>
         <option>Vila Velha</option>
         <option>Vitória</option>
-      </select>
+          </select>
+        </div>
+      </div>
 
-      <label for="email">E-mail</label>
-      <input id="email" type="email" autocomplete="email" required>
-
-      <label for="senha">Senha</label>
-      <input id="senha" type="password" autocomplete="new-password" minlength="6" required>
+      <div class="campos-lado">
+        <div>
+          <label for="email">E-mail</label>
+          <input id="email" type="email" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="senha">Senha</label>
+          <input id="senha" type="password" autocomplete="new-password" minlength="6" required>
+        </div>
+      </div>
 
       <button class="botao" type="submit">Criar conta</button>
 
