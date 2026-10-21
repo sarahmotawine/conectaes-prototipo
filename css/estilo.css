@@ -259,17 +259,41 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 .navegacao span { font-size: 1.3rem; display: block; text-align: center; }
 
 /* ---------- Tela de entrada ---------- */
-.entrada {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 24px;
-  max-width: 440px;
-  margin: 0 auto;
-}
+.entrada { min-height: 100vh; padding-bottom: 24px; }
 .marca { color: var(--azul); font-size: 2rem; font-weight: 800; margin: 0; }
 .marca span { color: var(--laranja); }
+
+/* Faixa do topo das telas de entrada e cadastro */
+.entrada-topo {
+  padding: 48px 24px 72px;
+  color: #fff;
+  /* azul por cima da foto, para o texto continuar legível */
+  background: linear-gradient(rgba(30, 58, 95, 0.88), rgba(30, 58, 95, 0.96)),
+              url("../img/obras/reboco-fachada.jpg") center / cover;
+}
+.entrada-topo > * { max-width: 392px; margin-left: auto; margin-right: auto; }
+.entrada-topo .marca { color: #fff; font-size: 2.4rem; }
+.entrada-topo .marca span { color: #fb923c; } /* laranja mais claro, para contrastar com o azul */
+.slogan { font-size: 1.15rem; margin: 2px auto 20px; opacity: 0.9; }
+.selos { list-style: none; padding: 0; font-size: 0.92rem; }
+.selos li { display: flex; gap: 8px; margin: 6px auto; }
+.selos span { color: #fb923c; font-weight: 800; }
+
+/* Cartão branco do formulário, sobreposto à faixa azul */
+.entrada-cartao {
+  position: relative;
+  margin: -48px 16px 0;
+  padding: 20px;
+  background: var(--cartao);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+@media (min-width: 472px) {
+  .entrada-cartao { max-width: 440px; margin-left: auto; margin-right: auto; }
+}
+.entrada-cartao h1 { margin: 0 0 4px; font-size: 1.3rem; color: var(--azul); }
+.entrada-cartao a { color: var(--laranja); font-weight: 600; }
+
 .reiniciar {
   display: block;
   margin-top: 40px;

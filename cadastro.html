@@ -13,10 +13,14 @@
 <body>
   <!-- Cadastro do cliente (RF01). No protótipo, nada é guardado: ao enviar, vai para a busca. -->
   <main class="entrada">
-    <p class="marca">Conecta<span>ES</span></p>
-    <p class="suave">Crie sua conta para pedir orçamentos.</p>
+    <section class="entrada-topo">
+      <p class="marca">Conecta<span>ES</span></p>
+      <p class="slogan">Crie sua conta para pedir orçamentos.</p>
+    </section>
 
-    <form id="form-cadastro">
+    <form id="form-cadastro" class="entrada-cartao">
+      <h1>Criar conta</h1>
+
       <label for="nome">Nome completo</label>
       <input id="nome" type="text" autocomplete="name" required>
 
@@ -42,11 +46,11 @@
       <input id="senha" type="password" autocomplete="new-password" minlength="6" required>
 
       <button class="botao" type="submit">Criar conta</button>
-    </form>
 
-    <p class="suave" style="text-align:center; margin-top:16px">
-      Já tem conta? <a href="index.html">Entrar</a>
-    </p>
+      <p class="suave" style="text-align:center; margin-top:16px">
+        Já tem conta? <a href="index.html">Entrar</a>
+      </p>
+    </form>
   </main>
 
   <script src="js/dados.js"></script>

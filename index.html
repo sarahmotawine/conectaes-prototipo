@@ -13,10 +13,20 @@
 <body>
   <!-- Tela de entrada (RF01). No protótipo, qualquer e-mail e senha entram. -->
   <main class="entrada">
-    <p class="marca">Conecta<span>ES</span></p>
-    <p class="suave">Da indicação ao aplicativo.</p>
+    <!-- Faixa do topo: foto de uma casa ao fundo, coberta de azul -->
+    <section class="entrada-topo">
+      <p class="marca">Conecta<span>ES</span></p>
+      <p class="slogan">Da indicação ao aplicativo.</p>
+      <ul class="selos">
+        <li><span>✓</span> Serviços confirmados pelo cliente e pelo pedreiro</li>
+        <li><span>✓</span> Orçamento combinado e registrado no app</li>
+        <li><span>✓</span> Pedreiros da Grande Vitória</li>
+      </ul>
+    </section>
 
-    <form id="form-entrar">
+    <form id="form-entrar" class="entrada-cartao">
+      <h1>Entrar</h1>
+
       <label for="email">E-mail</label>
       <input id="email" type="email" autocomplete="email" required>
 
@@ -24,11 +34,11 @@
       <input id="senha" type="password" autocomplete="current-password" required>
 
       <button class="botao" type="submit">Entrar</button>
-    </form>
 
-    <p class="suave" style="text-align:center; margin-top:16px">
-      Não tem conta? <a href="cadastro.html">Cadastre-se</a>
-    </p>
+      <p class="suave" style="text-align:center; margin-top:16px">
+        Não tem conta? <a href="cadastro.html">Cadastre-se</a>
+      </p>
+    </form>
 
     <a href="#" id="reiniciar" class="reiniciar">Reiniciar demonstração</a>
   </main>
