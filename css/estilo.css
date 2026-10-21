@@ -820,8 +820,8 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
    menu no topo, conteúdo mais largo e mais colunas.
    ========================================================= */
 @media (min-width: 900px) {
-  /* Margem lateral que alinha cabeçalho e conteúdo numa faixa de 1080px */
-  :root { --margem: max(24px, calc((100vw - 1080px) / 2)); }
+  /* Margem lateral que alinha cabeçalho e conteúdo numa faixa de 1320px */
+  :root { --margem: max(32px, calc((100vw - 1320px) / 2)); }
 
   body { padding-bottom: 0; }
 
@@ -856,10 +856,10 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 
   .rodape-fixo { bottom: 0; }
   .aviso-rapido { bottom: 32px; }
-  .rodape-fixo .botao { max-width: 820px; }
+  .rodape-fixo .botao { max-width: 960px; }
   .conteudo { padding: 24px 0 40px; }
   .conteudo.largo { max-width: none; padding-left: var(--margem); padding-right: var(--margem); }
-  .conteudo.medio { max-width: 820px; }
+  .conteudo.medio { max-width: 960px; }
 
   /* Página inicial */
   /* No computador, o Convento fica à direita, inteiro, e vai sumindo no
@@ -915,4 +915,9 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   /* Perfil: obras em quatro colunas */
   .obras { grid-template-columns: repeat(4, 1fr); }
   .perfil-capa { height: 220px; margin: -24px 0 0; border-radius: 0 0 18px 18px; }
+}
+
+/* Telas grandes: busca em quatro colunas */
+@media (min-width: 1200px) {
+  .largo #lista:not(:empty) { grid-template-columns: repeat(4, 1fr); }
 }

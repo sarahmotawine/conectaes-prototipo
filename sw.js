@@ -12,7 +12,7 @@
    Sem isso, quem já abriu o app continua vendo a versão antiga.
    ========================================================= */
 
-const VERSAO = "conectaes-v33";
+const VERSAO = "conectaes-v34";
 
 const ARQUIVOS = [
   "./",
