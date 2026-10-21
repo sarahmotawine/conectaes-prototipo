@@ -393,5 +393,22 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 .destaque img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
 .destaque-texto { padding: 10px 12px 12px; }
 
-.passos { padding-left: 22px; margin: 0; }
-.passos li { margin-bottom: 10px; }
+/* Como funciona: três passos ligados por uma linha */
+.passos {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 6px 16px;
+}
+.passo { position: relative; display: flex; align-items: center; gap: 14px; padding: 12px 0; }
+.passo + .passo { border-top: 1px solid var(--borda); }
+.passo-icone {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--laranja-claro);
+  font-size: 1.3rem;
+}
