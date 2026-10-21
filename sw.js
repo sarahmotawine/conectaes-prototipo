@@ -10,7 +10,7 @@
    Sem isso, quem já abriu o app continua vendo a versão antiga.
    ========================================================= */
 
-const VERSAO = "conectaes-v3";
+const VERSAO = "conectaes-v4";
 
 const ARQUIVOS = [
   "./",
@@ -39,7 +39,7 @@ const ARQUIVOS = [
   "icones/icone-512.png",
   "img/obras/acabamento-quarto.jpg",
   "img/obras/ampliacao-quarto.jpg",
-  "img/obras/area-de-servico.jpg",
+  "img/obras/bancada-cozinha.jpg",
   "img/obras/backsplash.jpg",
   "img/obras/banheiro-azulejo.jpg",
   "img/obras/banheiro-social.jpg",
@@ -50,7 +50,7 @@ const ARQUIVOS = [
   "img/obras/forro.jpg",
   "img/obras/laje.jpg",
   "img/obras/lavabo.jpg",
-  "img/obras/muro-divisa.jpg",
+  "img/obras/casa-terrea.jpg",
   "img/obras/parede-drywall.jpg",
   "img/obras/piso-cozinha.jpg",
   "img/obras/porcelanato-sala.jpg",

@@ -20,7 +20,7 @@ const PEDREIROS = [
       { titulo: "Banheiro com azulejo", foto: "banheiro-azulejo" },
       { titulo: "Piso da cozinha", foto: "piso-cozinha" },
       { titulo: "Reboco de fachada", foto: "reboco-fachada" },
-      { titulo: "Área de serviço", foto: "area-de-servico" }
+      { titulo: "Bancada da cozinha", foto: "bancada-cozinha" }
     ],
     comentarios: [
       { autor: "Mariana", nota: 5, texto: "Caprichoso e cumpriu o prazo combinado." },
@@ -40,7 +40,7 @@ const PEDREIROS = [
     confirmados: 52,
     sobre: "Construção e reforma. Faço desde a fundação até o reboco.",
     obras: [
-      { titulo: "Muro de divisa", foto: "muro-divisa" },
+      { titulo: "Casa térrea", foto: "casa-terrea" },
       { titulo: "Ampliação de quarto", foto: "ampliacao-quarto" },
       { titulo: "Reboco de muro", foto: "reboco-muro" },
       { titulo: "Laje", foto: "laje" }
