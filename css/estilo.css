@@ -875,10 +875,10 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   .vitrine::after {
     content: "";
     height: 84%;
-    max-width: calc(100% - var(--margem) - 560px + 180px); /* nunca passa por baixo da busca */
+    max-width: calc(100% - var(--margem) - 560px + 60px); /* nunca passa por baixo da busca */
     margin: 0;
     position: absolute;
-    right: max(0px, calc(var(--margem) - 180px)); /* um pouco além do "Entrar" */
+    right: max(0px, calc(var(--margem) - 60px)); /* quase alinhado com o "Entrar" */
     bottom: 0;
     aspect-ratio: 1000 / 522;
     background: url("../img/convento-recortado.webp") right bottom / contain no-repeat;
