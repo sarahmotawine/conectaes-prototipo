@@ -112,24 +112,29 @@ function aoMudarPedidos(funcao) {
   });
 }
 
+/* Põe o ícone de seta nos botões de voltar dos cabeçalhos. */
+document.querySelectorAll(".cabecalho .voltar").forEach(function (link) {
+  link.innerHTML = icone("voltar");
+});
+
 /* Coloca a barra de navegação no fim da página e destaca a tela atual.
    Os itens dependem de quem entrou: visitante, cliente ou pedreiro. */
 function montarNavegacao(ativa) {
   let itens;
   if (souPedreiro()) {
     itens = [
-      { chave: "painel", href: "painel-pedreiro.html",                icone: "🧰", texto: "Painel" },
-      { chave: "perfil", href: "perfil.html?id=" + PEDREIRO_DEMO_ID, icone: "👷", texto: "Meu perfil" },
-      { chave: "sair",   href: "#",                                   icone: "↩",  texto: "Sair" }
+      { chave: "painel", href: "painel-pedreiro.html",                texto: "Painel" },
+      { chave: "perfil", href: "perfil.html?id=" + PEDREIRO_DEMO_ID, texto: "Meu perfil" },
+      { chave: "sair",   href: "#",                                   texto: "Sair" }
     ];
   } else {
     itens = [
-      { chave: "inicio",  href: "index.html",   icone: "🏠", texto: "Início" },
-      { chave: "buscar",  href: "busca.html",   icone: "🔍", texto: "Buscar" },
-      { chave: "pedidos", href: "pedidos.html", icone: "📋", texto: "Pedidos" },
+      { chave: "inicio",  href: "index.html",   texto: "Início" },
+      { chave: "buscar",  href: "busca.html",   texto: "Buscar" },
+      { chave: "pedidos", href: "pedidos.html", texto: "Pedidos" },
       estaLogado()
-        ? { chave: "sair",   href: "#",           icone: "↩",  texto: "Sair" }
-        : { chave: "entrar", href: "entrar.html", icone: "👤", texto: "Entrar" }
+        ? { chave: "sair",   href: "#",           texto: "Sair" }
+        : { chave: "entrar", href: "entrar.html", texto: "Entrar" }
     ];
   }
 
@@ -139,7 +144,7 @@ function montarNavegacao(ativa) {
   nav.innerHTML = itens.map(function (item) {
     const classe = item.chave === ativa ? "ativo" : "";
     return '<a class="' + classe + '" href="' + item.href + '" data-chave="' + item.chave + '">' +
-             "<div><span>" + item.icone + "</span>" + item.texto + "</div></a>";
+             "<div><span>" + icone(item.chave) + "</span>" + item.texto + "</div></a>";
   }).join("");
 
   /* Sair: apaga o sinal de login e volta para a página inicial. */

@@ -1,17 +1,10 @@
 /* Página inicial: busca rápida, categorias e pedreiros em destaque.
    Tudo aqui é aberto; não precisa de login. */
 
-/* Ícone de cada especialidade. Uma especialidade nova em dados.js
-   aparece com o ícone 🛠️ até ganhar um aqui. */
-const ICONES = {
-  "Alvenaria": "🧱",
-  "Reboco": "🪣",
-  "Azulejo": "🚿",
-  "Piso": "🔲",
-  "Telhado": "🏠",
-  "Acabamento": "🖌️",
-  "Pequenos reparos": "🔧"
-};
+/* Ícones da busca e das setas do carrossel (ver icones.js). */
+document.querySelector(".busca-rapida button").innerHTML = icone("buscar");
+document.getElementById("anterior").innerHTML = icone("anterior");
+document.getElementById("proximo").innerHTML = icone("proximo");
 
 /* Botão do topo: "Entrar" ou, para quem já entrou, o atalho da conta. */
 const conta = document.getElementById("conta");
@@ -30,14 +23,15 @@ document.getElementById("form-busca").addEventListener("submit", function (event
   window.location.href = "busca.html" + (texto ? "?texto=" + encodeURIComponent(texto) : "");
 });
 
-/* Categorias: uma para cada especialidade que aparece nos pedreiros. */
+/* Categorias: uma para cada especialidade que aparece nos pedreiros.
+   O ícone de cada especialidade fica em icones.js, com o mesmo nome. */
 const especialidades = [...new Set(PEDREIROS.flatMap(function (p) { return p.especialidades; }))];
 document.getElementById("categorias").innerHTML = especialidades.map(function (e) {
   return '<a class="categoria" href="busca.html?especialidade=' + encodeURIComponent(e) + '">' +
-           "<span>" + (ICONES[e] || "🛠️") + "</span>" + e +
+           "<span>" + icone(e) + "</span>" + e +
          "</a>";
 }).join("") +
-  '<a class="categoria" href="busca.html"><span>➕</span>Ver todos</a>';
+  '<a class="categoria" href="busca.html"><span>' + icone("todos") + "</span>Ver todos</a>";
 
 /* Destaques: os quatro de nota mais alta, com a foto da primeira obra. */
 const destaques = PEDREIROS.slice().sort(function (a, b) {

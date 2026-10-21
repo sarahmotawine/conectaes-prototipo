@@ -42,3 +42,9 @@ licença do original.
 | `backsplash.jpg` | Backsplash da cozinha | Capdevielle | CC BY-SA 3.0 | [Kitchen backsplash tile.jpeg](https://commons.wikimedia.org/wiki/File:Kitchen_backsplash_tile.jpeg) |
 | `banheiro.jpg` | Banheiro | Wolfmann | CC BY-SA 4.0 | [Bathroom in hotel in Bergen, Norway. 2016-03-16. Hand wash basin sink, mirror, toilet, shower cabinet, etc. Also wall and floor tiles.jpg](https://commons.wikimedia.org/wiki/File:Bathroom_in_hotel_in_Bergen,_Norway._2016-03-16._Hand_wash_basin_sink,_mirror,_toilet,_shower_cabinet,_etc._Also_wall_and_floor_tiles.jpg) |
 | `rodape.jpg` | Rodapé | Filarek02 | CC0 | [Cokolik 05.jpg](https://commons.wikimedia.org/wiki/File:Cokolik_05.jpg) |
+
+# Ícones
+
+Os ícones (`js/icones.js`) são do [Lucide](https://lucide.dev),
+versão 0.460.0, sob a [licença ISC](https://github.com/lucide-icons/lucide/blob/main/LICENSE),
+que permite usar, copiar e modificar livremente.

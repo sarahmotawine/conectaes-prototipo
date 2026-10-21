@@ -118,8 +118,8 @@ function mostrar() {
   area.innerHTML =
     '<div class="cartao">' +
       '<p class="nome">' + escaparHTML(nomeCliente) + "</p>" +
-      (pedido.bairro ? '<p class="suave">📍 ' + escaparHTML(pedido.bairro) + "</p>" : "") +
-      (pedido.quando ? '<p class="suave">🗓️ ' + escaparHTML(pedido.quando) + "</p>" : "") +
+      (pedido.bairro ? '<p class="suave com-icone">' + icone("local") + escaparHTML(pedido.bairro) + "</p>" : "") +
+      (pedido.quando ? '<p class="suave com-icone">' + icone("data") + escaparHTML(pedido.quando) + "</p>" : "") +
       '<span class="status ' + status.classe + '">' + status.texto + "</span>" +
     "</div>" +
     conversa +

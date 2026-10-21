@@ -19,6 +19,12 @@
 
 * { box-sizing: border-box; }
 
+/* Ícones SVG (ver js/icones.js): do tamanho da letra e da cor do texto */
+.icone { width: 1.2em; height: 1.2em; flex: none; vertical-align: -0.22em; }
+.com-icone { display: flex; align-items: center; gap: 6px; }
+.com-icone .icone { width: 1em; height: 1em; }
+.busca-rapida button .icone { width: 20px; height: 20px; }
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -43,10 +49,9 @@ body {
 }
 .cabecalho h1 { margin: 0; font-size: 1.15rem; }
 .cabecalho a.voltar {
+  display: flex;
   color: #fff;
   text-decoration: none;
-  font-size: 1.5rem;
-  line-height: 1;
   padding: 4px 8px 4px 0;
 }
 
@@ -256,7 +261,8 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   font-weight: 600;
 }
 .navegacao a.ativo { color: var(--laranja); }
-.navegacao span { font-size: 1.3rem; display: block; text-align: center; }
+.navegacao span { display: block; text-align: center; }
+.navegacao span .icone { width: 24px; height: 24px; }
 
 /* ---------- Tela de entrada ---------- */
 .entrada { min-height: 100vh; padding-bottom: 24px; }
@@ -364,7 +370,9 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   border: none;
   border-radius: 999px;
   background: var(--laranja);
-  font-size: 1.1rem;
+  color: #fff;
+  display: grid;
+  place-items: center;
   cursor: pointer;
 }
 
@@ -387,7 +395,16 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   line-height: 1.2;
   text-decoration: none;
 }
-.categoria span { font-size: 1.6rem; }
+.categoria span {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--laranja-claro);
+  color: var(--laranja);
+}
+.categoria span .icone { width: 22px; height: 22px; }
 
 /* Cartões de destaque que rolam para o lado */
 .destaques {
@@ -514,14 +531,13 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   border-radius: 50%;
   background: #fff;
   color: var(--texto);
-  font-size: 1.3rem;
-  line-height: 1;
+  place-items: center;
   cursor: pointer;
 }
 .seta-esquerda { left: -18px; }
 .seta-direita  { right: -18px; }
 @media (min-width: 600px) {
-  .seta { display: block; }
+  .seta { display: grid; }
   .slide { padding-left: 32px; padding-right: 28px; }
 }
 
@@ -561,7 +577,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   .navegacao a:hover { color: #fff; }
   .navegacao a.ativo { color: #fb923c; }
   .navegacao a div { display: flex; align-items: center; gap: 6px; }
-  .navegacao span { font-size: 1rem; }
+  .navegacao span .icone { width: 18px; height: 18px; }
   #conta { display: none; } /* o menu do topo já tem "Entrar" e "Pedidos" */
 
   .rodape-fixo { bottom: 0; }
@@ -577,7 +593,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   .vitrine .slogan { font-size: 1.2rem; }
   .categorias { grid-template-columns: repeat(8, 1fr); gap: 12px; }
   .categoria { padding: 16px 6px; font-size: 0.85rem; }
-  .categoria span { font-size: 2rem; }
+  .categoria span { width: 52px; height: 52px; }
   .destaques {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
