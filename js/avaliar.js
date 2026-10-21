@@ -33,7 +33,7 @@ if (!pedido || pedido.status !== "confirmado") {
       '<div class="estrelas" id="estrelas">' + botoes + "</div>" +
       '<label for="comentario">Comentário (opcional)</label>' +
       '<textarea id="comentario" placeholder="Conte como foi para ajudar outros clientes"></textarea>' +
-      '<p class="suave" id="erro" style="color:#b91c1c; display:none">Escolha de 1 a 5 estrelas.</p>' +
+      '<p class="suave erro" id="erro" style="display:none">Escolha de 1 a 5 estrelas.</p>' +
       '<button class="botao" type="submit">Enviar avaliação</button>' +
     "</form>";
 

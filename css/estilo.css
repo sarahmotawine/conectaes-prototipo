@@ -15,6 +15,41 @@
   --texto-suave: #5f6b7a;
   --borda: #dde1e6;
   --raio: 12px;             /* arredondamento dos cantos */
+
+  /* Cores derivadas, que mudam no modo escuro */
+  --titulo: var(--azul);          /* títulos e textos em azul */
+  --laranja-texto: var(--laranja);/* textos e links em laranja */
+  --laranja-escuro: #9a3412;      /* texto sobre fundo laranja-claro */
+  --azul-claro: #e6edf5;          /* etiquetas, mensagens do cliente */
+  --verde-claro: #dcfce7;         /* fundo de status positivo */
+  --nota: #b45309;                /* estrelas e notas */
+  --erro: #b91c1c;
+  --cartao-toque: #eef2f7;        /* cartão sendo tocado */
+  --aviso-fundo: #1f2933;         /* avisos rápidos */
+}
+
+/* Modo escuro: acompanha o tema escolhido no celular ou no computador.
+   Só as cores mudam; o resto do arquivo usa estas variáveis. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #0f1720;
+    --cartao: #18222e;
+    --texto: #e5e9ee;
+    --texto-suave: #9aa5b1;
+    --borda: #2b3644;
+    --verde: #22c55e;
+    --laranja-claro: #3a2416;
+    --titulo: #9ec5f0;
+    --laranja-texto: #fb923c;
+    --laranja-escuro: #fdba74;
+    --azul-claro: #1f3147;
+    --verde-claro: #12301f;
+    --nota: #fbbf24;
+    --erro: #f87171;
+    --cartao-toque: #223042;
+    --aviso-fundo: #2b3644;
+    color-scheme: dark; /* campos, barras de rolagem e afins no tema escuro */
+  }
 }
 
 /* Fonte Inter, guardada no próprio app (fontes/) para funcionar sem
@@ -77,7 +112,7 @@ body {
   color: inherit;
   text-decoration: none;
 }
-a.cartao:active { background: #eef2f7; }
+a.cartao:active { background: var(--cartao-toque); }
 
 .linha { display: flex; align-items: center; gap: 12px; }
 
@@ -97,7 +132,8 @@ a.cartao:active { background: #eef2f7; }
 
 .nome { font-weight: 700; margin: 0; }
 .suave { color: var(--texto-suave); font-size: 0.92rem; margin: 2px 0 0; }
-.nota { color: #b45309; font-weight: 700; }
+.nota { color: var(--nota); font-weight: 700; }
+.erro { color: var(--erro); }
 .confirmados { color: var(--verde); font-size: 0.92rem; font-weight: 600; }
 
 /* ---------- Formulários ---------- */
@@ -108,7 +144,8 @@ input, select, textarea {
   padding: 12px;
   border: 1px solid var(--borda);
   border-radius: 10px;
-  background: #fff;
+  background: var(--cartao);
+  color: var(--texto);
 }
 textarea { min-height: 110px; resize: vertical; }
 
@@ -129,7 +166,7 @@ textarea { min-height: 110px; resize: vertical; }
   text-decoration: none;
   cursor: pointer;
 }
-.botao.secundario { background: #fff; color: var(--azul); border: 1px solid var(--azul); }
+.botao.secundario { background: var(--cartao); color: var(--titulo); border: 1px solid var(--titulo); }
 .botoes-lado { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .botoes-lado .botao { margin-top: 12px; }
 
@@ -154,8 +191,8 @@ textarea { min-height: 110px; resize: vertical; }
 .perfil-topo h2 { margin: 10px 0 2px; }
 .etiquetas { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 8px 0; }
 .etiqueta {
-  background: #e6edf5;
-  color: var(--azul);
+  background: var(--azul-claro);
+  color: var(--titulo);
   border-radius: 99px;
   padding: 3px 10px;
   font-size: 0.85rem;
@@ -172,7 +209,7 @@ textarea { min-height: 110px; resize: vertical; }
   aspect-ratio: 4 / 3;
   border-radius: 10px;
   overflow: hidden;
-  background: #e9edf2; /* aparece enquanto a foto carrega */
+  background: var(--borda); /* aparece enquanto a foto carrega */
 }
 .obra img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.25s; }
 .obra { cursor: zoom-in; }
@@ -218,7 +255,7 @@ textarea { min-height: 110px; resize: vertical; }
   font-weight: 600;
 }
 
-h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
+h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 
 /* ---------- Status dos pedidos ---------- */
 .status {
@@ -227,11 +264,11 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   padding: 2px 10px;
   font-size: 0.82rem;
   font-weight: 700;
-  background: #e6edf5;
-  color: var(--azul);
+  background: var(--azul-claro);
+  color: var(--titulo);
 }
-.status.atencao { background: var(--laranja-claro); color: #9a3412; }
-.status.ok { background: #dcfce7; color: var(--verde); }
+.status.atencao { background: var(--laranja-claro); color: var(--laranja-escuro); }
+.status.ok { background: var(--verde-claro); color: var(--verde); }
 
 /* ---------- Conversa do pedido ---------- */
 .mensagem {
@@ -239,16 +276,16 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   padding: 10px 12px;
   border-radius: 12px;
   margin: 8px 0;
-  background: #fff;
+  background: var(--cartao);
   border: 1px solid var(--borda);
 }
-.mensagem.cliente { margin-left: auto; background: #e6edf5; border-color: #cfdcea; }
+.mensagem.cliente { margin-left: auto; background: var(--azul-claro); border-color: var(--borda); }
 .mensagem small { display: block; color: var(--texto-suave); font-size: 0.78rem; }
 
 .caixa-orcamento {
-  border: 2px solid var(--azul);
+  border: 2px solid var(--titulo);
   border-radius: var(--raio);
-  background: #fff;
+  background: var(--cartao);
   padding: 14px;
   margin: 12px 0;
 }
@@ -282,7 +319,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   background: none;
   font-size: 2.6rem;
   line-height: 1;
-  color: #cbd2d9;
+  color: var(--borda);
   cursor: pointer;
   padding: 0 2px;
 }
@@ -295,7 +332,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   height: 64px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: #fff;
+  background: var(--cartao);
   border-top: 1px solid var(--borda);
   z-index: 20;
 }
@@ -307,13 +344,13 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   font-size: 0.85rem;
   font-weight: 600;
 }
-.navegacao a.ativo { color: var(--laranja); }
+.navegacao a.ativo { color: var(--laranja-texto); }
 .navegacao span { display: block; text-align: center; }
 .navegacao span .icone { width: 24px; height: 24px; }
 
 /* ---------- Tela de entrada ---------- */
 .entrada { min-height: 100vh; padding-bottom: 24px; }
-.marca { color: var(--azul); font-size: 2rem; font-weight: 800; margin: 0; }
+.marca { color: var(--titulo); font-size: 2rem; font-weight: 800; margin: 0; }
 .marca span { color: var(--laranja); }
 
 /* Faixa do topo das telas de entrada e cadastro */
@@ -344,8 +381,8 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 @media (min-width: 472px) {
   .entrada-cartao { max-width: 440px; margin-left: auto; margin-right: auto; }
 }
-.entrada-cartao h1 { margin: 0 0 4px; font-size: 1.3rem; color: var(--azul); }
-.entrada-cartao a { color: var(--laranja); font-weight: 600; }
+.entrada-cartao h1 { margin: 0 0 4px; font-size: 1.3rem; color: var(--titulo); }
+.entrada-cartao a { color: var(--laranja-texto); font-weight: 600; }
 .entrada-pedreiro { margin: 20px 16px 0; text-align: center; }
 
 /* Caixinhas de marcar em forma de etiqueta (especialidades do pedreiro) */
@@ -363,7 +400,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   cursor: pointer;
 }
 .opcao input { width: auto; margin: 0; accent-color: var(--laranja); }
-.opcao:has(input:checked) { background: var(--laranja-claro); border-color: var(--laranja); color: #9a3412; }
+.opcao:has(input:checked) { background: var(--laranja-claro); border-color: var(--laranja); color: var(--laranja-escuro); }
 @media (min-width: 472px) { .entrada-pedreiro { max-width: 440px; margin-left: auto; margin-right: auto; } }
 .entrada-pedreiro .botao { margin-top: 8px; }
 
@@ -443,7 +480,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   max-width: calc(100% - 32px);
   padding: 12px 18px;
   border-radius: 999px;
-  background: #1f2933;
+  background: var(--aviso-fundo);
   color: #fff;
   font-weight: 600;
   font-size: 0.92rem;
@@ -516,9 +553,9 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 .linha-tempo span .icone { width: 16px; height: 16px; }
 .linha-tempo .feita { color: var(--verde); }
 .linha-tempo .feita span { background: var(--verde); border-color: var(--verde); color: #fff; }
-.linha-tempo .atual { color: var(--laranja); }
-.linha-tempo .atual span { border-color: var(--laranja); color: var(--laranja); box-shadow: 0 0 0 4px var(--laranja-claro); }
-.linha-tempo .recusada { color: #b91c1c; }
+.linha-tempo .atual { color: var(--laranja-texto); }
+.linha-tempo .atual span { border-color: var(--laranja-texto); color: var(--laranja-texto); box-shadow: 0 0 0 4px var(--laranja-claro); }
+.linha-tempo .recusada { color: var(--erro); }
 .linha-tempo .recusada span { background: #b91c1c; border-color: #b91c1c; color: #fff; }
 
 /* ---------- Página inicial (vitrine) ---------- */
@@ -552,7 +589,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 .vitrine .slogan { margin-bottom: 16px; }
 
 /* Campo de busca com o botão dentro, no estilo dos classificados */
-.busca-rapida { display: flex; background: #fff; border-radius: 999px; padding: 4px; }
+.busca-rapida { display: flex; background: var(--cartao); border-radius: 999px; padding: 4px; }
 .busca-rapida input { border: none; border-radius: 999px; background: transparent; }
 .busca-rapida input:focus { outline: none; }
 .busca-rapida button {
@@ -567,7 +604,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   cursor: pointer;
 }
 
-.titulo-secao { font-size: 1.1rem; color: var(--azul); margin: 22px 0 10px; }
+.titulo-secao { font-size: 1.1rem; color: var(--titulo); margin: 22px 0 10px; }
 
 .categorias { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .categoria {
@@ -593,7 +630,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   height: 44px;
   border-radius: 50%;
   background: var(--laranja-claro);
-  color: var(--laranja);
+  color: var(--laranja-texto);
 }
 .categoria span .icone { width: 22px; height: 22px; }
 
@@ -720,7 +757,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   margin-top: -18px;
   border: 1px solid var(--borda);
   border-radius: 50%;
-  background: #fff;
+  background: var(--cartao);
   color: var(--texto);
   place-items: center;
   cursor: pointer;

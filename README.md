@@ -26,6 +26,7 @@ que ele faz.
 | Área do pedreiro: o Carlos Pereira envia orçamento e marca a conclusão | A área do pedreiro entra sempre como o Carlos |
 | O contador de serviços confirmados sobe ao confirmar | As fotos das obras: ilustrativas, do Wikimedia Commons (ver `CREDITOS.md`) |
 | Instalação na tela inicial e abertura sem internet | — |
+| Visual de site no computador e de app no celular; modo escuro automático, conforme o tema do aparelho | — |
 
 **Não há banco de dados.** O andamento dos pedidos fica guardado no
 próprio navegador (localStorage). Cada celular tem a sua cópia, e nada é
@@ -88,6 +89,7 @@ css/estilo.css              todo o visual; as cores ficam no topo
 js/dados.js                 os pedreiros fictícios e os pedidos de exemplo
 js/estado.js                guarda e lê o andamento dos pedidos
 js/app.js                   funções usadas por várias telas
+js/icones.js                os ícones (Lucide), desenhados em SVG
 js/<tela>.js                o comportamento de cada tela
 manifest.json               nome, ícone e cores para instalar o app
 sw.js                       service worker: guarda os arquivos para uso offline
