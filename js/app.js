@@ -92,7 +92,7 @@ function exigirLogin() {
 /* O mesmo, para as telas da área do pedreiro. */
 function exigirPedreiro() {
   if (!souPedreiro()) {
-    window.location.replace("entrar.html");
+    window.location.replace("entrar.html?tipo=pedreiro");
   }
 }
 

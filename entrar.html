@@ -16,11 +16,11 @@
   <main class="entrada">
     <section class="entrada-topo">
       <p class="marca">Conecta<span>ES</span></p>
-      <p class="slogan">Entre para pedir orçamentos e acompanhar seus pedidos.</p>
+      <p class="slogan" id="slogan">Entre para pedir orçamentos e acompanhar seus pedidos.</p>
     </section>
 
     <form id="form-entrar" class="entrada-cartao">
-      <h1>Entrar</h1>
+      <h1 id="titulo-entrar">Entrar</h1>
       <p class="aviso" id="aviso-login" hidden>Para continuar, entre na sua conta ou cadastre-se.</p>
 
       <label for="email">E-mail</label>
@@ -31,14 +31,15 @@
 
       <button class="botao" type="submit">Entrar</button>
 
-      <p class="suave" style="text-align:center; margin-top:16px">
+      <p class="suave" id="linha-cadastro" style="text-align:center; margin-top:16px">
         Não tem conta? <a id="link-cadastro" href="cadastro.html">Cadastre-se</a>
       </p>
     </form>
 
+    <!-- Troca entre o login do cliente e o do pedreiro (entrar.html?tipo=pedreiro) -->
     <div class="entrada-pedreiro">
-      <p class="suave">É pedreiro? Receba pedidos de clientes da sua região.</p>
-      <button class="botao secundario" id="sou-pedreiro" type="button">Entrar como pedreiro</button>
+      <p class="suave" id="troca-texto">É pedreiro? Receba pedidos de clientes da sua região.</p>
+      <a class="botao secundario" id="troca-link" href="entrar.html?tipo=pedreiro">Entrar como pedreiro</a>
     </div>
 
     <a href="index.html" class="reiniciar">Continuar sem entrar</a>

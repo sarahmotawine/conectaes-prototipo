@@ -62,8 +62,9 @@ A área do pedreiro serve para mostrar o ciclo completo na apresentação.
 O teste com os participantes continua só com o lado do cliente.
 
 1. Abra o app em **duas abas** (ou duas janelas) do mesmo navegador.
-2. Na aba 2, toque em **Entrar → "Entrar como pedreiro"**. Ela
-   entra como o Carlos Pereira e mostra o painel dele.
+2. Na aba 2, toque em **Entrar → "Entrar como pedreiro"** e entre
+   com qualquer e-mail e senha. Ela entra como o Carlos Pereira e mostra
+   o painel dele.
 3. Na aba 1, como cliente, busque o Carlos (Piso ou Azulejo, Serra) e
    peça um orçamento.
 4. Na aba 2, o pedido aparece em "Precisam de resposta". Abra e envie o

@@ -1,6 +1,20 @@
-/* Tela de entrar.
-   Não há login de verdade: ao enviar o formulário, o app guarda o sinal
-   de "entrou" (ver estado.js) e volta para onde a pessoa estava. */
+/* Tela de entrar, do cliente ou do pedreiro (entrar.html?tipo=pedreiro).
+   Não há login de verdade: ao enviar o formulário, o app guarda quem
+   entrou (ver estado.js) e segue para a tela certa. */
+
+const modoPedreiro = parametro("tipo") === "pedreiro";
+
+/* No modo pedreiro, troca os textos. No protótipo, o pedreiro que
+   entra é sempre o Carlos Pereira (PEDREIRO_DEMO_ID). */
+if (modoPedreiro) {
+  document.title = "Entrar como pedreiro · ConectaES";
+  document.getElementById("slogan").textContent = "Receba pedidos, envie orçamentos e acompanhe seus serviços.";
+  document.getElementById("titulo-entrar").textContent = "Entrar como pedreiro";
+  document.getElementById("linha-cadastro").hidden = true;
+  document.getElementById("troca-texto").textContent = "Procura um pedreiro?";
+  document.getElementById("troca-link").textContent = "Entrar como cliente";
+  document.getElementById("troca-link").href = "entrar.html";
+}
 
 /* Veio de uma ação que exige login: mostra o aviso e repassa o
    destino para o cadastro, caso a pessoa prefira criar conta. */
@@ -10,14 +24,13 @@ if (parametro("voltar")) {
     "cadastro.html?voltar=" + encodeURIComponent(parametro("voltar"));
 }
 
-/* Área do pedreiro: no protótipo, entra sempre como o Carlos Pereira (PEDREIRO_DEMO_ID). */
-document.getElementById("sou-pedreiro").addEventListener("click", function () {
-  entrarNaConta("pedreiro");
-  window.location.href = "painel-pedreiro.html";
-});
-
 document.getElementById("form-entrar").addEventListener("submit", function (evento) {
   evento.preventDefault(); // impede o navegador de recarregar a página
-  entrarNaConta();
-  window.location.href = destinoDepoisDoLogin();
+  if (modoPedreiro) {
+    entrarNaConta("pedreiro");
+    window.location.href = "painel-pedreiro.html";
+  } else {
+    entrarNaConta("cliente");
+    window.location.href = destinoDepoisDoLogin();
+  }
 });
