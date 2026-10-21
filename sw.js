@@ -12,7 +12,7 @@
    Sem isso, quem já abriu o app continua vendo a versão antiga.
    ========================================================= */
 
-const VERSAO = "conectaes-v23";
+const VERSAO = "conectaes-v24";
 
 const ARQUIVOS = [
   "./",
@@ -49,6 +49,7 @@ const ARQUIVOS = [
   "manifest.json",
   "icones/icone-192.png",
   "icones/icone-512.png",
+  "icones/icone-maskable-512.png",
   "img/obras/acabamento-quarto.jpg",
   "img/obras/ampliacao-quarto.jpg",
   "img/obras/backsplash.jpg",

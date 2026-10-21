@@ -17,10 +17,10 @@ if (!pedreiro) {
   /* Fotos das obras, com a legenda por cima. As fotos são ilustrativas,
      tiradas do Wikimedia Commons; os créditos estão em CREDITOS.md. */
   const obras = pedreiro.obras.map(function (obra, i) {
-    return '<figure class="obra" data-indice="' + i + '" role="button" tabindex="0" aria-label="Ampliar foto: ' + obra.titulo + '">' +
-             '<img src="img/obras/' + obra.foto + '.jpg" alt="' + obra.titulo + '" loading="lazy">' +
-             "<figcaption>" + obra.titulo + "</figcaption>" +
-           "</figure>";
+    return '<button type="button" class="obra" data-indice="' + i + '" aria-label="Ampliar foto: ' + obra.titulo + '">' +
+             '<img src="img/obras/' + obra.foto + '.jpg" alt="" loading="lazy">' +
+             '<span class="legenda">' + obra.titulo + "</span>" +
+           "</button>";
   }).join("");
 
   const comentarios = pedreiro.comentarios.map(function (c) {
@@ -95,7 +95,6 @@ function ativarAmpliacao(obras) {
 
   document.querySelectorAll(".obra").forEach(function (fig) {
     fig.addEventListener("click", function () { abrir(Number(fig.dataset.indice)); });
-    fig.addEventListener("keydown", function (e) { if (e.key === "Enter") abrir(Number(fig.dataset.indice)); });
   });
   tela.querySelector(".ampliacao-fechar").addEventListener("click", fechar);
   tela.querySelector(".esquerda").addEventListener("click", function () { mostrarFoto(atual - 1); });

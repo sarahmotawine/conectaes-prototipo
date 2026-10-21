@@ -205,7 +205,13 @@ textarea { min-height: 110px; resize: vertical; }
 /* Foto da obra com a legenda numa faixa escura por cima */
 .obra {
   position: relative;
+  display: block;
+  width: 100%;
   margin: 0;
+  padding: 0;
+  border: none;
+  font: inherit;
+  text-align: left;
   aspect-ratio: 4 / 3;
   border-radius: 10px;
   overflow: hidden;
@@ -245,7 +251,7 @@ textarea { min-height: 110px; resize: vertical; }
 .ampliacao-seta.esquerda { left: 12px; }
 .ampliacao-seta.direita { right: 12px; }
 .ampliacao figure { width: 100%; max-width: 640px; }
-.obra figcaption {
+.obra .legenda {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   padding: 16px 8px 6px;
@@ -721,7 +727,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   text-decoration: none;
   white-space: nowrap;
 }
-.slide-azul .slide-botao    { background: #f97316; color: #fff; }
+.slide-azul .slide-botao    { background: var(--laranja); color: #fff; }
 .slide-laranja .slide-botao { background: var(--azul); color: #fff; }
 .slide-verde .slide-botao   { background: #fff; color: #166534; }
 
@@ -754,16 +760,25 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   justify-content: center;
   gap: 6px;
 }
+.pontos { bottom: 0; gap: 0; }
 .pontos button {
-  width: 22px;
-  height: 4px;
+  width: 48px;
+  height: 32px;                     /* área de toque bem maior que o traço */
   padding: 0;
   border: none;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.45);
+  background: none;
   cursor: pointer;
 }
-.pontos button.ativo { width: 34px; background: #fff; }
+.pontos button::before {            /* o traço que aparece */
+  content: "";
+  display: block;
+  height: 4px;
+  margin: 0 12px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.45);
+}
+.pontos button.ativo::before { margin: 0 6px; }
+.pontos button.ativo::before { background: #fff; }
 
 /* Setas: só aparecem em telas largas; no celular, arrasta-se com o dedo */
 .seta {
