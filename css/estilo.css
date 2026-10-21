@@ -616,12 +616,13 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 .vitrine::after {
   content: "";
   display: block;
-  height: 150px;
+  height: 170px;
   margin: 18px -16px -28px;
-  background: linear-gradient(rgba(30, 58, 95, 0.15), rgba(30, 58, 95, 0.15)),
-              url("../img/convento-da-penha.jpg") center 35% / cover;
-  -webkit-mask-image: linear-gradient(transparent, #000 45%);
-  mask-image: linear-gradient(transparent, #000 45%);
+  /* o mesmo Convento recortado (sem céu) do computador, centralizado */
+  background: url("../img/convento-recortado.webp") center bottom / auto 100% no-repeat;
+  /* as árvores somem aos poucos nas laterais */
+  -webkit-mask-image: linear-gradient(90deg, transparent 6%, #000 24%, #000 76%, transparent 94%);
+  mask-image: linear-gradient(90deg, transparent 6%, #000 24%, #000 76%, transparent 94%);
 }
 .vitrine > * { max-width: 528px; margin-left: auto; margin-right: auto; }
 .vitrine h1 { font-size: 1.45rem; line-height: 1.25; margin-top: 0; margin-bottom: 4px; }
