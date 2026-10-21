@@ -112,6 +112,7 @@ function mostrar() {
   }).join("");
 
   area.innerHTML =
+    linhaDoTempo(pedido.status) +
     '<a class="cartao linha" href="perfil.html?id=' + pedreiro.id + '">' +
       '<div class="avatar">' + pedreiro.iniciais + "</div>" +
       '<div><p class="nome">' + pedreiro.nome + "</p>" +

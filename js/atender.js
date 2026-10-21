@@ -116,6 +116,7 @@ function mostrar() {
   }).join("");
 
   area.innerHTML =
+    linhaDoTempo(pedido.status) +
     '<div class="cartao">' +
       '<p class="nome">' + escaparHTML(nomeCliente) + "</p>" +
       (pedido.bairro ? '<p class="suave com-icone">' + icone("local") + escaparHTML(pedido.bairro) + "</p>" : "") +

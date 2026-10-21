@@ -62,6 +62,26 @@ function descreverStatus(status) {
   return tabela[status];
 }
 
+/* Linha do tempo do pedido, mostrada no topo do pedido (cliente e pedreiro).
+   Cada situação diz quantas etapas já terminaram; a seguinte é a atual.
+   "Confirmação" só termina quando o cliente confirma o que o pedreiro
+   marcou como concluído: é o diferencial da proposta. */
+function linhaDoTempo(status) {
+  const etapas = ["Pedido", "Orçamento", "Em obra", "Confirmação", "Avaliação"];
+  const feitas = {
+    aguardando: 1, orcamento: 1, recusado: 1, aceito: 2,
+    concluido_pelo_pedreiro: 3, confirmado: 4, avaliado: 5
+  }[status];
+
+  return '<ol class="linha-tempo">' + etapas.map(function (nome, i) {
+    let classe = "";
+    if (i < feitas) classe = "feita";
+    else if (i === feitas) classe = status === "recusado" ? "recusada" : "atual";
+    const marca = classe === "feita" ? icone("ok") : classe === "recusada" ? icone("fechar") : i + 1;
+    return '<li class="' + classe + '"><span>' + marca + "</span>" + nome + "</li>";
+  }).join("") + "</ol>";
+}
+
 /* O mesmo, do ponto de vista do pedreiro (área do pedreiro). */
 function descreverStatusPedreiro(status) {
   const tabela = {
