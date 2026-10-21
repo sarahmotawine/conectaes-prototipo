@@ -49,12 +49,7 @@ function caixaOrcamento(titulo) {
 function acoes(pedreiro) {
   switch (pedido.status) {
     case "aguardando":
-      return '<div class="aviso">Pedido enviado. Aguardando o orçamento de ' + pedreiro.nome + "…" +
-             (pedreiro.id === PEDREIRO_DEMO_ID
-               ? '<br><small>Na demonstração, responda em outra aba, pela área do pedreiro ' +
-                 '(tela de entrar → "Sou pedreiro").</small>'
-               : "") +
-             "</div>";
+      return '<div class="aviso">Pedido enviado. Aguardando o orçamento de ' + pedreiro.nome + "…</div>";
 
     case "orcamento":
       return caixaOrcamento("Orçamento recebido") +

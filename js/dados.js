@@ -136,7 +136,7 @@ const PEDREIROS = [
   }
 ];
 
-/* Pedreiro usado na área do pedreiro (botão "Sou pedreiro" na tela de
+/* Pedreiro usado na área do pedreiro (botão "Entrar como pedreiro" na tela de
    entrar). Os pedidos feitos a ele não recebem orçamento automático:
    quem responde é a pessoa que estiver usando a área do pedreiro. */
 const PEDREIRO_DEMO_ID = 3; // Carlos Pereira
