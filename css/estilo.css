@@ -867,7 +867,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   .vitrine {
     position: relative;
     overflow: hidden;
-    padding: 56px var(--margem) 64px;
+    padding: 110px var(--margem) 120px;     /* topo mais alto, para a foto aparecer maior */
     background: var(--azul);
   }
   .vitrine::after {
@@ -876,14 +876,15 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
     margin: 0;
     position: absolute;
     top: 0;
-    right: max(0px, calc(var(--margem) - 170px)); /* um pouco além do fim do menu */
+    right: 0;                               /* vai até a borda direita da tela */
     bottom: 0;
-    aspect-ratio: 1100 / 509;               /* proporção da foto */
-    background: linear-gradient(rgba(30, 58, 95, 0.35), rgba(30, 58, 95, 0.35)),
+    aspect-ratio: 1000 / 508;               /* proporção da foto */
+    /* o céu da foto escurece até o azul do app no alto, sem linha */
+    background: linear-gradient(rgb(30, 58, 95) 0%, rgba(30, 58, 95, 0.5) 30%, rgba(30, 58, 95, 0.25) 70%),
                 url("../img/convento-da-penha.jpg") center / cover;
-    /* some aos poucos na esquerda e, quando há espaço, também na direita */
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%, #000 88%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 45%, #000 88%, transparent);
+    /* e some aos poucos para a esquerda, deixando azul livre perto da busca */
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 35%);
+    mask-image: linear-gradient(90deg, transparent, #000 35%);
   }
   .vitrine > * { position: relative; z-index: 1; }
   .vitrine > * { max-width: 640px; margin-left: 0; }
