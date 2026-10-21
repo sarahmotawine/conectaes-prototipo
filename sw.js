@@ -2,15 +2,17 @@
    Service worker: roda em segundo plano no navegador.
 
    Na primeira visita, guarda uma cópia de todos os arquivos do
-   app (o "cache"). Nas visitas seguintes, entrega os arquivos
-   dessa cópia, por isso o app abre mesmo sem internet.
+   app (o "cache"). Depois, cada arquivo é buscado primeiro na
+   internet, para mostrar sempre a versão mais nova, e a cópia é
+   atualizada. Sem internet, entrega a cópia guardada; por isso o
+   app abre mesmo no modo avião.
 
    IMPORTANTE: ao alterar qualquer arquivo e publicar de novo,
    aumente a VERSAO abaixo (v1 para v2, e assim por diante).
    Sem isso, quem já abriu o app continua vendo a versão antiga.
    ========================================================= */
 
-const VERSAO = "conectaes-v8";
+const VERSAO = "conectaes-v9";
 
 const ARQUIVOS = [
   "./",
@@ -65,10 +67,18 @@ const ARQUIVOS = [
   "img/obras/varanda.jpg"
 ];
 
-/* Instalação: guarda todos os arquivos no cache. */
+/* Instalação: guarda todos os arquivos no cache.
+   cache: "reload" obriga a baixar do site de novo. Sem isso, o
+   navegador pode entregar uma cópia antiga que ele mesmo guardou
+   (o GitHub Pages manda guardar por 10 minutos), e a versão nova
+   do app ficaria com arquivos velhos. */
 self.addEventListener("install", function (evento) {
   evento.waitUntil(
-    caches.open(VERSAO).then(function (cache) { return cache.addAll(ARQUIVOS); })
+    caches.open(VERSAO).then(function (cache) {
+      return cache.addAll(ARQUIVOS.map(function (arquivo) {
+        return new Request(arquivo, { cache: "reload" });
+      }));
+    })
   );
   self.skipWaiting();
 });
@@ -86,12 +96,24 @@ self.addEventListener("activate", function (evento) {
   self.clients.claim();
 });
 
-/* Cada pedido de arquivo: tenta o cache primeiro, depois a internet.
+/* Cada pedido de arquivo: tenta a internet primeiro e atualiza a
+   cópia; se não houver internet, usa a cópia guardada.
    "ignoreSearch" faz perfil.html?id=3 usar a cópia de perfil.html. */
 self.addEventListener("fetch", function (evento) {
+  if (evento.request.method !== "GET") return;
+
   evento.respondWith(
-    caches.match(evento.request, { ignoreSearch: true }).then(function (resposta) {
-      return resposta || fetch(evento.request);
+    fetch(evento.request, { cache: "no-cache" }).then(function (resposta) {
+      if (resposta.ok) {
+        const url = new URL(evento.request.url);
+        const copia = resposta.clone();
+        caches.open(VERSAO).then(function (cache) {
+          cache.put(url.origin + url.pathname, copia);
+        });
+      }
+      return resposta;
+    }).catch(function () {
+      return caches.match(evento.request, { ignoreSearch: true });
     })
   );
 });
