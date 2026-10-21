@@ -605,8 +605,9 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 .vitrine {
   padding: 20px 16px 28px;
   color: #fff;
-  background: linear-gradient(rgba(30, 58, 95, 0.9), rgba(30, 58, 95, 0.97)),
-              url("../img/obras/reboco-fachada.jpg") center / cover;
+  /* Convento da Penha (Vila Velha) ao fundo, coberto de azul */
+  background: linear-gradient(rgba(30, 58, 95, 0.82), rgba(30, 58, 95, 0.94)),
+              url("../img/convento-da-penha.jpg") center 60% / cover;
 }
 .vitrine > * { max-width: 528px; margin-left: auto; margin-right: auto; }
 .vitrine h1 { font-size: 1.45rem; line-height: 1.25; margin-top: 0; margin-bottom: 4px; }
@@ -850,7 +851,13 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   .conteudo.medio { max-width: 820px; }
 
   /* Página inicial */
-  .vitrine { padding: 56px var(--margem) 64px; }
+  .vitrine {
+    padding: 56px var(--margem) 64px;
+    /* No computador, o Convento fica à direita e o texto sobre o azul liso */
+    background: linear-gradient(90deg, rgb(30, 58, 95) 45%, rgba(30, 58, 95, 0.55) 75%, rgba(30, 58, 95, 0.7)),
+                url("../img/convento-da-penha.jpg") right 45% / 60% auto no-repeat,
+                var(--azul);
+  }
   .vitrine > * { max-width: 640px; margin-left: 0; }
   .vitrine h1 { font-size: 2.3rem; }
   .vitrine .slogan { font-size: 1.2rem; }

@@ -50,6 +50,13 @@ licença do original.
 | `piso-sala-jantar.jpg` | Piso da sala de jantar | Shixart1985 | CC BY 2.0 | [Modern dining area with stylish table and chairs in cozy interior design.jpg](https://commons.wikimedia.org/wiki/File:Modern_dining_area_with_stylish_table_and_chairs_in_cozy_interior_design.jpg) |
 | `quarto-construido.jpg` | Quarto construído | Shixart1985 | CC BY 2.0 | [Cozy bedroom with two beds window and wall art in a simple setting.jpg](https://commons.wikimedia.org/wiki/File:Cozy_bedroom_with_two_beds_window_and_wall_art_in_a_simple_setting.jpg) |
 
+# Fundo da página inicial
+
+`img/convento-da-penha.jpg`: *Vista do Convento da Penha do Morro do Moreno*,
+de Aandradevix, CC BY-SA 4.0
+([original](https://commons.wikimedia.org/wiki/File:Vista_do_Convento_da_Penha_do_Morro_do_Moreno.jpg)). Reduzida para 1600 pixels de largura e
+coberta por uma camada azul no app. Segue sob a mesma licença.
+
 # Ícones
 
 Os ícones (`js/icones.js`) são do [Lucide](https://lucide.dev),
