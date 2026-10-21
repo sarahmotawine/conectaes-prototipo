@@ -30,7 +30,7 @@ licença do original.
 | `banheiro-social.jpg` | Banheiro social | Shixart1985 | CC BY 2.0 | [Modern bathroom with wooden and glass parts.jpg](https://commons.wikimedia.org/wiki/File:Modern_bathroom_with_wooden_and_glass_parts.jpg) |
 | `varanda.jpg` | Varanda | 邱鈺鋒 | CC BY-SA 4.0 | [Chiang A Hsin Masion's Kurumayose By Kuyohong.jpg](https://commons.wikimedia.org/wiki/File:Chiang_A_Hsin_Masion%27s_Kurumayose_By_Kuyohong.jpg) |
 | `cozinha.jpg` | Cozinha | Shixart1985 | CC BY 2.0 | [Modern kitchen and dining area with stylish furnishings and natural light in a contemporary home setting.jpg](https://commons.wikimedia.org/wiki/File:Modern_kitchen_and_dining_area_with_stylish_furnishings_and_natural_light_in_a_contemporary_home_setting.jpg) |
-| `troca-telhas.jpg` | Troca de telhas | Arivumathi | CC BY-SA 4.0 | ["Clay tile roof close up shot.jpg](https://commons.wikimedia.org/wiki/File:%22Clay_tile_roof_close_up_shot.jpg) |
+| `troca-telhas.jpg` | Troca de telhas | Friedrich Haag | CC BY-SA 4.0 | [Unfertige Dinge 003 2022 10 26.jpg](https://commons.wikimedia.org/wiki/File:Unfertige_Dinge_003_2022_10_26.jpg) |
 | `calha.jpg` | Calha nova | Jeremy from Sydney, Australia | CC BY 2.0 | [Rain gutter and drain pipe (25921162725).jpg](https://commons.wikimedia.org/wiki/File:Rain_gutter_and_drain_pipe_(25921162725).jpg) |
 | `telhado-novo.jpg` | Telhado novo | High Contrast | CC BY 3.0 de | [Ceramic tile roof in Germany, 2012.JPG](https://commons.wikimedia.org/wiki/File:Ceramic_tile_roof_in_Germany,_2012.JPG) |
 | `forro.jpg` | Forro | Zekeriyya güneş GNSdekor® | CC BY-SA 4.0 | [Kartonpiyer alçı ile yapılan tavan çıta uygulaması.jpg](https://commons.wikimedia.org/wiki/File:Kartonpiyer_al%C3%A7%C4%B1_ile_yap%C4%B1lan_tavan_%C3%A7%C4%B1ta_uygulamas%C4%B1.jpg) |
@@ -41,7 +41,14 @@ licença do original.
 | `lavabo.jpg` | Lavabo | Shixart1985 | CC BY 2.0 | [Modern bathroom design with wooden accents and glass shower enclosure.jpg](https://commons.wikimedia.org/wiki/File:Modern_bathroom_design_with_wooden_accents_and_glass_shower_enclosure.jpg) |
 | `backsplash.jpg` | Backsplash da cozinha | Capdevielle | CC BY-SA 3.0 | [Kitchen backsplash tile.jpeg](https://commons.wikimedia.org/wiki/File:Kitchen_backsplash_tile.jpeg) |
 | `banheiro.jpg` | Banheiro | Wolfmann | CC BY-SA 4.0 | [Bathroom in hotel in Bergen, Norway. 2016-03-16. Hand wash basin sink, mirror, toilet, shower cabinet, etc. Also wall and floor tiles.jpg](https://commons.wikimedia.org/wiki/File:Bathroom_in_hotel_in_Bergen,_Norway._2016-03-16._Hand_wash_basin_sink,_mirror,_toilet,_shower_cabinet,_etc._Also_wall_and_floor_tiles.jpg) |
-| `rodape.jpg` | Rodapé | Filarek02 | CC0 | [Cokolik 05.jpg](https://commons.wikimedia.org/wiki/File:Cokolik_05.jpg) |
+| `parede-revestida.jpg` | Parede revestida | Shixart1985 | CC BY 2.0 | [Modern bedroom design in a stylish hotel room featuring geometric patterns and soft linens.jpg](https://commons.wikimedia.org/wiki/File:Modern_bedroom_design_in_a_stylish_hotel_room_featuring_geometric_patterns_and_soft_linens.jpg) |
+| `casas-geminadas.jpg` | Casas geminadas | Love Krittaya | Public domain | [Under construction Thai modern houses.jpg](https://commons.wikimedia.org/wiki/File:Under_construction_Thai_modern_houses.jpg) |
+| `piso-quarto.jpg` | Piso do quarto | Shixart1985 | CC BY 2.0 | [Modern bedroom design with wooden mountain headboard in cozy space.jpg](https://commons.wikimedia.org/wiki/File:Modern_bedroom_design_with_wooden_mountain_headboard_in_cozy_space.jpg) |
+| `cozinha-revestida.jpg` | Cozinha revestida | Shixart1985 | CC BY 2.0 | [This cozy kitchen showcases modern design elements.jpg](https://commons.wikimedia.org/wiki/File:This_cozy_kitchen_showcases_modern_design_elements.jpg) |
+| `telhado-ceramica.jpg` | Telhado de cerâmica | Chenspec | CC BY-SA 4.0 | [Roof tiles in Ramat Gan 01.jpg](https://commons.wikimedia.org/wiki/File:Roof_tiles_in_Ramat_Gan_01.jpg) |
+| `pintura-quarto.jpg` | Pintura de quarto | Shixart1985 | CC BY 2.0 | [Cozy bedroom with a large bed and simple decor in a modern home.jpg](https://commons.wikimedia.org/wiki/File:Cozy_bedroom_with_a_large_bed_and_simple_decor_in_a_modern_home.jpg) |
+| `piso-sala-jantar.jpg` | Piso da sala de jantar | Shixart1985 | CC BY 2.0 | [Modern dining area with stylish table and chairs in cozy interior design.jpg](https://commons.wikimedia.org/wiki/File:Modern_dining_area_with_stylish_table_and_chairs_in_cozy_interior_design.jpg) |
+| `quarto-construido.jpg` | Quarto construído | Shixart1985 | CC BY 2.0 | [Cozy bedroom with two beds window and wall art in a simple setting.jpg](https://commons.wikimedia.org/wiki/File:Cozy_bedroom_with_two_beds_window_and_wall_art_in_a_simple_setting.jpg) |
 
 # Ícones
 

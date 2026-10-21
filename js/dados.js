@@ -25,7 +25,9 @@ const PEDREIROS = [
     comentarios: [
       { autor: "Mariana", nota: 5, texto: "Caprichoso e cumpriu o prazo combinado." },
       { autor: "Ricardo", nota: 5, texto: "Deixou tudo limpo. Recomendo." },
-      { autor: "Fernanda", nota: 4, texto: "Bom serviço, atrasou um dia por causa da chuva." }
+      { autor: "Fernanda", nota: 4, texto: "Bom serviço, atrasou um dia por causa da chuva." },
+      { autor: "Bruno", nota: 5, texto: "Assentou o porcelanato da cozinha sem nenhuma peça torta." },
+      { autor: "Simone", nota: 5, texto: "Passou o orçamento certinho e não cobrou nada a mais." }
     ]
   },
   {
@@ -47,7 +49,10 @@ const PEDREIROS = [
     ],
     comentarios: [
       { autor: "Paula", nota: 5, texto: "Muito experiente, explicou cada etapa." },
-      { autor: "Sérgio", nota: 4, texto: "Serviço bom, valor um pouco acima dos outros." }
+      { autor: "Sérgio", nota: 4, texto: "Serviço bom, valor um pouco acima dos outros." },
+      { autor: "Rogério", nota: 5, texto: "Levantou o muro em três dias, como combinou." },
+      { autor: "Aline", nota: 4, texto: "Trabalho firme. Só demorou um pouco para responder." },
+      { autor: "Marcelo", nota: 5, texto: "Já é a segunda obra que faço com ele." }
     ]
   },
   {
@@ -68,7 +73,9 @@ const PEDREIROS = [
       { titulo: "Cozinha", foto: "cozinha" }
     ],
     comentarios: [
-      { autor: "Luciana", nota: 5, texto: "Acabamento perfeito, nenhum desnível." }
+      { autor: "Luciana", nota: 5, texto: "Acabamento perfeito, nenhum desnível." },
+      { autor: "Patrícia", nota: 5, texto: "Muito cuidadoso com o rejunte. O banheiro ficou lindo." },
+      { autor: "Gustavo", nota: 5, texto: "Pontual e educado. Recomendo de olhos fechados." }
     ]
   },
   {
@@ -89,7 +96,9 @@ const PEDREIROS = [
       { titulo: "Forro", foto: "forro" }
     ],
     comentarios: [
-      { autor: "Débora", nota: 4, texto: "Resolveu a goteira que ninguém achava." }
+      { autor: "Débora", nota: 4, texto: "Resolveu a goteira que ninguém achava." },
+      { autor: "Vinícius", nota: 4, texto: "Trocou as telhas quebradas rápido, antes da chuva." },
+      { autor: "Eliane", nota: 5, texto: "Limpou a calha e ainda arrumou o forro do banheiro." }
     ]
   },
   {
@@ -110,7 +119,9 @@ const PEDREIROS = [
       { titulo: "Acabamento de quarto", foto: "acabamento-quarto" }
     ],
     comentarios: [
-      { autor: "Thiago", nota: 5, texto: "Organizado e honesto no orçamento." }
+      { autor: "Thiago", nota: 5, texto: "Organizado e honesto no orçamento." },
+      { autor: "Renata", nota: 5, texto: "Fez a escada e o acabamento da sala. Ficou impecável." },
+      { autor: "Leandro", nota: 4, texto: "Bom serviço. Precisei lembrar de um detalhe no fim." }
     ]
   },
   {
@@ -128,10 +139,132 @@ const PEDREIROS = [
       { titulo: "Lavabo", foto: "lavabo" },
       { titulo: "Backsplash da cozinha", foto: "backsplash" },
       { titulo: "Banheiro", foto: "banheiro" },
-      { titulo: "Rodapé", foto: "rodape" }
+      { titulo: "Parede revestida", foto: "parede-revestida" }
     ],
     comentarios: [
-      { autor: "Camila", nota: 5, texto: "Novo na plataforma, mas fez um ótimo trabalho." }
+      { autor: "Camila", nota: 5, texto: "Novo na plataforma, mas fez um ótimo trabalho." },
+      { autor: "Jorge", nota: 4, texto: "Caprichou no lavabo. Atrasou meio dia." }
+    ]
+  },
+  {
+    id: 7,
+    nome: "Fábio Nascimento",
+    iniciais: "FN",
+    cidade: "Viana",
+    especialidades: ["Alvenaria", "Reboco"],
+    anos: 15,
+    nota: 4.6,
+    avaliacoes: 17,
+    confirmados: 22,
+    sobre: "Construo do alicerce ao reboco. Trabalho com dois ajudantes em obras maiores.",
+    obras: [
+      { titulo: "Casas geminadas", foto: "casas-geminadas" },
+      { titulo: "Laje da garagem", foto: "laje" }
+    ],
+    comentarios: [
+      { autor: "Cláudia", nota: 5, texto: "Construiu a casa dos fundos inteira. Tudo no prumo." },
+      { autor: "Anderson", nota: 4, texto: "Bom pedreiro, mas a obra atrasou uma semana." },
+      { autor: "Rita", nota: 5, texto: "Explicou o material que eu precisava comprar. Economizei." }
+    ]
+  },
+  {
+    id: 8,
+    nome: "Ricardo Souza",
+    iniciais: "RS",
+    cidade: "Guarapari",
+    especialidades: ["Azulejo", "Piso"],
+    anos: 9,
+    nota: 4.7,
+    avaliacoes: 11,
+    confirmados: 14,
+    sobre: "Assento piso, azulejo e porcelanato. Atendo Guarapari e região.",
+    obras: [
+      { titulo: "Piso do quarto", foto: "piso-quarto" },
+      { titulo: "Cozinha revestida", foto: "cozinha-revestida" }
+    ],
+    comentarios: [
+      { autor: "Juliana", nota: 5, texto: "O piso do quarto ficou perfeito, sem nenhum desnível." },
+      { autor: "Márcio", nota: 4, texto: "Trabalho bom, só achei o preço um pouco alto." }
+    ]
+  },
+  {
+    id: 9,
+    nome: "Edson Rocha",
+    iniciais: "ER",
+    cidade: "Fundão",
+    especialidades: ["Telhado", "Pequenos reparos"],
+    anos: 18,
+    nota: 4.4,
+    avaliacoes: 9,
+    confirmados: 12,
+    sobre: "Telhado novo, troca de telhas e consertos em geral. Vou até a obra para orçar.",
+    obras: [
+      { titulo: "Telhado de cerâmica", foto: "telhado-ceramica" },
+      { titulo: "Calha e rufo", foto: "calha" }
+    ],
+    comentarios: [
+      { autor: "Sandra", nota: 5, texto: "Acabou com as goteiras da casa toda." },
+      { autor: "Paulo", nota: 4, texto: "Serviço bom, mas precisei ligar para confirmar o dia." }
+    ]
+  },
+  {
+    id: 10,
+    nome: "Wagner Lima",
+    iniciais: "WL",
+    cidade: "Cariacica",
+    especialidades: ["Acabamento", "Pequenos reparos"],
+    anos: 6,
+    nota: 4.8,
+    avaliacoes: 8,
+    confirmados: 9,
+    sobre: "Pintura, massa corrida, gesso e pequenos consertos.",
+    obras: [
+      { titulo: "Pintura de quarto", foto: "pintura-quarto" },
+      { titulo: "Forro de gesso", foto: "forro" }
+    ],
+    comentarios: [
+      { autor: "Larissa", nota: 5, texto: "Pintou o quarto do meu filho em um dia e deixou tudo limpo." },
+      { autor: "Fernando", nota: 5, texto: "Consertou a porta e a pia na mesma visita." }
+    ]
+  },
+  {
+    id: 11,
+    nome: "Diego Martins",
+    iniciais: "DM",
+    cidade: "Vitória",
+    especialidades: ["Piso", "Acabamento"],
+    anos: 4,
+    nota: 5.0,
+    avaliacoes: 3,
+    confirmados: 3,
+    sobre: "Comecei há pouco na plataforma. Faço piso laminado, vinílico e porcelanato.",
+    obras: [
+      { titulo: "Piso da sala de jantar", foto: "piso-sala-jantar" },
+      { titulo: "Acabamento de quarto", foto: "acabamento-quarto" }
+    ],
+    comentarios: [
+      { autor: "Beatriz", nota: 5, texto: "Jovem, mas muito caprichoso. Gostei bastante." }
+    ]
+  },
+  {
+    id: 12,
+    nome: "Sebastião Costa",
+    iniciais: "SC",
+    cidade: "Serra",
+    especialidades: ["Alvenaria", "Telhado"],
+    anos: 25,
+    nota: 4.7,
+    avaliacoes: 48,
+    confirmados: 61,
+    sobre: "25 anos de obra. Faço ampliação, telhado e reforma completa.",
+    obras: [
+      { titulo: "Quarto construído", foto: "quarto-construido" },
+      { titulo: "Telhado novo", foto: "telhado-novo" }
+    ],
+    comentarios: [
+      { autor: "Edna", nota: 5, texto: "Fez o quarto e o telhado novo. Trabalho de primeira." },
+      { autor: "Cristiano", nota: 5, texto: "O mais experiente que já contratei." },
+      { autor: "Mônica", nota: 4, texto: "Ótimo serviço. É bom marcar com antecedência." }
     ]
   }
 ];

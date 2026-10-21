@@ -33,8 +33,12 @@ document.getElementById("categorias").innerHTML = especialidades.map(function (e
 }).join("") +
   '<a class="categoria" href="busca.html"><span>' + icone("todos") + "</span>Ver todos</a>";
 
-/* Destaques: os quatro de nota mais alta, com a foto da primeira obra. */
-const destaques = PEDREIROS.slice().sort(function (a, b) {
+/* Destaques: os quatro de nota mais alta, com a foto da primeira obra.
+   Só entra quem tem pelo menos 10 avaliações: uma nota 5,0 com três
+   avaliações diz menos que uma 4,8 com vinte. */
+const destaques = PEDREIROS.filter(function (p) {
+  return estatisticas(p).avaliacoes >= 10;
+}).sort(function (a, b) {
   return estatisticas(b).nota - estatisticas(a).nota;
 }).slice(0, 4);
 
