@@ -143,7 +143,14 @@ textarea { min-height: 110px; resize: vertical; }
 .rodape-fixo .botao { max-width: 528px; margin: 0 auto; }
 
 /* ---------- Perfil ---------- */
-.perfil-topo { text-align: center; padding: 8px 0 4px; }
+/* Capa do perfil: foto de obra de ponta a ponta, com a bolinha por cima */
+.perfil-capa {
+  height: 150px;
+  margin: -16px -16px 0;
+  background: var(--azul) center / cover;
+}
+.perfil-topo { text-align: center; padding: 0 0 4px; }
+.perfil-topo .avatar.grande { position: relative; margin-top: -44px; border: 4px solid var(--fundo); }
 .perfil-topo h2 { margin: 10px 0 2px; }
 .etiquetas { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 8px 0; }
 .etiqueta {
@@ -167,7 +174,40 @@ textarea { min-height: 110px; resize: vertical; }
   overflow: hidden;
   background: #e9edf2; /* aparece enquanto a foto carrega */
 }
-.obra img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.obra img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.25s; }
+.obra { cursor: zoom-in; }
+.obra:hover img { transform: scale(1.04); }
+
+/* Foto ampliada em tela cheia */
+.ampliacao {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(10, 15, 25, 0.92);
+}
+.ampliacao[hidden] { display: none; }
+.ampliacao figure { margin: 0; text-align: center; color: #fff; }
+.ampliacao img { width: 100%; max-width: 640px; border-radius: 12px; }
+.ampliacao figcaption { margin-top: 10px; font-weight: 600; }
+.ampliacao button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  cursor: pointer;
+}
+.ampliacao-fechar { position: absolute; top: 16px; right: 16px; }
+.ampliacao-seta { position: absolute; top: 50%; margin-top: -22px; z-index: 1; background: rgba(0, 0, 0, 0.55) !important; }
+.ampliacao-seta.esquerda { left: 12px; }
+.ampliacao-seta.direita { right: 12px; }
+.ampliacao figure { width: 100%; max-width: 640px; }
 .obra figcaption {
   position: absolute;
   left: 0; right: 0; bottom: 0;
@@ -730,4 +770,5 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 
   /* Perfil: obras em quatro colunas */
   .obras { grid-template-columns: repeat(4, 1fr); }
+  .perfil-capa { height: 220px; margin: -24px 0 0; border-radius: 0 0 18px 18px; }
 }
