@@ -619,21 +619,8 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 .vitrine {
   padding: 20px 16px 28px;
   color: #fff;
-  /* Azul com leve degradê; o Convento da Penha entra numa faixa abaixo da busca */
+  /* Azul com leve degradê, sem imagem */
   background: linear-gradient(160deg, #24466f, var(--azul) 70%);
-}
-/* No celular: faixa com o Convento embaixo da busca, surgindo do azul.
-   No computador, a mesma foto vai para a direita (ver bloco do computador). */
-.vitrine::after {
-  content: "";
-  display: block;
-  height: 170px;
-  margin: 18px -16px -28px;
-  /* o mesmo Convento recortado (sem céu) do computador, centralizado */
-  background: url("../img/convento-recortado.webp") center bottom / auto 100% no-repeat;
-  /* as árvores somem aos poucos nas laterais */
-  -webkit-mask-image: linear-gradient(90deg, transparent 6%, #000 24%, #000 76%, transparent 94%);
-  mask-image: linear-gradient(90deg, transparent 6%, #000 24%, #000 76%, transparent 94%);
 }
 .vitrine > * { max-width: 528px; margin-left: auto; margin-right: auto; }
 .vitrine h1 { font-size: 1.45rem; line-height: 1.25; margin-top: 0; margin-bottom: 4px; }
@@ -877,32 +864,12 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   .conteudo.medio { max-width: 960px; }
 
   /* Página inicial */
-  /* No computador, o Convento fica à direita, inteiro, e vai sumindo no
-     azul para a esquerda; o texto fica sobre o azul liso. */
+  /* No computador, só o azul, com título e busca centralizados */
   .vitrine {
-    position: relative;
-    overflow: hidden;
-    padding: 96px var(--margem) 110px;
-    background: var(--azul);
+    padding: 72px var(--margem) 80px;
+    text-align: center;
   }
-  /* Convento recortado (sem céu), dentro da faixa do conteúdo,
-     alinhado com o fim do menu, como a pessoa no topo do GetNinjas */
-  .vitrine::after {
-    content: "";
-    height: 84%;
-    max-width: calc(100% - var(--margem) - 560px - 10px); /* nunca passa por baixo da busca */
-    margin: 0;
-    position: absolute;
-    right: max(0px, calc(var(--margem) + 10px)); /* alinhado com o fim do menu */
-    bottom: 0;
-    aspect-ratio: 1000 / 522;
-    background: url("../img/convento-recortado.webp") right bottom / contain no-repeat;
-    /* as árvores somem aos poucos nos dois lados; em cima não há céu, então não sobra canto */
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%, #000 85%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 25%, #000 85%, transparent);
-  }
-  .vitrine > * { position: relative; z-index: 1; }
-  .vitrine > * { max-width: 540px; margin-left: 0; }
+  .vitrine > * { max-width: 680px; margin-left: auto; margin-right: auto; }
   .vitrine h1 { font-size: 2.3rem; }
   .vitrine .slogan { font-size: 1.2rem; }
   .categorias { grid-template-columns: repeat(8, 1fr); gap: 12px; }
