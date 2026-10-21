@@ -141,8 +141,8 @@ servidor local antes de publicar.
 
 1. **Mude uma cor.** No topo do `css/estilo.css`, troque o valor de
    `--laranja` e veja todos os botões mudarem juntos.
-2. **Mude um texto.** No `index.html`, altere o título "Encontre o
-   pedreiro certo para a sua obra".
+2. **Mude um texto.** No `index.html`, altere o título "Precisa de um
+   pedreiro?".
 3. **Crie um pedreiro.** No `js/dados.js`, copie o bloco de um pedreiro,
    cole no fim da lista e troque o `id` e os dados. Ele aparece na busca
    sem mexer em mais nada.
