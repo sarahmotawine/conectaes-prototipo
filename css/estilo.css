@@ -387,6 +387,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 }
 .entrada-topo > * { max-width: 392px; margin-left: auto; margin-right: auto; }
 .entrada-topo .marca { color: #fff; font-size: 2.4rem; }
+.destaque-entrada { display: none; } /* frase grande: só no computador */
 /* frase sempre com espaço para duas linhas: a faixa fica do mesmo
    tamanho em entrar, cadastro e cadastro de pedreiro */
 .entrada-topo .slogan { min-height: 2.9em; }
@@ -919,6 +920,67 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   /* Perfil: obras em quatro colunas */
   .obras { grid-template-columns: repeat(4, 1fr); }
   .perfil-capa { height: 220px; margin: -24px 0 0; border-radius: 0 0 18px 18px; }
+}
+
+/* Entrar e cadastros no computador: faixa fina com a marca no topo,
+   frase grande à esquerda e o formulário num cartão à direita */
+@media (min-width: 900px) {
+  .entrada {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    grid-template-rows: auto auto 1fr;
+    column-gap: 72px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 136px 32px 48px;
+  }
+  .entrada::before {                   /* a faixa azul fina do topo, de ponta a ponta */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    height: 64px;
+    background: var(--azul);
+  }
+  .entrada-topo {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    padding: 24px 0 0;
+    background: none;
+    color: var(--texto);
+  }
+  .entrada-topo > * { max-width: none; margin-left: 0; margin-right: 0; }
+  .entrada-topo .marca {               /* a marca vai para a faixa do topo */
+    position: absolute;
+    top: 13px;
+    left: 32px;
+    color: #fff;
+    font-size: 1.6rem;
+  }
+  .destaque-entrada {
+    display: block;
+    margin: 0 0 14px;
+    font-size: 2.6rem;
+    line-height: 1.15;
+    color: var(--titulo);
+  }
+  .destaque-entrada strong { font-weight: 800; }
+  .entrada-topo .slogan { min-height: 0; font-size: 1.15rem; color: var(--texto-suave); opacity: 1; }
+  .entrada-cartao {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    max-width: none;
+    padding: 32px;
+    border: 1px solid var(--borda);
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  }
+  .entrada-cartao h1 { font-size: 1.5rem; }
+  .entrada-pedreiro { grid-column: 2; grid-row: 2; max-width: none; margin: 20px 0 0; }
+  .entrada .reiniciar { grid-column: 2; grid-row: 3; margin-top: 24px; }
 }
 
 /* Telas grandes: busca em quatro colunas */

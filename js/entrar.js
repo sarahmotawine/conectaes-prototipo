@@ -8,6 +8,7 @@ const modoPedreiro = parametro("tipo") === "pedreiro";
    entra é sempre o Carlos Pereira (PEDREIRO_DEMO_ID). */
 if (modoPedreiro) {
   document.title = "Entrar como pedreiro · ConectaES";
+  document.getElementById("destaque").innerHTML = "Receba pedidos e <strong>mostre o seu trabalho!</strong>";
   document.getElementById("slogan").textContent = "Receba pedidos, envie orçamentos e acompanhe seus serviços.";
   document.getElementById("titulo-entrar").textContent = "Entrar como pedreiro";
   document.getElementById("link-cadastro").href = "cadastro-pedreiro.html";
