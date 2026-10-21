@@ -56,7 +56,11 @@ licença do original.
 de Aandradevix, CC BY-SA 4.0
 ([original](https://commons.wikimedia.org/wiki/File:Vista_do_Convento_da_Penha_do_Morro_do_Moreno.jpg)). Recortada do Convento até a borda direita
 da foto, reduzida para 1000 pixels de largura e coberta por uma
-camada azul no app. Segue sob a mesma licença.
+camada azul no app.
+
+`img/convento-recortado.webp`: a mesma foto, recortada em volta do
+Convento e com o céu removido, usada no topo da página inicial no
+computador. Segue sob a mesma licença. Segue sob a mesma licença.
 
 # Ícones
 

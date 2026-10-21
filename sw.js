@@ -12,7 +12,7 @@
    Sem isso, quem já abriu o app continua vendo a versão antiga.
    ========================================================= */
 
-const VERSAO = "conectaes-v31";
+const VERSAO = "conectaes-v32";
 
 const ARQUIVOS = [
   "./",
@@ -51,6 +51,7 @@ const ARQUIVOS = [
   "icones/icone-512.png",
   "icones/icone-maskable-512.png",
   "img/convento-da-penha.jpg",
+  "img/convento-recortado.webp",
   "img/obras/acabamento-quarto.jpg",
   "img/obras/ampliacao-quarto.jpg",
   "img/obras/backsplash.jpg",

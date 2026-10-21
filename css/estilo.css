@@ -867,27 +867,27 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   .vitrine {
     position: relative;
     overflow: hidden;
-    padding: 110px var(--margem) 120px;     /* topo mais alto, para a foto aparecer maior */
+    padding: 96px var(--margem) 110px;
     background: var(--azul);
   }
+  /* Convento recortado (sem céu), dentro da faixa do conteúdo,
+     alinhado com o fim do menu, como a pessoa no topo do GetNinjas */
   .vitrine::after {
     content: "";
-    height: auto;
+    height: 84%;
+    max-width: calc(100% - var(--margem) - 560px); /* nunca passa por baixo da busca */
     margin: 0;
     position: absolute;
-    top: 0;
-    right: 0;                               /* vai até a borda direita da tela */
+    right: var(--margem);
     bottom: 0;
-    aspect-ratio: 1000 / 508;               /* proporção da foto */
-    /* o céu da foto escurece até o azul do app no alto, sem linha */
-    background: linear-gradient(rgb(30, 58, 95) 0%, rgba(30, 58, 95, 0.5) 30%, rgba(30, 58, 95, 0.25) 70%),
-                url("../img/convento-da-penha.jpg") center / cover;
-    /* e some aos poucos para a esquerda, deixando azul livre perto da busca */
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 35%);
-    mask-image: linear-gradient(90deg, transparent, #000 35%);
+    aspect-ratio: 1000 / 522;
+    background: url("../img/convento-recortado.webp") right bottom / contain no-repeat;
+    /* as árvores somem aos poucos nos dois lados; em cima não há céu, então não sobra canto */
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%, #000 85%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 25%, #000 85%, transparent);
   }
   .vitrine > * { position: relative; z-index: 1; }
-  .vitrine > * { max-width: 640px; margin-left: 0; }
+  .vitrine > * { max-width: 540px; margin-left: 0; }
   .vitrine h1 { font-size: 2.3rem; }
   .vitrine .slogan { font-size: 1.2rem; }
   .categorias { grid-template-columns: repeat(8, 1fr); gap: 12px; }
