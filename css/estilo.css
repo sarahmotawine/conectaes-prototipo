@@ -294,6 +294,23 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 .entrada-cartao h1 { margin: 0 0 4px; font-size: 1.3rem; color: var(--azul); }
 .entrada-cartao a { color: var(--laranja); font-weight: 600; }
 .entrada-pedreiro { margin: 20px 16px 0; text-align: center; }
+
+/* Caixinhas de marcar em forma de etiqueta (especialidades do pedreiro) */
+.opcoes { display: flex; flex-wrap: wrap; gap: 8px; }
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 8px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+.opcao input { width: auto; margin: 0; accent-color: var(--laranja); }
+.opcao:has(input:checked) { background: var(--laranja-claro); border-color: var(--laranja); color: #9a3412; }
 @media (min-width: 472px) { .entrada-pedreiro { max-width: 440px; margin-left: auto; margin-right: auto; } }
 .entrada-pedreiro .botao { margin-top: 8px; }
 

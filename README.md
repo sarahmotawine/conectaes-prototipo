@@ -19,7 +19,7 @@ que ele faz.
 | Funciona de verdade | É simulado |
 |---|---|
 | Navegação entre todas as telas | O login: qualquer e-mail e senha entram |
-| O cadastro confere se os campos foram preenchidos | O cadastro não guarda nada: só entra na conta |
+| Os cadastros conferem se os campos foram preenchidos (e o formato do CPF, no do pedreiro) | Os cadastros não guardam nada: só entram na conta. O do pedreiro entra sempre como o Carlos |
 | Busca e filtros por especialidade e cidade | Os pedreiros, que são fictícios |
 | O pedido avança de situação a cada ação do cliente e do pedreiro | O orçamento dos pedreiros, menos o Carlos, que chega sozinho 4 segundos depois do pedido |
 | A avaliação só libera depois da conclusão confirmada | A conclusão do pedido nº 8, já marcada pelo pedreiro |
@@ -39,6 +39,7 @@ estão no **mesmo navegador**, em abas diferentes (ver abaixo).
 | Página inicial (vitrine) | `index.html` | RF04 |
 | Entrar | `entrar.html` | RF01 (simulado) |
 | Cadastro do cliente | `cadastro.html` | RF01 (simulado) |
+| Cadastro do pedreiro | `cadastro-pedreiro.html` | RF01 (simulado) |
 | Busca | `busca.html` | RF04 |
 | Perfil do pedreiro | `perfil.html` | RF03 |
 | Pedir orçamento | `orcamento.html` | RF05 |

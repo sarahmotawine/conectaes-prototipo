@@ -36,6 +36,11 @@ function mostrar() {
   const est = estatisticas(eu);
 
   painel.innerHTML =
+    /* Acabou de se cadastrar (cadastro-pedreiro.html leva para ?novo=1). */
+    (parametro("novo")
+      ? '<div class="aviso">Conta criada! Complete o seu perfil com fotos das suas obras ' +
+        "para receber mais pedidos.</div>"
+      : "") +
     '<div class="cartao linha">' +
       '<div class="avatar">' + eu.iniciais + "</div>" +
       '<div><p class="nome">Olá, ' + eu.nome.split(" ")[0] + "!</p>" +

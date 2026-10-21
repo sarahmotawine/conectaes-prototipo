@@ -10,7 +10,7 @@ if (modoPedreiro) {
   document.title = "Entrar como pedreiro · ConectaES";
   document.getElementById("slogan").textContent = "Receba pedidos, envie orçamentos e acompanhe seus serviços.";
   document.getElementById("titulo-entrar").textContent = "Entrar como pedreiro";
-  document.getElementById("linha-cadastro").hidden = true;
+  document.getElementById("link-cadastro").href = "cadastro-pedreiro.html";
   document.getElementById("troca-texto").textContent = "Procura um pedreiro?";
   document.getElementById("troca-link").textContent = "Entrar como cliente";
   document.getElementById("troca-link").href = "entrar.html";

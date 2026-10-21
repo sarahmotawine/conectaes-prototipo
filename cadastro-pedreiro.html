@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1e3a5f">
+  <title>Cadastro de pedreiro · ConectaES</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icones/icone-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- Cadastro do pedreiro (RF01). No protótipo, nada é guardado: ao enviar,
+       entra na área do pedreiro. A validação de identidade (RF02) fica de fora. -->
+  <main class="entrada">
+    <section class="entrada-topo">
+      <p class="marca">Conecta<span>ES</span></p>
+      <p class="slogan">Cadastre-se e receba pedidos sem pagar para aparecer.</p>
+    </section>
+
+    <form id="form-cadastro" class="entrada-cartao">
+      <h1>Cadastro de pedreiro</h1>
+
+      <label for="nome">Nome completo</label>
+      <input id="nome" type="text" autocomplete="name" required>
+
+      <label for="cpf">CPF</label>
+      <input id="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00"
+             pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" title="Digite os 11 números do CPF" required>
+
+      <label for="telefone">Celular (WhatsApp)</label>
+      <input id="telefone" type="tel" autocomplete="tel" placeholder="(27) 99999-9999" required>
+
+      <label for="cidade">Cidade onde atende</label>
+      <select id="cidade" required>
+        <option value="">Escolha</option>
+        <option>Cariacica</option>
+        <option>Fundão</option>
+        <option>Guarapari</option>
+        <option>Serra</option>
+        <option>Viana</option>
+        <option>Vila Velha</option>
+        <option>Vitória</option>
+      </select>
+
+      <label>Especialidades</label>
+      <div class="opcoes" id="especialidades"></div>
+      <p class="suave" id="erro-especialidade" style="color:#b91c1c" hidden>Escolha pelo menos uma especialidade.</p>
+
+      <label for="email">E-mail</label>
+      <input id="email" type="email" autocomplete="email" required>
+
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" autocomplete="new-password" minlength="6" required>
+
+      <button class="botao" type="submit">Criar conta de pedreiro</button>
+
+      <p class="suave" style="text-align:center; margin-top:16px">
+        Já tem conta? <a href="entrar.html?tipo=pedreiro">Entrar</a>
+      </p>
+    </form>
+  </main>
+
+  <script src="js/dados.js"></script>
+  <script src="js/estado.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/cadastro-pedreiro.js"></script>
+</body>
+</html>

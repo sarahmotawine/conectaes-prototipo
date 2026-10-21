@@ -12,13 +12,14 @@
    Sem isso, quem já abriu o app continua vendo a versão antiga.
    ========================================================= */
 
-const VERSAO = "conectaes-v13";
+const VERSAO = "conectaes-v14";
 
 const ARQUIVOS = [
   "./",
   "index.html",
   "entrar.html",
   "cadastro.html",
+  "cadastro-pedreiro.html",
   "busca.html",
   "perfil.html",
   "orcamento.html",
@@ -34,6 +35,7 @@ const ARQUIVOS = [
   "js/inicio.js",
   "js/entrar.js",
   "js/cadastro.js",
+  "js/cadastro-pedreiro.js",
   "js/busca.js",
   "js/perfil.js",
   "js/orcamento.js",
