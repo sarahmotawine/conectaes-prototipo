@@ -10,7 +10,7 @@
    Sem isso, quem já abriu o app continua vendo a versão antiga.
    ========================================================= */
 
-const VERSAO = "conectaes-v2";
+const VERSAO = "conectaes-v3";
 
 const ARQUIVOS = [
   "./",
@@ -36,7 +36,31 @@ const ARQUIVOS = [
   "js/avaliar.js",
   "manifest.json",
   "icones/icone-192.png",
-  "icones/icone-512.png"
+  "icones/icone-512.png",
+  "img/obras/acabamento-quarto.jpg",
+  "img/obras/ampliacao-quarto.jpg",
+  "img/obras/area-de-servico.jpg",
+  "img/obras/backsplash.jpg",
+  "img/obras/banheiro-azulejo.jpg",
+  "img/obras/banheiro-social.jpg",
+  "img/obras/banheiro.jpg",
+  "img/obras/calha.jpg",
+  "img/obras/cozinha.jpg",
+  "img/obras/escada.jpg",
+  "img/obras/forro.jpg",
+  "img/obras/laje.jpg",
+  "img/obras/lavabo.jpg",
+  "img/obras/muro-divisa.jpg",
+  "img/obras/parede-drywall.jpg",
+  "img/obras/piso-cozinha.jpg",
+  "img/obras/porcelanato-sala.jpg",
+  "img/obras/reboco-fachada.jpg",
+  "img/obras/reboco-muro.jpg",
+  "img/obras/reforma-cozinha.jpg",
+  "img/obras/rodape.jpg",
+  "img/obras/telhado-novo.jpg",
+  "img/obras/troca-telhas.jpg",
+  "img/obras/varanda.jpg"
 ];
 
 /* Instalação: guarda todos os arquivos no cache. */

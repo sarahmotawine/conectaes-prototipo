@@ -16,7 +16,12 @@ const PEDREIROS = [
     avaliacoes: 23,
     confirmados: 31, // serviços registrados e confirmados na plataforma
     sobre: "Trabalho com acabamento há 12 anos. Cuido da limpeza da obra no fim de cada dia.",
-    obras: ["Banheiro com azulejo", "Piso da cozinha", "Reboco de fachada", "Área de serviço"],
+    obras: [
+      { titulo: "Banheiro com azulejo", foto: "banheiro-azulejo" },
+      { titulo: "Piso da cozinha", foto: "piso-cozinha" },
+      { titulo: "Reboco de fachada", foto: "reboco-fachada" },
+      { titulo: "Área de serviço", foto: "area-de-servico" }
+    ],
     comentarios: [
       { autor: "Mariana", nota: 5, texto: "Caprichoso e cumpriu o prazo combinado." },
       { autor: "Ricardo", nota: 5, texto: "Deixou tudo limpo. Recomendo." },
@@ -34,7 +39,12 @@ const PEDREIROS = [
     avaliacoes: 41,
     confirmados: 52,
     sobre: "Construção e reforma. Faço desde a fundação até o reboco.",
-    obras: ["Muro de divisa", "Ampliação de quarto", "Reboco de muro", "Laje"],
+    obras: [
+      { titulo: "Muro de divisa", foto: "muro-divisa" },
+      { titulo: "Ampliação de quarto", foto: "ampliacao-quarto" },
+      { titulo: "Reboco de muro", foto: "reboco-muro" },
+      { titulo: "Laje", foto: "laje" }
+    ],
     comentarios: [
       { autor: "Paula", nota: 5, texto: "Muito experiente, explicou cada etapa." },
       { autor: "Sérgio", nota: 4, texto: "Serviço bom, valor um pouco acima dos outros." }
@@ -51,7 +61,12 @@ const PEDREIROS = [
     avaliacoes: 15,
     confirmados: 18,
     sobre: "Especialista em piso porcelanato e assentamento de revestimento.",
-    obras: ["Porcelanato da sala", "Banheiro social", "Varanda", "Cozinha"],
+    obras: [
+      { titulo: "Porcelanato da sala", foto: "porcelanato-sala" },
+      { titulo: "Banheiro social", foto: "banheiro-social" },
+      { titulo: "Varanda", foto: "varanda" },
+      { titulo: "Cozinha", foto: "cozinha" }
+    ],
     comentarios: [
       { autor: "Luciana", nota: 5, texto: "Acabamento perfeito, nenhum desnível." }
     ]
@@ -67,7 +82,12 @@ const PEDREIROS = [
     avaliacoes: 12,
     confirmados: 14,
     sobre: "Conserto de telhado, calha, infiltração e reparos em geral.",
-    obras: ["Troca de telhas", "Calha nova", "Reparo de infiltração", "Forro"],
+    obras: [
+      { titulo: "Troca de telhas", foto: "troca-telhas" },
+      { titulo: "Calha nova", foto: "calha" },
+      { titulo: "Telhado novo", foto: "telhado-novo" },
+      { titulo: "Forro", foto: "forro" }
+    ],
     comentarios: [
       { autor: "Débora", nota: 4, texto: "Resolveu a goteira que ninguém achava." }
     ]
@@ -83,7 +103,12 @@ const PEDREIROS = [
     avaliacoes: 30,
     confirmados: 37,
     sobre: "Reformas completas. Trabalho com ajudante.",
-    obras: ["Reforma de cozinha", "Parede de drywall", "Escada", "Acabamento de quarto"],
+    obras: [
+      { titulo: "Reforma de cozinha", foto: "reforma-cozinha" },
+      { titulo: "Parede de drywall", foto: "parede-drywall" },
+      { titulo: "Escada", foto: "escada" },
+      { titulo: "Acabamento de quarto", foto: "acabamento-quarto" }
+    ],
     comentarios: [
       { autor: "Thiago", nota: 5, texto: "Organizado e honesto no orçamento." }
     ]
@@ -99,7 +124,12 @@ const PEDREIROS = [
     avaliacoes: 6,
     confirmados: 6,
     sobre: "Comecei recentemente por conta própria, depois de 4 anos trabalhando para uma construtora.",
-    obras: ["Lavabo", "Backsplash da cozinha", "Banheiro", "Rodapé"],
+    obras: [
+      { titulo: "Lavabo", foto: "lavabo" },
+      { titulo: "Backsplash da cozinha", foto: "backsplash" },
+      { titulo: "Banheiro", foto: "banheiro" },
+      { titulo: "Rodapé", foto: "rodape" }
+    ],
     comentarios: [
       { autor: "Camila", nota: 5, texto: "Novo na plataforma, mas fez um ótimo trabalho." }
     ]

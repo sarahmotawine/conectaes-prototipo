@@ -14,9 +14,13 @@ if (!pedreiro) {
     return '<span class="etiqueta">' + e + "</span>";
   }).join("");
 
-  /* As fotos das obras são espaços reservados com a legenda. */
-  const obras = pedreiro.obras.map(function (titulo) {
-    return '<div class="obra">' + titulo + "</div>";
+  /* Fotos das obras, com a legenda por cima. As fotos são ilustrativas,
+     tiradas do Wikimedia Commons; os créditos estão em CREDITOS.md. */
+  const obras = pedreiro.obras.map(function (obra) {
+    return '<figure class="obra">' +
+             '<img src="img/obras/' + obra.foto + '.jpg" alt="' + obra.titulo + '" loading="lazy">' +
+             "<figcaption>" + obra.titulo + "</figcaption>" +
+           "</figure>";
   }).join("");
 
   const comentarios = pedreiro.comentarios.map(function (c) {

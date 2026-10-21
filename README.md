@@ -21,7 +21,7 @@ que ele faz.
 | Busca e filtros por especialidade e cidade | Os pedreiros, que são fictícios |
 | O pedido avança de situação a cada ação do cliente | O orçamento, que chega sozinho 4 segundos depois do pedido |
 | A avaliação só libera depois da conclusão confirmada | A conclusão do pedido nº 8, já marcada pelo pedreiro |
-| O contador de serviços confirmados sobe ao confirmar | As fotos das obras, que são espaços reservados |
+| O contador de serviços confirmados sobe ao confirmar | As fotos das obras: ilustrativas, do Wikimedia Commons (ver `CREDITOS.md`) |
 | Instalação na tela inicial e abertura sem internet | — |
 
 **Não há banco de dados.** O andamento dos pedidos fica guardado no
@@ -55,6 +55,8 @@ js/<tela>.js                o comportamento de cada tela
 manifest.json               nome, ícone e cores para instalar o app
 sw.js                       service worker: guarda os arquivos para uso offline
 icones/                     ícones do app
+img/obras/                  fotos ilustrativas das obras
+CREDITOS.md                 autor e licença de cada foto
 ```
 
 Cada página carrega, nesta ordem: `dados.js`, `estado.js`, `app.js` e o
