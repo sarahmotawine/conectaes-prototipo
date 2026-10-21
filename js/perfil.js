@@ -62,4 +62,4 @@ if (!pedreiro) {
   document.getElementById("pedir").href = "orcamento.html?id=" + pedreiro.id;
 }
 
-montarNavegacao("inicio");
+montarNavegacao("buscar");

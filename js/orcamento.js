@@ -1,5 +1,7 @@
 /* Tela de pedido de orçamento. O pedreiro vem do endereço: orcamento.html?id=1 */
 
+exigirLogin(); // esta tela só abre com login (ver app.js)
+
 const pedreiro = pedreiroPorId(parametro("id"));
 
 if (pedreiro) {
@@ -24,4 +26,4 @@ document.getElementById("form-orcamento").addEventListener("submit", function (e
   window.location.href = "pedido.html?id=" + novo.id;
 });
 
-montarNavegacao("inicio");
+montarNavegacao("buscar");

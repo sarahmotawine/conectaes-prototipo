@@ -3,6 +3,8 @@
    Regra central da proposta: só é possível avaliar um serviço cuja
    conclusão foi confirmada pelas duas partes. */
 
+exigirLogin(); // esta tela só abre com login (ver app.js)
+
 const pedido = buscarPedido(parametro("pedido"));
 const area = document.getElementById("avaliacao");
 let notaEscolhida = 0;

@@ -242,7 +242,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
   left: 0; right: 0; bottom: 0;
   height: 64px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   background: #fff;
   border-top: 1px solid var(--borda);
   z-index: 20;
@@ -303,3 +303,95 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--azul); }
 }
 
 .vazio { text-align: center; color: var(--texto-suave); padding: 30px 10px; }
+
+/* ---------- Página inicial (vitrine) ---------- */
+.topo-inicio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--azul);
+}
+.topo-inicio .marca { color: #fff; font-size: 1.5rem; }
+.topo-inicio .marca span { color: #fb923c; }
+.botao-conta {
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.vitrine {
+  padding: 20px 16px 28px;
+  color: #fff;
+  background: linear-gradient(rgba(30, 58, 95, 0.9), rgba(30, 58, 95, 0.97)),
+              url("../img/obras/reboco-fachada.jpg") center / cover;
+}
+.vitrine > * { max-width: 528px; margin-left: auto; margin-right: auto; }
+.vitrine h1 { font-size: 1.45rem; line-height: 1.25; margin-top: 0; margin-bottom: 4px; }
+.vitrine .slogan { margin-bottom: 16px; }
+
+/* Campo de busca com o botão dentro, no estilo dos classificados */
+.busca-rapida { display: flex; background: #fff; border-radius: 999px; padding: 4px; }
+.busca-rapida input { border: none; border-radius: 999px; background: transparent; }
+.busca-rapida input:focus { outline: none; }
+.busca-rapida button {
+  flex: none;
+  width: 46px;
+  border: none;
+  border-radius: 999px;
+  background: var(--laranja);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.titulo-secao { font-size: 1.1rem; color: var(--azul); margin: 22px 0 10px; }
+
+.categorias { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.categoria {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 4px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  color: var(--texto);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.categoria span { font-size: 1.6rem; }
+
+/* Cartões de destaque que rolam para o lado */
+.destaques {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 16px;
+  margin: 0 -16px;
+  padding: 0 16px 6px;
+}
+.destaque {
+  flex: 0 0 72%;
+  max-width: 260px;
+  scroll-snap-align: start;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  color: var(--texto);
+  text-decoration: none;
+}
+.destaque img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.destaque-texto { padding: 10px 12px 12px; }
+
+.passos { padding-left: 22px; margin: 0; }
+.passos li { margin-bottom: 10px; }

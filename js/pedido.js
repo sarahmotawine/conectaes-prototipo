@@ -12,6 +12,8 @@
    - o pedido de exemplo nº 8 já vem marcado como concluído por ele.
    ========================================================= */
 
+exigirLogin(); // esta tela só abre com login (ver app.js)
+
 const SEGUNDOS_PARA_ORCAMENTO = 4;
 
 const area = document.getElementById("pedido");

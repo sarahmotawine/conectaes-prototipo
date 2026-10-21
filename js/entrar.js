@@ -1,16 +1,17 @@
-/* Tela de entrada.
-   Não há login de verdade: ao enviar o formulário, vai direto para a busca. */
+/* Tela de entrar.
+   Não há login de verdade: ao enviar o formulário, o app guarda o sinal
+   de "entrou" (ver estado.js) e volta para onde a pessoa estava. */
+
+/* Veio de uma ação que exige login: mostra o aviso e repassa o
+   destino para o cadastro, caso a pessoa prefira criar conta. */
+if (parametro("voltar")) {
+  document.getElementById("aviso-login").hidden = false;
+  document.getElementById("link-cadastro").href =
+    "cadastro.html?voltar=" + encodeURIComponent(parametro("voltar"));
+}
 
 document.getElementById("form-entrar").addEventListener("submit", function (evento) {
   evento.preventDefault(); // impede o navegador de recarregar a página
-  window.location.href = "busca.html";
-});
-
-/* Volta os pedidos ao estado inicial. Usar entre um participante e outro. */
-document.getElementById("reiniciar").addEventListener("click", function (evento) {
-  evento.preventDefault();
-  if (confirm("Apagar tudo o que foi feito e voltar ao início da demonstração?")) {
-    reiniciarDemonstracao();
-    alert("Demonstração reiniciada.");
-  }
+  entrarNaConta();
+  window.location.href = destinoDepoisDoLogin();
 });

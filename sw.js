@@ -10,11 +10,12 @@
    Sem isso, quem já abriu o app continua vendo a versão antiga.
    ========================================================= */
 
-const VERSAO = "conectaes-v6";
+const VERSAO = "conectaes-v7";
 
 const ARQUIVOS = [
   "./",
   "index.html",
+  "entrar.html",
   "cadastro.html",
   "busca.html",
   "perfil.html",
@@ -26,6 +27,7 @@ const ARQUIVOS = [
   "js/dados.js",
   "js/estado.js",
   "js/app.js",
+  "js/inicio.js",
   "js/entrar.js",
   "js/cadastro.js",
   "js/busca.js",

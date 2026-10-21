@@ -32,7 +32,8 @@ enviado a lugar nenhum.
 
 | Tela | Arquivo | Requisito |
 |---|---|---|
-| Entrada | `index.html` | RF01 (simulado) |
+| Página inicial (vitrine) | `index.html` | RF04 |
+| Entrar | `entrar.html` | RF01 (simulado) |
 | Cadastro do cliente | `cadastro.html` | RF01 (simulado) |
 | Busca | `busca.html` | RF04 |
 | Perfil do pedreiro | `perfil.html` | RF03 |
@@ -42,6 +43,12 @@ enviado a lugar nenhum.
 | Avaliar | `avaliar.html` | RF08 |
 
 O RF02, validação de identidade, não está no protótipo, por ser proposta.
+
+**Login só na hora de agir.** Como em sites de classificados, a página
+inicial, a busca e os perfis abrem sem login. Pedir orçamento, ver os
+pedidos e avaliar exigem login: o app leva para `entrar.html` e, depois
+de entrar ou se cadastrar, volta para a tela onde a pessoa estava
+(função `exigirLogin`, em `js/app.js`).
 
 ## Arquivos
 
@@ -87,11 +94,13 @@ O protótipo é publicado pelo GitHub Pages. Depois de alterar algo:
 ## No dia do teste
 
 - **Antes de cada participante, toque em "Reiniciar demonstração"**, no pé
-  da tela de entrada. Senão o próximo encontra os pedidos do anterior.
+  da página inicial. Isso apaga os pedidos do participante anterior e
+  sai da conta.
 - As tarefas pensadas para o teste:
   1. Encontre um pedreiro que faça azulejo em Vila Velha.
   2. Descubra quantos serviços confirmados ele tem.
-  3. Peça um orçamento para assentar azulejo no banheiro.
+  3. Peça um orçamento para assentar azulejo no banheiro. (Aqui o app
+     pede login; qualquer e-mail e senha servem.)
   4. Aceite o orçamento que ele mandar.
   5. Confirme e avalie o serviço de reboco do muro, que já foi concluído.
 
@@ -102,10 +111,12 @@ servidor local antes de publicar.
 
 1. **Mude uma cor.** No topo do `css/estilo.css`, troque o valor de
    `--laranja` e veja todos os botões mudarem juntos.
-2. **Mude um texto.** No `index.html`, altere a frase abaixo do nome
-   ConectaES.
+2. **Mude um texto.** No `index.html`, altere o título "Encontre o
+   pedreiro certo para a sua obra".
 3. **Crie um pedreiro.** No `js/dados.js`, copie o bloco de um pedreiro,
    cole no fim da lista e troque o `id` e os dados. Ele aparece na busca
    sem mexer em mais nada.
-4. **Mude o tempo do orçamento simulado.** No começo do `js/pedido.js`,
+4. **Dê um ícone a uma categoria.** No começo do `js/inicio.js`, troque
+   o emoji de uma especialidade em `ICONES`.
+5. **Mude o tempo do orçamento simulado.** No começo do `js/pedido.js`,
    altere `SEGUNDOS_PARA_ORCAMENTO`.

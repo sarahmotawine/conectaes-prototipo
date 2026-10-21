@@ -1,5 +1,7 @@
 /* Lista de pedidos, do mais recente para o mais antigo. */
 
+exigirLogin(); // esta tela só abre com login (ver app.js)
+
 const pedidos = carregarPedidos().sort(function (a, b) { return b.id - a.id; });
 const lista = document.getElementById("lista");
 

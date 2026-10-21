@@ -7,7 +7,7 @@
    de armazenamento do próprio navegador.
 
    Isso significa que cada celular tem a sua cópia, e que
-   "Reiniciar demonstração", na tela de entrada, volta tudo ao
+   "Reiniciar demonstração", no pé da página inicial, volta tudo ao
    início. Use entre um participante do teste e outro.
    ========================================================= */
 
@@ -61,8 +61,29 @@ function criarPedido(pedreiroId, servico, bairro, quando) {
   return novo;
 }
 
+/* ---------- Login simulado ----------
+   Navegar pela busca e pelos perfis é livre. Pedir orçamento, ver os
+   pedidos e avaliar exigem login. Como o login é simulado, basta
+   guardar um sinal de "entrou" no navegador. */
+
+const CHAVE_SESSAO = "conectaes-sessao";
+
+function estaLogado() {
+  return localStorage.getItem(CHAVE_SESSAO) === "sim";
+}
+
+function entrarNaConta() {
+  localStorage.setItem(CHAVE_SESSAO, "sim");
+}
+
+function sairDaConta() {
+  localStorage.removeItem(CHAVE_SESSAO);
+}
+
+/* Volta os pedidos ao estado inicial e sai da conta. */
 function reiniciarDemonstracao() {
   localStorage.removeItem(CHAVE_ESTADO);
+  sairDaConta();
 }
 
 /* Números do perfil do pedreiro: os fixos de dados.js mais o que

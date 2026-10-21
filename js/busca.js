@@ -24,6 +24,10 @@ function preencherOpcoes(select, valores) {
 preencherOpcoes(campoEspecialidade, PEDREIROS.flatMap(function (p) { return p.especialidades; }));
 preencherOpcoes(campoCidade, PEDREIROS.map(function (p) { return p.cidade; }));
 
+/* Vindo da página inicial: busca.html?texto=reboco ou ?especialidade=Piso */
+campoTexto.value = parametro("texto") || "";
+campoEspecialidade.value = parametro("especialidade") || "";
+
 function mostrarResultados() {
   const texto = normalizar(campoTexto.value);
   const especialidade = campoEspecialidade.value;
@@ -68,4 +72,4 @@ campoEspecialidade.addEventListener("change", mostrarResultados);
 campoCidade.addEventListener("change", mostrarResultados);
 
 mostrarResultados();
-montarNavegacao("inicio");
+montarNavegacao("buscar");
