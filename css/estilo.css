@@ -375,7 +375,8 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 
 /* ---------- Tela de entrada ---------- */
 .entrada { min-height: 100vh; padding-bottom: 24px; }
-.marca { color: var(--titulo); font-size: 2rem; font-weight: 800; margin: 0; }
+.marca { display: block; color: var(--titulo); font-size: 2rem; font-weight: 800; margin: 0; text-decoration: none; }
+.marca-link { color: inherit; text-decoration: none; } /* logo do topo da busca: leva à página inicial */
 .marca span { color: var(--laranja); }
 
 /* Faixa do topo das telas de entrada e cadastro */
