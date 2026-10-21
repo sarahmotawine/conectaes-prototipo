@@ -35,23 +35,38 @@
     <div class="destaques" id="destaques"></div>
 
     <h2 class="titulo-secao">Como funciona</h2>
-    <div class="passos">
-      <div class="passo">
-        <span class="passo-icone">🔍</span>
-        <div><p class="nome">Compare</p>
-        <p class="suave">Veja avaliações e serviços já confirmados.</p></div>
+    <!-- Como funciona: um banner por passo, que desliza sozinho (ver inicio.js) -->
+    <section class="carrossel" aria-roledescription="carrossel">
+      <div class="slides" id="slides">
+        <article class="slide slide-azul">
+          <div class="slide-texto">
+            <p class="slide-etapa">Passo 1 de 3</p>
+            <h3>Compare pelos serviços já confirmados</h3>
+            <a class="slide-botao" href="busca.html">Buscar pedreiro</a>
+          </div>
+          <div class="slide-visual"><img src="img/obras/banheiro-social.jpg" alt=""></div>
+        </article>
+        <article class="slide slide-laranja">
+          <div class="slide-texto">
+            <p class="slide-etapa">Passo 2 de 3</p>
+            <h3>Peça orçamento direto pelo app</h3>
+            <a class="slide-botao" href="busca.html">Pedir orçamento</a>
+          </div>
+          <div class="slide-visual"><img src="img/obras/piso-cozinha.jpg" alt=""></div>
+        </article>
+        <article class="slide slide-verde">
+          <div class="slide-texto">
+            <p class="slide-etapa">Passo 3 de 3</p>
+            <h3>Confirme e avalie quando terminar</h3>
+            <a class="slide-botao" href="pedidos.html">Meus pedidos</a>
+          </div>
+          <div class="slide-visual"><img src="img/obras/reboco-fachada.jpg" alt=""></div>
+        </article>
       </div>
-      <div class="passo">
-        <span class="passo-icone">📝</span>
-        <div><p class="nome">Peça um orçamento</p>
-        <p class="suave">Combine preço e prazo pelo app.</p></div>
-      </div>
-      <div class="passo">
-        <span class="passo-icone">⭐</span>
-        <div><p class="nome">Confirme e avalie</p>
-        <p class="suave">Sua avaliação ajuda o próximo cliente.</p></div>
-      </div>
-    </div>
+      <button class="seta seta-esquerda" id="anterior" type="button" aria-label="Anterior">‹</button>
+      <button class="seta seta-direita" id="proximo" type="button" aria-label="Próximo">›</button>
+      <div class="pontos" id="pontos"></div>
+    </section>
 
     <a href="#" id="reiniciar" class="reiniciar">Reiniciar demonstração</a>
   </main>

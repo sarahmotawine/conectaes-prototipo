@@ -54,6 +54,44 @@ document.getElementById("destaques").innerHTML = destaques.map(function (p) {
          "</a>";
 }).join("");
 
+/* Como funciona: banners que passam sozinhos a cada 5 segundos.
+   A pessoa também pode arrastar com o dedo ou tocar nos tracinhos;
+   depois que ela mexe, a troca automática para. */
+const slides = document.getElementById("slides");
+const pontos = document.getElementById("pontos");
+const totalSlides = slides.children.length;
+let atual = 0;
+
+for (let i = 0; i < totalSlides; i++) {
+  const ponto = document.createElement("button");
+  ponto.type = "button";
+  ponto.setAttribute("aria-label", "Passo " + (i + 1));
+  ponto.addEventListener("click", function () { pararAutomatico(); irPara(i); });
+  pontos.appendChild(ponto);
+}
+
+function irPara(indice) {
+  atual = (indice + totalSlides) % totalSlides; // dá a volta: depois do último, o primeiro
+  slides.scrollTo({ left: atual * slides.clientWidth });
+}
+
+/* Acende o tracinho do banner que está na tela, inclusive ao arrastar. */
+function marcarPonto() {
+  atual = Math.round(slides.scrollLeft / slides.clientWidth);
+  [...pontos.children].forEach(function (ponto, i) {
+    ponto.classList.toggle("ativo", i === atual);
+  });
+}
+slides.addEventListener("scroll", marcarPonto);
+marcarPonto();
+
+let automatico = setInterval(function () { irPara(atual + 1); }, 5000);
+function pararAutomatico() { clearInterval(automatico); }
+slides.addEventListener("touchstart", pararAutomatico, { passive: true });
+
+document.getElementById("anterior").addEventListener("click", function () { pararAutomatico(); irPara(atual - 1); });
+document.getElementById("proximo").addEventListener("click", function () { pararAutomatico(); irPara(atual + 1); });
+
 /* Volta os pedidos ao estado inicial e sai da conta.
    Usar entre um participante do teste e outro. */
 document.getElementById("reiniciar").addEventListener("click", function (evento) {
