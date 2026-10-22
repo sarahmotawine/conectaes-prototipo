@@ -33,19 +33,19 @@ document.getElementById("categorias").innerHTML = especialidades.map(function (e
 }).join("") +
   '<a class="categoria" href="busca.html"><span>' + icone("todos") + "</span>Ver todos</a>";
 
-/* Ilustração do topo (computador): os três passos de uso do app,
-   em cartões numerados. Não destaca nenhum pedreiro. */
+/* Os três passos de uso do app, em cartões numerados que levam a
+   algum lugar. Não destacam nenhum pedreiro. */
 (function () {
   const passos = [
-    ["buscar", "Encontre", "Compare pedreiros pelos serviços já confirmados."],
-    ["conversa", "Peça orçamento", "Combine valor e prazo, registrados no app."],
-    ["estrela", "Confirme e avalie", "Só avalia quem teve o serviço confirmado."]
+    ["buscar", "Encontre", "Compare pedreiros pelos serviços já confirmados.", "busca.html"],
+    ["conversa", "Peça orçamento", "Combine valor e prazo, registrados no app.", "busca.html"],
+    ["estrela", "Confirme e avalie", "Só avalia quem teve o serviço confirmado.", "pedidos.html"]
   ];
   document.getElementById("vitrine-cartoes").innerHTML = passos.map(function (p, i) {
-    return '<div class="vc-passo"><span class="vc-num">' + (i + 1) + "</span>" +
+    return '<a class="vc-passo" href="' + p[3] + '"><span class="vc-num">' + (i + 1) + "</span>" +
              '<span class="vc-icone">' + icone(p[0]) + "</span>" +
              "<div><strong>" + p[1] + "</strong><p>" + p[2] + "</p></div>" +
-           "</div>";
+           "</a>";
   }).join("");
 })();
 
