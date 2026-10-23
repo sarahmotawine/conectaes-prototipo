@@ -20,6 +20,12 @@ function pedreiroPorId(id) {
   return PEDREIROS.find(function (p) { return p.id === Number(id); });
 }
 
+/* Endereço da foto de uma obra: a imagem do app (dados.js) ou a foto
+   que o pedreiro adicionou, guardada como texto (campo "src"). */
+function fotoDaObra(obra) {
+  return obra.src || "img/obras/" + obra.foto + ".jpg";
+}
+
 /* 480 vira "R$ 480,00" */
 function emReais(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });

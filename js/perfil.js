@@ -16,10 +16,11 @@ if (!pedreiro) {
 
   /* Fotos das obras, com a legenda por cima. As fotos são ilustrativas,
      tiradas do Wikimedia Commons; os créditos estão em CREDITOS.md. */
-  const obras = pedreiro.obras.map(function (obra, i) {
-    return '<button type="button" class="obra" data-indice="' + i + '" aria-label="Ampliar foto: ' + obra.titulo + '">' +
-             '<img src="img/obras/' + obra.foto + '.jpg" alt="" loading="lazy">' +
-             '<span class="legenda">' + obra.titulo + "</span>" +
+  const listaObras = obrasDe(pedreiro);
+  const obras = listaObras.map(function (obra, i) {
+    return '<button type="button" class="obra" data-indice="' + i + '" aria-label="Ampliar foto: ' + escaparHTML(obra.titulo) + '">' +
+             '<img src="' + fotoDaObra(obra) + '" alt="" loading="lazy">' +
+             '<span class="legenda">' + escaparHTML(obra.titulo) + "</span>" +
            "</button>";
   }).join("");
 
@@ -63,7 +64,7 @@ if (!pedreiro) {
 
   document.getElementById("pedir").href = "orcamento.html?id=" + pedreiro.id;
 
-  ativarAmpliacao(pedreiro.obras);
+  ativarAmpliacao(listaObras);
 
   /* Pedreiro vendo o próprio perfil: não faz sentido pedir orçamento. */
   if (souPedreiro()) document.getElementById("pedir").style.display = "none";
@@ -85,7 +86,7 @@ function ativarAmpliacao(obras) {
   let atual = 0;
   function mostrarFoto(i) {
     atual = (i + obras.length) % obras.length;
-    tela.querySelector("img").src = "img/obras/" + obras[atual].foto + ".jpg";
+    tela.querySelector("img").src = fotoDaObra(obras[atual]);
     tela.querySelector("img").alt = obras[atual].titulo;
     tela.querySelector("figcaption").textContent =
       obras[atual].titulo + " · " + (atual + 1) + " de " + obras.length;

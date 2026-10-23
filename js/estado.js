@@ -97,9 +97,38 @@ function sairDaConta() {
   sessionStorage.removeItem(CHAVE_SESSAO);
 }
 
-/* Volta os pedidos ao estado inicial e sai da conta. */
+/* ---------- Fotos de obras adicionadas pelo pedreiro ----------
+   Na área do pedreiro, o Carlos pode acrescentar fotos ao portfólio.
+   Como não há banco de dados, cada foto é reduzida e guardada no
+   navegador (localStorage) como texto, junto com o título. */
+
+const CHAVE_OBRAS = "conectaes-obras-extras";
+
+function carregarObrasExtras() {
+  return JSON.parse(localStorage.getItem(CHAVE_OBRAS) || "[]");
+}
+
+/* Devolve false se o navegador não tiver mais espaço para guardar. */
+function salvarObrasExtras(obras) {
+  try {
+    localStorage.setItem(CHAVE_OBRAS, JSON.stringify(obras));
+    return true;
+  } catch (erro) {
+    return false;
+  }
+}
+
+/* Obras de um pedreiro: as adicionadas na demonstração (mais novas
+   primeiro, só para o pedreiro de demonstração) e depois as de dados.js. */
+function obrasDe(pedreiro) {
+  const extras = pedreiro.id === PEDREIRO_DEMO_ID ? carregarObrasExtras() : [];
+  return extras.concat(pedreiro.obras);
+}
+
+/* Volta os pedidos ao estado inicial, apaga as fotos adicionadas e sai da conta. */
 function reiniciarDemonstracao() {
   localStorage.removeItem(CHAVE_ESTADO);
+  localStorage.removeItem(CHAVE_OBRAS);
   sairDaConta();
 }
 

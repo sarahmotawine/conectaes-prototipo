@@ -54,11 +54,140 @@ function mostrar() {
         '<span class="suave">serviços registrados e confirmados</span></div>' +
     "</div>" +
 
+    secaoObras() +
+
     (meus.length === 0 ? '<p class="vazio">Nenhum pedido recebido ainda.</p>' : "") +
     secao("Precisam de resposta", naSituacao(["aguardando"])) +
     secao("Em andamento", naSituacao(["orcamento", "aceito", "concluido_pelo_pedreiro"])) +
     secao("Concluídos", naSituacao(["confirmado", "avaliado", "recusado"]));
 }
+
+/* ---------- Minhas obras ----------
+   O pedreiro adiciona fotos ao portfólio, que aparecem em "Obras
+   anteriores" no perfil público. As fotos que vêm de dados.js não podem
+   ser apagadas; as adicionadas aqui, sim (botão ×). */
+
+const MAX_OBRAS_EXTRAS = 12; // o espaço do navegador é limitado
+
+function secaoObras() {
+  const extras = carregarObrasExtras();
+  const miniatura = function (obra, i, removivel) {
+    return '<figure class="minha-obra">' +
+             '<img src="' + fotoDaObra(obra) + '" alt="">' +
+             "<figcaption>" + escaparHTML(obra.titulo) + "</figcaption>" +
+             (removivel
+               ? '<button type="button" class="remover-obra" data-indice="' + i + '" aria-label="Remover foto: ' +
+                 escaparHTML(obra.titulo) + '">' + icone("fechar") + "</button>"
+               : "") +
+           "</figure>";
+  };
+  return "<h3>Minhas obras (" + (extras.length + eu.obras.length) + ")</h3>" +
+         '<div class="minhas-obras">' +
+           (extras.length < MAX_OBRAS_EXTRAS
+             ? '<button type="button" class="adicionar-obra" id="adicionar-obra">' + icone("foto") +
+               "<span>Adicionar foto</span></button>"
+             : "") +
+           extras.map(function (o, i) { return miniatura(o, i, true); }).join("") +
+           eu.obras.map(function (o, i) { return miniatura(o, i, false); }).join("") +
+         "</div>" +
+         '<form class="cartao form-obra" id="form-obra" hidden>' +
+           '<p class="nome">Nova foto de obra</p>' +
+           '<label class="escolher-foto" for="arquivo-obra">' +
+             '<img id="previa-obra" alt="" hidden>' +
+             '<span id="texto-escolher">' + icone("foto") + "Tirar ou escolher foto</span>" +
+           "</label>" +
+           '<input id="arquivo-obra" type="file" accept="image/*" hidden>' +
+           '<label for="titulo-obra">Título</label>' +
+           '<input id="titulo-obra" maxlength="40" placeholder="Ex.: Piso da cozinha em Serra">' +
+           '<p class="suave erro" id="erro-obra" hidden></p>' +
+           '<div class="botoes-lado">' +
+             '<button type="button" class="botao secundario" id="cancelar-obra">Cancelar</button>' +
+             '<button type="submit" class="botao">Salvar foto</button>' +
+           "</div>" +
+         "</form>";
+}
+
+/* Reduz a foto para no máximo 1000 pixels de largura e a converte em
+   texto (JPEG), para caber no armazenamento do navegador. */
+function reduzirFoto(arquivo) {
+  return new Promise(function (resolve, reject) {
+    const img = new Image();
+    img.onload = function () {
+      const escala = Math.min(1, 1000 / img.width);
+      const tela = document.createElement("canvas");
+      tela.width = Math.round(img.width * escala);
+      tela.height = Math.round(img.height * escala);
+      tela.getContext("2d").drawImage(img, 0, 0, tela.width, tela.height);
+      URL.revokeObjectURL(img.src);
+      resolve(tela.toDataURL("image/jpeg", 0.75));
+    };
+    img.onerror = reject;
+    img.src = URL.createObjectURL(arquivo);
+  });
+}
+
+let fotoEscolhida = null;
+
+function mostrarErroObra(texto) {
+  const erro = document.getElementById("erro-obra");
+  erro.textContent = texto;
+  erro.hidden = !texto;
+}
+
+/* Um ouvinte para todos os cliques do painel: abrir, cancelar e remover. */
+painel.addEventListener("click", function (evento) {
+  const alvo = evento.target.closest("button");
+  if (!alvo) return;
+  const form = document.getElementById("form-obra");
+
+  if (alvo.id === "adicionar-obra") {
+    form.hidden = false;
+    form.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+  if (alvo.id === "cancelar-obra") {
+    mostrar();
+  }
+  if (alvo.classList.contains("remover-obra")) {
+    if (!confirm("Remover esta foto do seu perfil?")) return;
+    const extras = carregarObrasExtras();
+    extras.splice(Number(alvo.dataset.indice), 1);
+    salvarObrasExtras(extras);
+    mostrar();
+    avisar("Foto removida");
+  }
+});
+
+/* Escolheu a foto: reduz e mostra a prévia. */
+painel.addEventListener("change", function (evento) {
+  if (evento.target.id !== "arquivo-obra" || !evento.target.files[0]) return;
+  reduzirFoto(evento.target.files[0]).then(function (texto) {
+    fotoEscolhida = texto;
+    const previa = document.getElementById("previa-obra");
+    previa.src = texto;
+    previa.hidden = false;
+    document.getElementById("texto-escolher").innerHTML = icone("foto") + "Trocar foto";
+    mostrarErroObra("");
+  }).catch(function () {
+    mostrarErroObra("Não foi possível abrir essa imagem. Tente outra foto.");
+  });
+});
+
+painel.addEventListener("submit", function (evento) {
+  if (evento.target.id !== "form-obra") return;
+  evento.preventDefault();
+  const titulo = document.getElementById("titulo-obra").value.trim();
+  if (!fotoEscolhida) return mostrarErroObra("Escolha uma foto.");
+  if (!titulo) return mostrarErroObra("Dê um título à foto.");
+
+  const extras = carregarObrasExtras();
+  extras.unshift({ titulo: titulo, src: fotoEscolhida });
+  if (!salvarObrasExtras(extras)) {
+    return mostrarErroObra("Não há mais espaço no navegador. Remova uma foto e tente de novo.");
+  }
+  fotoEscolhida = null;
+  mostrar();
+  avisar("Foto adicionada ao seu perfil");
+});
 
 mostrar();
 montarNavegacao("painel");
