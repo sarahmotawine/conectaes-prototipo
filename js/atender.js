@@ -124,11 +124,19 @@ function mostrar() {
       (pedido.quando ? '<p class="suave com-icone">' + icone("data") + escaparHTML(pedido.quando) + "</p>" : "") +
       '<span class="status ' + status.classe + '">' + status.texto + "</span>" +
     "</div>" +
-    conversa +
+    /* A conversa tem rolagem própria; a caixa de escrever fica fixa embaixo */
+    '<div class="conversa" id="conversa"><p class="conversa-titulo">' + icone("conversa") + "Conversa</p>" +
+      conversa +
+    "</div>" +
     acoes();
 
   const encerrado = pedido.status === "avaliado" || pedido.status === "recusado";
   formMensagem.style.display = encerrado ? "none" : "flex";
+  document.body.classList.toggle("com-chat", !encerrado);
+
+  /* Mostra sempre a mensagem mais recente, no fim da conversa. */
+  const caixa = document.getElementById("conversa");
+  caixa.scrollTop = caixa.scrollHeight;
 
   /* A descrição já vem com o pedido do cliente. É colocada aqui, e não
      no HTML, para aspas no texto não quebrarem o campo. */

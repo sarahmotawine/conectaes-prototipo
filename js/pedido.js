@@ -119,12 +119,20 @@ function mostrar() {
       '<div><p class="nome">' + pedreiro.nome + "</p>" +
       '<span class="status ' + status.classe + '">' + status.texto + "</span></div>" +
     "</a>" +
-    conversa +
+    /* A conversa tem rolagem própria; a caixa de escrever fica fixa embaixo */
+    '<div class="conversa" id="conversa"><p class="conversa-titulo">' + icone("conversa") + "Conversa</p>" +
+      conversa +
+    "</div>" +
     acoes(pedreiro);
 
   /* Depois de avaliado ou recusado, não faz mais sentido mandar mensagem. */
   const encerrado = pedido.status === "avaliado" || pedido.status === "recusado";
   formMensagem.style.display = encerrado ? "none" : "flex";
+  document.body.classList.toggle("com-chat", !encerrado);
+
+  /* Mostra sempre a mensagem mais recente, no fim da conversa. */
+  const caixa = document.getElementById("conversa");
+  caixa.scrollTop = caixa.scrollHeight;
 }
 
 /* Simulação: o pedreiro responde com um orçamento. */

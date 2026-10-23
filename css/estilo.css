@@ -310,17 +310,58 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   margin: 12px 0;
 }
 
-.enviar-mensagem { display: flex; gap: 8px; margin-top: 16px; }
-.enviar-mensagem input { flex: 1; }
-.enviar-mensagem button {
-  border: none;
-  border-radius: 10px;
-  background: var(--azul);
-  color: #fff;
-  font: inherit;
-  font-weight: 700;
-  padding: 0 16px;
+/* Conversa: caixa com rolagem própria, que mostra as mensagens mais recentes */
+.conversa {
+  max-height: 45vh;
+  overflow-y: auto;
+  margin: 12px 0;
+  padding: 0 12px 8px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overscroll-behavior: contain;          /* rolar a conversa não rola a página */
 }
+.conversa-titulo {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 -12px 4px;
+  padding: 10px 12px 8px;
+  background: var(--cartao);
+  border-bottom: 1px solid var(--borda);
+  color: var(--titulo);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Caixa de escrever: fixa embaixo da tela, acima da barra de navegação */
+.enviar-mensagem {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 64px;
+  z-index: 15;
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--fundo);
+  border-top: 1px solid var(--borda);
+}
+.enviar-mensagem input { flex: 1; border-radius: 999px; padding-left: 16px; }
+.enviar-mensagem button {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--laranja);
+  color: #fff;
+  cursor: pointer;
+}
+body.com-chat { padding-bottom: 150px; } /* espaço para a caixa fixa não cobrir o fim */
 
 /* ---------- Estrelas da avaliação ---------- */
 .estrelas { display: flex; gap: 6px; justify-content: center; margin: 12px 0; }
@@ -1001,6 +1042,8 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
   #conta { display: none; } /* o menu do topo já tem "Entrar" e "Pedidos" */
 
   .rodape-fixo { bottom: 0; }
+  .enviar-mensagem { bottom: 0; padding-left: calc(50% - 280px); padding-right: calc(50% - 280px); }
+  body.com-chat { padding-bottom: 90px; }
   .aviso-rapido { bottom: 32px; }
   .rodape-fixo .botao { max-width: 960px; }
   .conteudo { padding: 24px 0 40px; }

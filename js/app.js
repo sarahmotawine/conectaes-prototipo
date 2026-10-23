@@ -162,6 +162,11 @@ if (sessionStorage.getItem("conectaes-aviso")) {
   sessionStorage.removeItem("conectaes-aviso");
 }
 
+/* Ícone de enviar no botão da conversa (telas de pedido). */
+if (document.getElementById("botao-enviar")) {
+  document.getElementById("botao-enviar").innerHTML = icone("enviar");
+}
+
 /* Põe o ícone de seta nos botões de voltar dos cabeçalhos. */
 document.querySelectorAll(".cabecalho .voltar").forEach(function (link) {
   link.innerHTML = icone("voltar");
