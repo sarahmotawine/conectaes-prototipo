@@ -24,7 +24,7 @@ que ele faz.
 | O pedido avança de situação a cada ação do cliente e do pedreiro | O orçamento dos pedreiros, menos o Carlos, que chega sozinho 4 segundos depois do pedido |
 | A avaliação só libera depois da conclusão confirmada | A conclusão do pedido nº 8, já marcada pelo pedreiro |
 | Área do pedreiro: o Carlos Pereira envia orçamento e marca a conclusão | A área do pedreiro entra sempre como o Carlos |
-| Área do pedreiro: adicionar fotos de obras (câmera ou galeria), que aparecem no perfil público | As fotos ficam guardadas só no navegador, reduzidas, até 12 fotos |
+| Área do pedreiro: adicionar e apagar fotos de obras (câmera ou galeria), que aparecem no perfil público | As fotos ficam guardadas só no navegador, reduzidas, até 12 fotos |
 | O contador de serviços confirmados sobe ao confirmar | As fotos das obras: ilustrativas, do Wikimedia Commons (ver `CREDITOS.md`) |
 | Instalação na tela inicial e abertura sem internet | — |
 | Visual de site no computador e de app no celular; modo escuro automático, conforme o tema do aparelho | — |

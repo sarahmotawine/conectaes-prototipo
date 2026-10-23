@@ -55,7 +55,7 @@ if (!pedreiro) {
     "<p>" + pedreiro.sobre + "</p>" +
 
     "<h3>Obras anteriores</h3>" +
-    '<div class="obras">' + obras + "</div>" +
+    (obras ? '<div class="obras">' + obras + "</div>" : '<p class="suave">Nenhuma foto de obra ainda.</p>') +
 
     "<h3>Avaliações recentes</h3>" +
     comentarios +

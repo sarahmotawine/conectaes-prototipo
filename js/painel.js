@@ -64,31 +64,32 @@ function mostrar() {
 
 /* ---------- Minhas obras ----------
    O pedreiro adiciona fotos ao portfólio, que aparecem em "Obras
-   anteriores" no perfil público. As fotos que vêm de dados.js não podem
-   ser apagadas; as adicionadas aqui, sim (botão ×). */
+   anteriores" no perfil público. Todas podem ser apagadas (botão ×):
+   as adicionadas aqui saem da lista; as de dados.js ficam escondidas. */
 
 const MAX_OBRAS_EXTRAS = 12; // o espaço do navegador é limitado
 
 function secaoObras() {
   const extras = carregarObrasExtras();
-  const miniatura = function (obra, i, removivel) {
+  const ocultas = carregarObrasOcultas();
+  const fixas = eu.obras.filter(function (o) { return !ocultas.includes(o.foto); });
+  const miniatura = function (obra, i, tipo) {
     return '<figure class="minha-obra">' +
              '<img src="' + fotoDaObra(obra) + '" alt="">' +
              "<figcaption>" + escaparHTML(obra.titulo) + "</figcaption>" +
-             (removivel
-               ? '<button type="button" class="remover-obra" data-indice="' + i + '" aria-label="Remover foto: ' +
-                 escaparHTML(obra.titulo) + '">' + icone("fechar") + "</button>"
-               : "") +
+             '<button type="button" class="remover-obra" data-tipo="' + tipo + '" data-ref="' +
+               (tipo === "extra" ? i : obra.foto) + '" aria-label="Remover foto: ' +
+               escaparHTML(obra.titulo) + '">' + icone("fechar") + "</button>" +
            "</figure>";
   };
-  return "<h3>Minhas obras (" + (extras.length + eu.obras.length) + ")</h3>" +
+  return "<h3>Minhas obras (" + (extras.length + fixas.length) + ")</h3>" +
          '<div class="minhas-obras">' +
            (extras.length < MAX_OBRAS_EXTRAS
              ? '<button type="button" class="adicionar-obra" id="adicionar-obra">' + icone("foto") +
                "<span>Adicionar foto</span></button>"
              : "") +
-           extras.map(function (o, i) { return miniatura(o, i, true); }).join("") +
-           eu.obras.map(function (o, i) { return miniatura(o, i, false); }).join("") +
+           extras.map(function (o, i) { return miniatura(o, i, "extra"); }).join("") +
+           fixas.map(function (o, i) { return miniatura(o, i, "fixa"); }).join("") +
          "</div>" +
          '<form class="cartao form-obra" id="form-obra" hidden>' +
            '<p class="nome">Nova foto de obra</p>' +
@@ -149,9 +150,13 @@ painel.addEventListener("click", function (evento) {
   }
   if (alvo.classList.contains("remover-obra")) {
     if (!confirm("Remover esta foto do seu perfil?")) return;
-    const extras = carregarObrasExtras();
-    extras.splice(Number(alvo.dataset.indice), 1);
-    salvarObrasExtras(extras);
+    if (alvo.dataset.tipo === "extra") {
+      const extras = carregarObrasExtras();
+      extras.splice(Number(alvo.dataset.ref), 1);
+      salvarObrasExtras(extras);
+    } else {
+      ocultarObra(alvo.dataset.ref);
+    }
     mostrar();
     avisar("Foto removida");
   }

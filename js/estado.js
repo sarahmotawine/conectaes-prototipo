@@ -118,17 +118,36 @@ function salvarObrasExtras(obras) {
   }
 }
 
-/* Obras de um pedreiro: as adicionadas na demonstração (mais novas
-   primeiro, só para o pedreiro de demonstração) e depois as de dados.js. */
-function obrasDe(pedreiro) {
-  const extras = pedreiro.id === PEDREIRO_DEMO_ID ? carregarObrasExtras() : [];
-  return extras.concat(pedreiro.obras);
+/* Fotos de dados.js que o pedreiro apagou. Como elas são fixas no
+   código, guarda-se só a lista das que devem ficar escondidas. */
+const CHAVE_OBRAS_OCULTAS = "conectaes-obras-ocultas";
+
+function carregarObrasOcultas() {
+  return JSON.parse(localStorage.getItem(CHAVE_OBRAS_OCULTAS) || "[]");
 }
 
-/* Volta os pedidos ao estado inicial, apaga as fotos adicionadas e sai da conta. */
+function ocultarObra(foto) {
+  const ocultas = carregarObrasOcultas();
+  ocultas.push(foto);
+  localStorage.setItem(CHAVE_OBRAS_OCULTAS, JSON.stringify(ocultas));
+}
+
+/* Obras de um pedreiro: as adicionadas na demonstração (mais novas
+   primeiro) e depois as de dados.js que não foram apagadas. As mudanças
+   valem só para o pedreiro de demonstração. */
+function obrasDe(pedreiro) {
+  if (pedreiro.id !== PEDREIRO_DEMO_ID) return pedreiro.obras;
+  const ocultas = carregarObrasOcultas();
+  return carregarObrasExtras().concat(pedreiro.obras.filter(function (o) {
+    return !ocultas.includes(o.foto);
+  }));
+}
+
+/* Volta os pedidos e as fotos de obras ao estado inicial e sai da conta. */
 function reiniciarDemonstracao() {
   localStorage.removeItem(CHAVE_ESTADO);
   localStorage.removeItem(CHAVE_OBRAS);
+  localStorage.removeItem(CHAVE_OBRAS_OCULTAS);
   sairDaConta();
 }
 
