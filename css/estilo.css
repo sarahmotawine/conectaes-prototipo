@@ -5,6 +5,9 @@
 
 /* Cores e medidas usadas no app inteiro. Mudar aqui muda em todo lugar. */
 :root {
+  /* Tijolos discretos desenhados em linhas brancas, usados no fundo azul
+     do topo da página inicial e das telas de entrar */
+  --tijolos: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='48'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.07' stroke-width='2'%3E%3Cpath d='M0 1H96M0 25H96M48 1V25M0 25V48M96 25V48M24 25V48M72 25V48'/%3E%3C/g%3E%3C/svg%3E");
   --azul: #1e3a5f;          /* cabeçalho e textos de destaque */
   --laranja: #c2410c;       /* botões principais */
   --laranja-claro: #ffedd5; /* fundos de aviso */
@@ -383,8 +386,8 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 .entrada-topo {
   padding: 48px 24px 72px;
   color: #fff;
-  /* mesmo azul com leve degradê do topo da página inicial, sem foto */
-  background: linear-gradient(160deg, #24466f, var(--azul) 70%);
+  /* mesmo azul com tijolos do topo da página inicial */
+  background: var(--tijolos), linear-gradient(160deg, #24466f, var(--azul) 70%);
 }
 .entrada-topo > * { max-width: 392px; margin-left: auto; margin-right: auto; }
 .entrada-topo .marca { color: #fff; font-size: 2.4rem; }
@@ -670,9 +673,12 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 .vitrine {
   padding: 20px 16px 28px;
   color: #fff;
-  /* Azul com leve degradê, sem imagem */
-  background: linear-gradient(160deg, #24466f, var(--azul) 70%);
+  /* Azul com leve degradê e tijolos discretos; faixa branca e laranja embaixo */
+  background: var(--tijolos), linear-gradient(160deg, #24466f, var(--azul) 70%);
+  border-bottom: 8px solid var(--laranja);
+  box-shadow: inset 0 -12px 0 #fff;
 }
+.vitrine h1 em { font-style: normal; color: #fb923c; }
 .vitrine > * { max-width: 528px; margin-left: auto; margin-right: auto; }
 .vitrine h1 { font-size: 1.45rem; line-height: 1.25; margin-top: 0; margin-bottom: 4px; }
 .vitrine .slogan { margin-bottom: 16px; }
