@@ -266,6 +266,128 @@ const PEDREIROS = [
       { autor: "Cristiano", nota: 5, texto: "O mais experiente que já contratei." },
       { autor: "Mônica", nota: 4, texto: "Ótimo serviço. É bom marcar com antecedência." }
     ]
+  },
+  {
+    id: 13,
+    nome: "Marcelo Teixeira",
+    iniciais: "MT",
+    cidade: "Vila Velha",
+    especialidades: ["Piso", "Acabamento"],
+    anos: 11,
+    nota: 4.8,
+    avaliacoes: 19,
+    confirmados: 24,
+    sobre: "Porcelanato, piso laminado e acabamento fino. Trabalho com nível a laser.",
+    obras: [
+      { titulo: "Porcelanato da sala", foto: "sala-porcelanato-lago" },
+      { titulo: "Acabamento da sala", foto: "sala-acabamento" }
+    ],
+    comentarios: [
+      { autor: "Viviane", nota: 5, texto: "O porcelanato ficou perfeito, sem nenhuma peça desnivelada." },
+      { autor: "Rodrigo", nota: 5, texto: "Cumpriu o prazo e ainda deixou a obra limpa." },
+      { autor: "Kátia", nota: 4, texto: "Ótimo serviço. Só precisei esperar uma semana para ele começar." }
+    ]
+  },
+  {
+    id: 14,
+    nome: "Anderson Brito",
+    iniciais: "AB",
+    cidade: "Cariacica",
+    especialidades: ["Alvenaria", "Reboco"],
+    anos: 16,
+    nota: 4.6,
+    avaliacoes: 22,
+    confirmados: 29,
+    sobre: "Levanto paredes, muros e casas inteiras. Reboco e chapisco também.",
+    obras: [
+      { titulo: "Casa em alvenaria", foto: "casa-alvenaria" },
+      { titulo: "Muro de tijolos", foto: "muro-tijolos" }
+    ],
+    comentarios: [
+      { autor: "Sueli", nota: 5, texto: "Construiu o muro da frente rapidinho e bem feito." },
+      { autor: "Daniel", nota: 4, texto: "Bom pedreiro, o orçamento bateu com o valor final." }
+    ]
+  },
+  {
+    id: 15,
+    nome: "Rafael Cunha",
+    iniciais: "RC",
+    cidade: "Vitória",
+    especialidades: ["Azulejo", "Piso"],
+    anos: 8,
+    nota: 4.9,
+    avaliacoes: 13,
+    confirmados: 16,
+    sobre: "Revestimento de cozinha e banheiro, com rejunte epóxi quando o cliente quer.",
+    obras: [
+      { titulo: "Cozinha revestida", foto: "cozinha-vermelha" },
+      { titulo: "Cozinha planejada", foto: "cozinha-planejada" }
+    ],
+    comentarios: [
+      { autor: "Bianca", nota: 5, texto: "Deixou a cozinha linda. Muito caprichoso no rejunte." },
+      { autor: "Sérgio", nota: 5, texto: "Educado, pontual e cobrou o que combinou." }
+    ]
+  },
+  {
+    id: 16,
+    nome: "Gilberto Souza",
+    iniciais: "GS",
+    cidade: "Serra",
+    especialidades: ["Telhado", "Alvenaria"],
+    anos: 22,
+    nota: 4.5,
+    avaliacoes: 27,
+    confirmados: 35,
+    sobre: "Telhado colonial, estrutura de madeira e fundação. Atendo Serra e Fundão.",
+    obras: [
+      { titulo: "Telhado colonial", foto: "telhado-colonial" },
+      { titulo: "Fundação de casas", foto: "fundacao-casas" }
+    ],
+    comentarios: [
+      { autor: "Neide", nota: 5, texto: "Refez o telhado todo e não teve mais goteira." },
+      { autor: "Otávio", nota: 4, texto: "Trabalho bom, mas a obra demorou dois dias a mais." },
+      { autor: "Priscila", nota: 4, texto: "Experiente e explica bem o que vai fazer." }
+    ]
+  },
+  {
+    id: 17,
+    nome: "Thiago Rocha",
+    iniciais: "TR",
+    cidade: "Guarapari",
+    especialidades: ["Acabamento", "Pequenos reparos"],
+    anos: 5,
+    nota: 4.7,
+    avaliacoes: 10,
+    confirmados: 12,
+    sobre: "Gesso, textura, pintura e consertos rápidos. Atendo também aos sábados.",
+    obras: [
+      { titulo: "Parede com textura", foto: "quarto-textura" },
+      { titulo: "Sala com gesso", foto: "sala-gesso" }
+    ],
+    comentarios: [
+      { autor: "Fabiana", nota: 5, texto: "Fez a textura do quarto em um dia. Ficou ótima." },
+      { autor: "Hugo", nota: 4, texto: "Resolveu os reparos do apartamento de uma vez só." }
+    ]
+  },
+  {
+    id: 18,
+    nome: "Juliana Prado",
+    iniciais: "JP",
+    cidade: "Viana",
+    especialidades: ["Reboco", "Acabamento"],
+    anos: 9,
+    nota: 4.8,
+    avaliacoes: 15,
+    confirmados: 18,
+    sobre: "Reboco, fachada e acabamento. Trabalho com a minha equipe de duas pessoas.",
+    obras: [
+      { titulo: "Fachada moderna", foto: "fachada-moderna" },
+      { titulo: "Sala integrada", foto: "sala-integrada" }
+    ],
+    comentarios: [
+      { autor: "Cristina", nota: 5, texto: "A fachada ficou impecável. Recomendo demais." },
+      { autor: "Eduardo", nota: 5, texto: "Organizada e cuidadosa com a casa." }
+    ]
   }
 ];
 

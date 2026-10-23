@@ -12,7 +12,7 @@
    Sem isso, quem já abriu o app continua vendo a versão antiga.
    ========================================================= */
 
-const VERSAO = "conectaes-v55";
+const VERSAO = "conectaes-v56";
 
 const ARQUIVOS = [
   "./",
@@ -58,14 +58,20 @@ const ARQUIVOS = [
   "img/obras/banheiro-social.jpg",
   "img/obras/banheiro.jpg",
   "img/obras/calha.jpg",
+  "img/obras/casa-alvenaria.jpg",
   "img/obras/casa-terrea.jpg",
   "img/obras/casas-geminadas.jpg",
+  "img/obras/cozinha-planejada.jpg",
   "img/obras/cozinha-revestida.jpg",
+  "img/obras/cozinha-vermelha.jpg",
   "img/obras/cozinha.jpg",
   "img/obras/escada.jpg",
+  "img/obras/fachada-moderna.jpg",
   "img/obras/forro.jpg",
+  "img/obras/fundacao-casas.jpg",
   "img/obras/laje.jpg",
   "img/obras/lavabo.jpg",
+  "img/obras/muro-tijolos.jpg",
   "img/obras/parede-drywall.jpg",
   "img/obras/parede-revestida.jpg",
   "img/obras/pintura-quarto.jpg",
@@ -74,10 +80,16 @@ const ARQUIVOS = [
   "img/obras/piso-sala-jantar.jpg",
   "img/obras/porcelanato-sala.jpg",
   "img/obras/quarto-construido.jpg",
+  "img/obras/quarto-textura.jpg",
   "img/obras/reboco-fachada.jpg",
   "img/obras/reboco-muro.jpg",
   "img/obras/reforma-cozinha.jpg",
+  "img/obras/sala-acabamento.jpg",
+  "img/obras/sala-gesso.jpg",
+  "img/obras/sala-integrada.jpg",
+  "img/obras/sala-porcelanato-lago.jpg",
   "img/obras/telhado-ceramica.jpg",
+  "img/obras/telhado-colonial.jpg",
   "img/obras/telhado-novo.jpg",
   "img/obras/troca-telhas.jpg",
   "img/obras/varanda.jpg"
