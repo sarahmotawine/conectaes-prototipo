@@ -526,6 +526,8 @@ body.com-chat { padding-bottom: 150px; } /* espaço para a caixa fixa não cobri
   cursor: pointer;
 }
 .chip.ativo { background: var(--azul); border-color: var(--azul); color: #fff; }
+/* Sugestões embaixo de um campo de texto (ex.: "Para quando?"): quebram linha */
+.chips.sugestoes { flex-wrap: wrap; overflow: visible; margin: 8px 0 0; padding: 0; }
 #contagem { margin: 16px 0 8px; }
 
 /* Cartão do pedreiro na busca: foto em cima, bolinha sobreposta */

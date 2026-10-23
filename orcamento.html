@@ -31,12 +31,15 @@
       <input id="bairro" type="text" placeholder="Ex.: Praia da Costa">
 
       <label for="quando">Para quando?</label>
-      <select id="quando">
-        <option>O quanto antes</option>
-        <option>Nesta semana</option>
-        <option>Neste mês</option>
-        <option>Sem pressa</option>
-      </select>
+      <input id="quando" type="text" maxlength="60"
+        placeholder="Ex.: a partir do dia 10, sábado de manhã">
+      <!-- Sugestões: tocar preenche o campo, que continua editável -->
+      <div class="chips sugestoes" id="sugestoes-quando">
+        <button type="button" class="chip">O quanto antes</button>
+        <button type="button" class="chip">Nesta semana</button>
+        <button type="button" class="chip">Neste mês</button>
+        <button type="button" class="chip">Sem pressa</button>
+      </div>
 
       <p class="suave" style="margin-top:14px">
         O pedreiro vai responder com um orçamento de serviço, valor e prazo,
