@@ -386,8 +386,9 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 .entrada-topo {
   padding: 48px 24px 72px;
   color: #fff;
-  /* mesmo azul com tijolos do topo da página inicial */
-  background: var(--tijolos), linear-gradient(160deg, #24466f, var(--azul) 70%);
+  /* mesmo azul do topo da página inicial; os tijolos vêm do ::before */
+  position: relative;
+  background: linear-gradient(160deg, #24466f, var(--azul) 70%);
 }
 .entrada-topo > * { max-width: 392px; margin-left: auto; margin-right: auto; }
 .entrada-topo .marca { color: #fff; font-size: 2.4rem; }
@@ -673,11 +674,24 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
 .vitrine {
   padding: 20px 16px 28px;
   color: #fff;
-  /* Azul com leve degradê e tijolos discretos; faixa branca e laranja embaixo */
-  background: var(--tijolos), linear-gradient(160deg, #24466f, var(--azul) 70%);
+  /* Azul com leve degradê; faixa branca e laranja embaixo */
+  position: relative;
+  background: linear-gradient(160deg, #24466f, var(--azul) 70%);
   border-bottom: 8px solid var(--laranja);
   box-shadow: inset 0 -12px 0 #fff;
 }
+/* Tijolos discretos numa camada própria, que some atrás do texto:
+   no celular só aparecem embaixo; no computador, à direita */
+.vitrine::before, .entrada-topo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--tijolos);
+  -webkit-mask-image: linear-gradient(transparent 55%, #000);
+  mask-image: linear-gradient(transparent 55%, #000);
+  pointer-events: none;
+}
+.vitrine > *, .entrada-topo > * { position: relative; z-index: 1; }
 .vitrine h1 em { font-style: normal; color: #fb923c; }
 .vitrine > * { max-width: 528px; margin-left: auto; margin-right: auto; }
 .vitrine h1 { font-size: 1.45rem; line-height: 1.25; margin-top: 0; margin-bottom: 4px; }
@@ -932,6 +946,10 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
     padding: 40px var(--margem);
   }
   .vitrine > * { position: relative; z-index: 1; max-width: 540px; margin-left: 0; margin-right: 0; }
+  .vitrine::before {
+    -webkit-mask-image: linear-gradient(90deg, transparent 38%, #000 70%);
+    mask-image: linear-gradient(90deg, transparent 38%, #000 70%);
+  }
   .vitrine h1 { font-size: 2.3rem; }
   .vitrine .slogan { font-size: 1.2rem; }
   .categorias { grid-template-columns: repeat(8, 1fr); gap: 12px; }
@@ -984,6 +1002,7 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
     background: var(--azul);
   }
   .entrada-topo {
+    position: static;                   /* a marca se posiciona pela tela inteira */
     grid-column: 1;
     grid-row: 1;
     align-self: center;                 /* frase no meio da altura do cartão */
@@ -992,6 +1011,8 @@ h3 { font-size: 1rem; margin: 22px 0 10px; color: var(--titulo); }
     color: var(--texto);
   }
   .entrada-topo > * { max-width: none; margin-left: 0; margin-right: 0; }
+  .entrada-topo::before { display: none; } /* no computador não há fundo azul atrás do texto */
+  .entrada-topo .marca { z-index: 2; }
   .entrada-topo .marca {               /* a marca vai para a faixa do topo */
     position: absolute;
     top: 13px;
